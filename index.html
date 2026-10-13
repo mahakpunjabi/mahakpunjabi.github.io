@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mahak Punjabi</title>
+<meta name="description" content="Mahak Punjabi, biomedical engineer working on medical device design, manufacturing and biomaterials.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one narrow reading column; case studies break wider with a figure strip, specs set like a bench test log. */
+:root {
+  --bg: #f5f7f6;
+  --surface: #ffffff;
+  --ink: #152321;
+  --muted: #55625f;
+  --line: #d9e0de;
+  --accent: #0d6b62;
+  --accent-soft: #e1efec;
+  --mark: #c2366b;
+  --f-display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --f-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --wrap: 1080px;
+  --read: 680px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1716; --surface: #16211f; --ink: #e6eeec; --muted: #9caba7;
+    --line: #2a3735; --accent: #5cc4b6; --accent-soft: #19302d; --mark: #f07aa5;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1716; --surface: #16211f; --ink: #e6eeec; --muted: #9caba7;
+  --line: #2a3735; --accent: #5cc4b6; --accent-soft: #19302d; --mark: #f07aa5;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--f-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 20px;
+}
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+img { max-width: 100%; height: auto; display: block; }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 700; line-height: 1.12; text-wrap: balance; margin: 0; }
+p { margin: 0; }
+.wrap { max-width: var(--wrap); margin-inline: auto; }
+.label {
+  font-family: var(--f-mono); font-size: .75rem; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--muted);
+}
+
+/* nav */
+.nav {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(8px); border-bottom: 1px solid var(--line);
+  margin-inline: -20px; padding: 12px 20px;
+}
+.nav .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+.nav strong { font-family: var(--f-display); font-weight: 700; font-size: 1.05rem; }
+.nav ul { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; flex-wrap: wrap; }
+.nav ul a { color: var(--ink); text-decoration: none; font-size: .95rem; }
+.nav ul a:hover { color: var(--accent); }
+
+/* hero */
+.hero { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 56px; align-items: center; padding-block: 72px 64px; }
+.hero h1 { font-size: clamp(2.6rem, 6vw, 4.4rem); letter-spacing: -.02em; font-weight: 700; }
+.hero .role { font-family: var(--f-display); font-weight: 500; font-size: clamp(1.25rem, 2.4vw, 1.6rem); color: var(--accent); margin-top: 10px; }
+.hero .lede { margin-top: 22px; max-width: 34em; color: var(--muted); font-size: 1.125rem; }
+.hero .links { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px;
+  border: 1px solid var(--ink); border-radius: 999px; text-decoration: none; color: var(--ink);
+  font-weight: 600; font-size: .95rem;
+}
+.btn.primary { background: var(--ink); color: var(--bg); }
+.btn:hover { border-color: var(--accent); color: var(--accent); }
+.btn.primary:hover { background: var(--accent); color: var(--bg); }
+.portrait { position: relative; }
+.portrait img { border-radius: 4px; aspect-ratio: 4 / 5; object-fit: cover; width: 100%; }
+.portrait figcaption { margin-top: 10px; }
+.facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-block: 1px solid var(--line); }
+.facts div { padding: 18px 16px 18px 0; display: grid; gap: 2px; }
+.facts div + div { padding-left: 16px; border-left: 1px solid var(--line); }
+.facts b { font-family: var(--f-display); font-size: 1.15rem; font-weight: 700; }
+.facts span { color: var(--muted); font-size: .9rem; line-height: 1.35; }
+
+/* sections */
+section { padding-block: 80px 0; }
+.sec-head { display: grid; gap: 8px; margin-bottom: 36px; }
+.sec-head h2 { font-size: clamp(1.8rem, 3.6vw, 2.5rem); letter-spacing: -.01em; }
+
+/* case studies */
+.case { border-top: 1px solid var(--line); padding-block: 44px; display: grid; gap: 28px; }
+.case-top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 48px; }
+.case h3 { font-size: clamp(1.4rem, 2.6vw, 1.85rem); }
+.case .meta { margin-top: 10px; }
+.case .body { display: grid; gap: 14px; color: var(--ink); }
+.case .body p { max-width: var(--read); }
+.case ul { margin: 0; padding-left: 1.1em; display: grid; gap: 6px; }
+.case li::marker { color: var(--accent); }
+.spec {
+  margin-top: 20px; font-family: var(--f-mono); font-size: .85rem;
+  border: 1px solid var(--line); background: var(--surface); border-radius: 4px;
+}
+.spec div { display: flex; justify-content: space-between; gap: 16px; padding: 9px 14px; font-variant-numeric: tabular-nums; }
+.spec div + div { border-top: 1px dashed var(--line); }
+.spec dt, .spec dd { margin: 0; }
+.spec dt { color: var(--muted); }
+.spec dd { text-align: right; font-weight: 500; }
+.strip { display: grid; gap: 12px; grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr)); align-items: start; }
+.strip figure { margin: 0; display: grid; gap: 8px; }
+.strip img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 3px; background: var(--surface); border: 1px solid var(--line); }
+.strip img.contain { object-fit: contain; background: #ffffff; }
+.strip figcaption { font-size: .85rem; color: var(--muted); line-height: 1.4; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+.tags span { font-family: var(--f-mono); font-size: .72rem; padding: 3px 8px; border-radius: 3px; background: var(--accent-soft); color: var(--accent); }
+
+/* more projects */
+.more { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--line); }
+.more article { padding: 24px 20px 24px 0; display: grid; gap: 8px; align-content: start; }
+.more article + article { padding-left: 20px; border-left: 1px solid var(--line); }
+.more h3 { font-size: 1.1rem; }
+.more p { color: var(--muted); font-size: .97rem; }
+
+/* experience */
+.xp { display: grid; }
+.xp article { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 32px; padding-block: 26px; border-top: 1px solid var(--line); }
+.xp .when { font-family: var(--f-mono); font-size: .82rem; color: var(--muted); padding-top: 4px; font-variant-numeric: tabular-nums; }
+.xp h3 { font-size: 1.2rem; }
+.xp .org { color: var(--accent); font-weight: 600; margin-top: 2px; }
+.xp ul { margin: 10px 0 0; padding-left: 1.1em; display: grid; gap: 6px; max-width: var(--read); }
+.xp li::marker { color: var(--accent); }
+
+/* skills + misc */
+.two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; }
+.skills { display: grid; gap: 20px; }
+.skills div { display: grid; gap: 6px; }
+.skills p { color: var(--ink); }
+.list { margin: 0; padding: 0; list-style: none; display: grid; }
+.list li { padding-block: 12px; border-top: 1px solid var(--line); display: grid; gap: 2px; }
+.list li span { color: var(--muted); font-size: .93rem; }
+
+/* contact */
+.contact { margin-top: 96px; padding-block: 56px; border-top: 2px solid var(--ink); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px; align-items: end; }
+.contact h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); }
+.contact p { color: var(--muted); margin-top: 12px; max-width: 32em; }
+.contact .addr { font-family: var(--f-mono); font-size: 1rem; user-select: all; color: var(--ink); }
+.contact .links { display: grid; gap: 10px; justify-items: start; }
+footer { padding-block: 24px 40px; color: var(--muted); font-size: .85rem; border-top: 1px solid var(--line); }
+
+@media (max-width: 860px) {
+  .hero { grid-template-columns: minmax(0, 1fr); gap: 32px; padding-block: 40px; }
+  .portrait { max-width: 260px; order: -1; }
+  .case-top, .two, .contact { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .more { grid-template-columns: minmax(0, 1fr); }
+  .more article, .more article + article { padding: 20px 0; border-left: 0; border-top: 1px solid var(--line); }
+  .more article:first-child { border-top: 0; }
+  .xp article { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+  .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .facts div:nth-child(3) { padding-left: 0; border-left: 0; }
+  .facts div:nth-child(n+3) { border-top: 1px solid var(--line); }
+}
+@media (max-width: 560px) {
+  .strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .nav ul { gap: 14px; }
+  section { padding-block: 56px 0; }
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <strong>Mahak Punjabi</strong>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="hero">
+    <div>
+      <p class="label">Biomedical Engineer · Tampa, FL</p>
+      <h1>Mahak Punjabi</h1>
+      <p class="role">Medical device design, manufacturing and biomaterials</p>
+      <p class="lede">I take devices from CAD to the bench: molds and tooling, silicone process development, mechanical verification, and the ISO 13485 documentation that carries a prototype toward production. I'm now a graduate assistant building electrospun scaffolds for heart valve tissue engineering at the University of South Florida.</p>
+      <div class="links">
+        <a class="btn primary" href="#work">See selected work</a>
+        <a class="btn" href="https://www.linkedin.com/in/mahak-punjabi/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <figure class="portrait" style="margin:0">
+      <img src="img/headshot.jpg" width="720" height="900" alt="Portrait of Mahak Punjabi">
+    </figure>
+  </div>
+
+  <div class="facts" aria-label="At a glance">
+    <div><b>M.S. BME</b><span>USF, GPA 4.0 · expected May 2027</span></div>
+    <div><b>B.S. BME</b><span>USF, GPA 3.7 · May 2026</span></div>
+    <div><b>2 industry internships</b><span>EndoTherapeutics · Axogen</span></div>
+    <div><b>ISO 13485 / 14971</b><span>Design controls and risk management</span></div>
+  </div>
+
+  <section id="work">
+    <div class="sec-head">
+      <p class="label">Selected work</p>
+      <h2>Devices I've designed, built and tested</h2>
+    </div>
+
+    <article class="case">
+      <div class="case-top">
+        <div>
+          <p class="label">Capstone · EndoTherapeutics, Inc. · 2025–2026</p>
+          <h3 style="margin-top:8px">Pacifier-based oral interface for anesthesia-free infant laryngoscopy</h3>
+          <dl class="spec">
+            <div><dt>Prototype generations</dt><dd>P1–P6</dd></div>
+            <div><dt>Scope channel (ID)</dt><dd>4.40 mm</dd></div>
+            <div><dt>Insertion force, n = 10</dt><dd>0.70 ± 0.37 N</dd></div>
+            <div><dt>Load margin, compression / tension</dt><dd>2.0× / 7.4×</dd></div>
+            <div><dt>Cyclic margin</dt><dd>3.0×, no failure</dd></div>
+            <div><dt>Material</dt><dd>Medical-grade LSR</dd></div>
+          </dl>
+        </div>
+        <div class="body">
+          <p>Awake flexible laryngoscopy is hard on infants: tiny anatomy and a strong gag reflex mean many exams end up under general anesthesia. Our team followed the Stanford Biodesign process to build a pacifier-style interface that guides the scope while the infant stays calm.</p>
+          <ul>
+            <li>Designed 3D-printed ABS and PLA molds and tooling in SolidWorks across six generations, with a snap-fit assembly that removed adhesives entirely.</li>
+            <li>Developed a controlled silicone casting process (two-part platinum-cured LSR, vacuum degassing, syringe-assisted fill, 175&nbsp;°F cure) that produced defect-free parts across all builds.</li>
+            <li>Verified the design with SolidWorks FEA, Instron compression, tension and cyclic testing to 60&nbsp;N, FSR gag-zone pressure mapping, and Hall-sensor depth limiting on an infant airway model.</li>
+            <li>Wrote manufacturing documentation and bench protocols under ISO 13485 and ISO 14971, with traceability across six controlled revisions, to support scale-up to LSR injection molding.</li>
+          </ul>
+          <div class="tags"><span>SolidWorks</span><span>FEA</span><span>Mold design</span><span>LSR casting</span><span>Instron</span><span>Python</span><span>Arduino</span></div>
+        </div>
+      </div>
+      <div class="strip" style="--n:4">
+        <figure><img src="img/laryngoscope-iterations.jpg" alt="Grid of prototype iterations of the silicone oral interface" loading="lazy"><figcaption>Prototype evolution, P1 to P6</figcaption></figure>
+        <figure><img src="img/laryngoscope-prototypes.jpg" alt="Cast silicone handle prototypes in blue and pink" loading="lazy"><figcaption>Cast silicone handles</figcaption></figure>
+        <figure><img src="img/laryngoscope-benchtop.jpg" alt="Infant airway model with the device and a scope monitor" loading="lazy"><figcaption>Benchtop testing on an infant airway model</figcaption></figure>
+        <figure><img src="img/laryngoscope-instron.jpg" alt="Silicone part clamped in an Instron for tensile testing" loading="lazy"><figcaption>Tensile testing on the Instron</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="case-top">
+        <div>
+          <p class="label">BME Laboratory · USF · Spring 2025</p>
+          <h3 style="margin-top:8px">Wearable that detects and corrects unsafe lifting posture</h3>
+          <dl class="spec">
+            <div><dt>Sensors</dt><dd>EMG · IMU · flex</dd></div>
+            <div><dt>Lifting trials</dt><dd>45+</dd></div>
+            <div><dt>Detection accuracy</dt><dd>&gt; 90%</dd></div>
+            <div><dt>Feedback</dt><dd>Vibration motor</dd></div>
+          </dl>
+        </div>
+        <div class="body">
+          <p>Lifting injuries are a leading cause of back pain, and people rarely get feedback on their form in the moment. We built a vest that reads erector spinae muscle activity and back angle, then buzzes when posture turns unsafe.</p>
+          <ul>
+            <li>Integrated EMG electrodes, an IMU and a flex sensor on an Arduino, driving a vibration motor through a transistor stage.</li>
+            <li>Built a MATLAB pipeline to filter EMG and classify safe versus unsafe lifts across heights and postures.</li>
+            <li>Wrote the test protocols and used the trial data to guide each prototype iteration. Presented as a poster at the USF BME Laboratory I Showcase.</li>
+          </ul>
+          <div class="tags"><span>Arduino</span><span>MATLAB</span><span>Signal processing</span><span>Biosignals</span></div>
+        </div>
+      </div>
+      <div class="strip" style="--n:2">
+        <figure><img src="img/emg-wearable.jpg" alt="The posture vest worn on a person's back with sensors attached" loading="lazy"><figcaption>Final device on a wearer</figcaption></figure>
+        <figure><img class="contain" src="img/emg-circuit.jpg" alt="Wiring diagram of Arduino with EMG electrodes, IMU and vibration motor" loading="lazy"><figcaption>Circuit: EMG, IMU, flex sensor and vibration feedback</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="case-top">
+        <div>
+          <p class="label">Embedded Systems · USF</p>
+          <h3 style="margin-top:8px">Merry Migraine Minder: a blue-light exposure sensor</h3>
+          <dl class="spec">
+            <div><dt>Sensor</dt><dd>AS7341, 8-channel spectral</dd></div>
+            <div><dt>Band of interest</dt><dd>400–500 nm</dd></div>
+            <div><dt>White phone screen, normal mode</dt><dd>up to ~40% blue</dd></div>
+            <div><dt>Warm indoor lighting</dt><dd>&lt; 10% blue</dd></div>
+          </dl>
+        </div>
+        <div class="body">
+          <p>Short-wavelength light is a known migraine trigger, but there's no simple way to measure everyday "blue-light load." This team project turned a spectral sensor into a live migraine-risk monitor.</p>
+          <ul>
+            <li>Read the AS7341 datasheet and wrote Arduino I²C code to compute a blue ratio relative to total visible light.</li>
+            <li>Built a Python Tkinter GUI that reads the serial stream and flags readings against migraine-risk thresholds.</li>
+            <li>Designed a power-regulated PCB in KiCad and tested phone screens across brightness levels and night mode, plus five floors of the USF library.</li>
+          </ul>
+          <div class="tags"><span>KiCad</span><span>I²C</span><span>Arduino C++</span><span>Python</span><span>LTSpice</span></div>
+        </div>
+      </div>
+      <div class="strip" style="--n:3">
+        <figure><img src="img/migraine-minder.jpg" alt="The finished sensor enclosure labeled Merry Migraine Minder" loading="lazy"><figcaption>Finished enclosure</figcaption></figure>
+        <figure><img class="contain" src="img/migraine-pcb.jpg" alt="KiCad PCB layout" loading="lazy" style="background:#0b1020"><figcaption>PCB layout in KiCad</figcaption></figure>
+        <figure><img class="contain" src="img/migraine-results.jpg" alt="Bar chart of blue light percentage by phone brightness" loading="lazy"><figcaption>Blue-light share rises with screen brightness</figcaption></figure>
+      </div>
+    </article>
+  </section>
+
+  <section aria-labelledby="more-h" style="padding-top:40px">
+    <div class="sec-head" style="margin-bottom:20px">
+      <p class="label">More projects</p>
+      <h2 id="more-h" style="font-size:1.5rem">Process, modeling and instrumentation</h2>
+    </div>
+    <div class="more">
+      <article>
+        <p class="label">Lean Six Sigma · 2026</p>
+        <h3>DMAIC on student room reservations</h3>
+        <p>Baselined 55–59% rework (578,947 DPMO, 1.3σ) across 57 transactions. Pareto, 5 Whys and fishbone analysis traced 77–91% of rework to one failure mode, and a control plan targets rework below 45%.</p>
+      </article>
+      <article>
+        <p class="label">MATLAB · 2025</p>
+        <h3>Wall stress in aortic aneurysms</h3>
+        <p>A hemodynamic model applying Laplace's law to map how pressure, flow velocity and vessel geometry drive wall stress, flagging diameter and thickness combinations with elevated rupture risk.</p>
+      </article>
+      <article>
+        <p class="label">Instrumentation · 2024–2025</p>
+        <h3>PPG heart-rate circuit and fall-detection cane</h3>
+        <p>An LTSpice-simulated photoplethysmography front end with analog filtering and gain, and an ESP32 smart cane using accelerometry and Bluetooth alerts for real-time fall detection.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="sec-head">
+      <p class="label">Experience</p>
+      <h2>Industry and research</h2>
+    </div>
+    <div class="xp">
+      <article>
+        <p class="when">Apr 2026 – present</p>
+        <div>
+          <h3>Graduate Assistant</h3>
+          <p class="org">Translational Tissue Engineering &amp; Biofabrication Lab, USF</p>
+          <ul>
+            <li>Fabricate electrospun scaffolds for heart valve tissue engineering, tuning process parameters to control fiber morphology.</li>
+            <li>Verify batch consistency with SEM, FTIR and biaxial mechanical testing.</li>
+          </ul>
+        </div>
+      </article>
+      <article>
+        <p class="when">Aug 2025 – May 2026</p>
+        <div>
+          <h3>Manufacturing Intern</h3>
+          <p class="org">EndoTherapeutics, Inc.</p>
+          <ul>
+            <li>Led mold, tooling and silicone process development for the infant laryngoscopy interface described above.</li>
+            <li>Authored manufacturing documentation and bench test protocols under ISO 13485 design controls and ISO 14971 risk management.</li>
+          </ul>
+        </div>
+      </article>
+      <article>
+        <p class="when">Jan 2024 – May 2026</p>
+        <div>
+          <h3>Research &amp; Development Intern</h3>
+          <p class="org">Axogen, Inc.</p>
+          <ul>
+            <li>Ran a 6-month stability study that set optimized storage conditions and extended product shelf life by 20%.</li>
+            <li>Analyzed 5,000+ mass spectrometry samples in Python and Excel, separating degradation trends from analytical variability.</li>
+            <li>Characterized a polymer-based sustained-release system through release kinetics, loading and tensile testing.</li>
+            <li>Ran neurite outgrowth assays on dissociated DRGs and authored 15+ GLP/GMP-aligned SOPs.</li>
+          </ul>
+        </div>
+      </article>
+      <article>
+        <p class="when">Apr 2023 – Dec 2023</p>
+        <div>
+          <h3>Undergraduate Research Assistant</h3>
+          <p class="org">Auditory Development &amp; Connectomics Lab, USF</p>
+          <ul>
+            <li>Reconstructed 600+ neurons and synaptic structures from confocal microscopy data using Seg3D and syGlass.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="two">
+      <div>
+        <div class="sec-head" style="margin-bottom:24px">
+          <p class="label">Skills</p>
+          <h2>Tools of the trade</h2>
+        </div>
+        <div class="skills">
+          <div><p class="label">Design &amp; manufacturing</p><p>SolidWorks (CAD, drawings, FEA), DFM, mold and tooling design, 3D printing, silicone casting, injection molding scale-up</p></div>
+          <div><p class="label">Testing &amp; lab</p><p>Instron mechanical testing, SEM, FTIR, electrospinning, cell culture, drug release testing, LC-MS/MS sample prep</p></div>
+          <div><p class="label">Quality</p><p>ISO 13485, ISO 14971, GMP/GLP, SOPs, verification testing, document control, Lean Six Sigma DMAIC</p></div>
+          <div><p class="label">Software &amp; electronics</p><p>Python, MATLAB, Simulink, Arduino C/C++, KiCad, LTSpice, SPSS, GraphPad Prism, ImageJ</p></div>
+        </div>
+      </div>
+      <div>
+        <div class="sec-head" style="margin-bottom:24px">
+          <p class="label">Leadership &amp; recognition</p>
+          <h2>Beyond the lab</h2>
+        </div>
+        <ul class="list">
+          <li><b>Mentorship Chair, Society of Women Engineers</b><span>Matched 60+ members and ran 5+ professional development events</span></li>
+          <li><b>Network Relations Director, SHPE</b><span>Secured $10,000 in sponsorships and organized USF SHPE's largest career fair, 200+ attendees</span></li>
+          <li><b>Poster presentations</b><span>USF BME Lab Showcase 2025; TAU biomarker systematic review at three research conferences, 2024</span></li>
+          <li><b>Awards</b><span>SHPE Andrés Garcia Scholarship, USF Scholars Gold Award, Dean's List</span></li>
+          <li><b>Languages</b><span>English and Spanish (fluent), Hindi (conversational), French (basic)</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="contact" id="contact">
+    <div>
+      <p class="label">Contact</p>
+      <h2 style="margin-top:8px">Let's talk about medical devices.</h2>
+      <p>I'm open to roles in medical device R&amp;D, manufacturing and process engineering.</p>
+    </div>
+    <div class="links">
+      <span class="addr">mahakp46@gmail.com</span>
+      <a class="btn" href="https://www.linkedin.com/in/mahak-punjabi/" target="_blank" rel="noopener">linkedin.com/in/mahak-punjabi</a>
+    </div>
+  </div>
+</main>
+<footer class="wrap">© 2026 Mahak Punjabi · Tampa, Florida</footer>
+</body>
+</html>
