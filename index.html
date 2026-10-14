@@ -86,11 +86,40 @@ p { margin: 0; }
 .portrait { position: relative; }
 .portrait img { border-radius: 4px; aspect-ratio: 4 / 5; object-fit: cover; width: 100%; }
 .portrait figcaption { margin-top: 10px; }
-.facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-block: 1px solid var(--line); }
-.facts div { padding: 18px 16px 18px 0; display: grid; gap: 2px; }
-.facts div + div { padding-left: 16px; border-left: 1px solid var(--line); }
-.facts b { font-family: var(--f-display); font-size: 1.15rem; font-weight: 700; }
-.facts span { color: var(--muted); font-size: .9rem; line-height: 1.35; }
+/* cover band: moving focus areas, then credentials */
+.cover-band { border-block: 1px solid var(--line); }
+.ticker {
+  overflow: hidden; padding-block: 20px; border-bottom: 1px solid var(--line);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+}
+.ticker-track {
+  list-style: none; margin: 0; padding: 0; display: flex; width: max-content;
+  animation: ticker 60s linear infinite;
+}
+.ticker-track li {
+  display: flex; align-items: center; white-space: nowrap;
+  font-family: var(--f-display); font-weight: 500; font-size: clamp(1.25rem, 2.6vw, 1.75rem);
+  transition: color .2s;
+}
+.ticker-track li::after {
+  content: ""; flex: none; width: 8px; height: 8px; border-radius: 50%;
+  background: var(--mark); margin-inline: 28px;
+}
+.ticker:hover .ticker-track { animation-play-state: paused; }
+.ticker-track li:hover { color: var(--accent); }
+@keyframes ticker { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .ticker { -webkit-mask-image: none; mask-image: none; }
+  .ticker-track { animation: none; width: auto; flex-wrap: wrap; row-gap: 6px; }
+  .ticker-track li[aria-hidden="true"] { display: none; }
+}
+.creds { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 32px; align-items: center; padding-block: 22px; }
+.creds .years { font-size: 1.125rem; max-width: 34em; }
+.creds .years strong { font-family: var(--f-display); font-weight: 700; color: var(--accent); }
+.creds .degree { display: grid; gap: 2px; padding-left: 32px; border-left: 1px solid var(--line); }
+.creds .degree b { font-family: var(--f-display); font-size: 1.15rem; font-weight: 700; }
+.creds .degree span { color: var(--muted); }
 
 /* sections */
 section { padding-block: 80px 0; }
@@ -164,9 +193,8 @@ footer { padding-block: 24px 40px; color: var(--muted); font-size: .85rem; borde
   .more article, .more article + article { padding: 20px 0; border-left: 0; border-top: 1px solid var(--line); }
   .more article:first-child { border-top: 0; }
   .xp article { grid-template-columns: minmax(0, 1fr); gap: 6px; }
-  .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .facts div:nth-child(3) { padding-left: 0; border-left: 0; }
-  .facts div:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .creds { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .creds .degree { padding-left: 0; border-left: 0; }
 }
 @media (max-width: 560px) {
   .strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -208,11 +236,35 @@ footer { padding-block: 24px 40px; color: var(--muted); font-size: .85rem; borde
     </figure>
   </div>
 
-  <div class="facts" aria-label="At a glance">
-    <div><b>M.S. BME</b><span>USF, GPA 4.0 · expected May 2027</span></div>
-    <div><b>B.S. BME</b><span>USF, GPA 3.7 · May 2026</span></div>
-    <div><b>2 industry internships</b><span>EndoTherapeutics · Axogen</span></div>
-    <div><b>ISO 13485 / 14971</b><span>Design controls and risk management</span></div>
+  <div class="cover-band">
+    <div class="ticker">
+      <ul class="ticker-track" aria-label="Focus areas">
+        <li>Product Design</li>
+        <li>Medical Device Prototyping</li>
+        <li>CAD</li>
+        <li>Benchtop Testing</li>
+        <li>Documentation</li>
+        <li aria-hidden="true">Product Design</li>
+        <li aria-hidden="true">Medical Device Prototyping</li>
+        <li aria-hidden="true">CAD</li>
+        <li aria-hidden="true">Benchtop Testing</li>
+        <li aria-hidden="true">Documentation</li>
+        <li aria-hidden="true">Product Design</li>
+        <li aria-hidden="true">Medical Device Prototyping</li>
+        <li aria-hidden="true">CAD</li>
+        <li aria-hidden="true">Benchtop Testing</li>
+        <li aria-hidden="true">Documentation</li>
+        <li aria-hidden="true">Product Design</li>
+        <li aria-hidden="true">Medical Device Prototyping</li>
+        <li aria-hidden="true">CAD</li>
+        <li aria-hidden="true">Benchtop Testing</li>
+        <li aria-hidden="true">Documentation</li>
+      </ul>
+    </div>
+    <div class="creds">
+      <p class="years"><strong>3 years</strong> of biomedical research experience, including <strong>2 years</strong> in R&amp;D and product development</p>
+      <p class="degree"><b>M.S. Biomedical Engineering Candidate</b><span>University of South Florida</span></p>
+    </div>
   </div>
 
   <section id="work">
