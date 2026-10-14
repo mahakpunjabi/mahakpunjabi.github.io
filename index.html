@@ -148,6 +148,11 @@ section { padding-block: 80px 0; }
 .strip figure { margin: 0; display: grid; gap: 8px; }
 .strip img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 3px; background: var(--surface); border: 1px solid var(--line); }
 .strip img.contain { object-fit: contain; background: #ffffff; }
+/* lead row: a two-column figure at its own aspect ratio, with its neighbour matched to its height */
+.strip.feature { container-type: inline-size; }
+.strip figure.wide { grid-column: span 2; }
+.strip figure.wide img { aspect-ratio: 1125 / 581; }
+.strip figure.beside img { aspect-ratio: auto; height: calc(34.43cqw - 2px); }
 .strip figcaption { font-size: .85rem; color: var(--muted); line-height: 1.4; }
 .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
 .tags span { font-family: var(--f-mono); font-size: .72rem; padding: 3px 8px; border-radius: 3px; background: var(--accent-soft); color: var(--accent); }
@@ -198,6 +203,7 @@ footer { padding-block: 24px 40px; color: var(--muted); font-size: .85rem; borde
 }
 @media (max-width: 560px) {
   .strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .strip figure.beside img { height: auto; aspect-ratio: 4 / 3; }
   .nav ul { gap: 14px; }
   section { padding-block: 56px 0; }
 }
@@ -294,9 +300,10 @@ footer { padding-block: 24px 40px; color: var(--muted); font-size: .85rem; borde
           <div class="tags"><span>SolidWorks</span><span>FEA</span><span>Mold design</span><span>LSR casting</span><span>Instron</span><span>Python</span><span>Arduino</span></div>
         </div>
       </div>
-      <div class="strip" style="--n:4">
+      <div class="strip feature" style="--n:3">
+        <figure class="wide"><img src="img/laryngoscope-fea-pressure.jpg" width="1125" height="581" alt="SolidWorks FEA stress plot of the silicone oral interface under pressure loading" loading="lazy"><figcaption>SolidWorks FEA under pressure: peak stress of 0.12 MPa against the silicone's 8.62 MPa yield strength</figcaption></figure>
+        <figure class="beside"><img src="img/laryngoscope-prototypes.jpg" alt="Cast silicone handle prototypes in blue and pink" loading="lazy"><figcaption>Cast silicone handles</figcaption></figure>
         <figure><img src="img/laryngoscope-iterations.jpg" alt="Grid of prototype iterations of the silicone oral interface" loading="lazy"><figcaption>Prototype evolution, P1 to P6</figcaption></figure>
-        <figure><img src="img/laryngoscope-prototypes.jpg" alt="Cast silicone handle prototypes in blue and pink" loading="lazy"><figcaption>Cast silicone handles</figcaption></figure>
         <figure><img src="img/laryngoscope-benchtop.jpg" alt="Infant airway model with the device and a scope monitor" loading="lazy"><figcaption>Benchtop testing on an infant airway model</figcaption></figure>
         <figure><img src="img/laryngoscope-instron.jpg" alt="Silicone part clamped in an Instron for tensile testing" loading="lazy"><figcaption>Tensile testing on the Instron</figcaption></figure>
       </div>
