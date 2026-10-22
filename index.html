@@ -19,6 +19,19 @@
   --accent: #0d6b62;
   --accent-soft: #e1efec;
   --mark: #c2366b;
+  /* lab scene */
+  --steel: #e9efee;
+  --bench: #dde5e3;
+  --glass: #dcefeb80;
+  --liquid: #6cc3b7;
+  --glove: #8e7fd3;
+  --rod: #c5d0ce;
+  --screen: #0f1d1c;
+  --scr-grid: #35504c;
+  --bezel: #1b2a28;
+  --trace: #5fe0cf;
+  --ion-x: #f0b35a;
+  --ion-y: #8ea2ff;
   --f-display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
   --f-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
   --f-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
@@ -29,12 +42,16 @@
   :root:not([data-theme="light"]) {
     --bg: #0f1716; --surface: #16211f; --ink: #e6eeec; --muted: #9caba7;
     --line: #2a3735; --accent: #5cc4b6; --accent-soft: #19302d; --mark: #f07aa5;
+    --steel: #1d2a28; --bench: #1f2c2a; --glass: #9fd6cd26; --liquid: #3fa597; --glove: #9a8ce0;
+    --rod: #9fb0ad; --screen: #070f0e; --scr-grid: #2a403d; --bezel: #33423f;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #0f1716; --surface: #16211f; --ink: #e6eeec; --muted: #9caba7;
   --line: #2a3735; --accent: #5cc4b6; --accent-soft: #19302d; --mark: #f07aa5;
+  --steel: #1d2a28; --bench: #1f2c2a; --glass: #9fd6cd26; --liquid: #3fa597; --glove: #9a8ce0;
+  --rod: #9fb0ad; --screen: #070f0e; --scr-grid: #2a403d; --bezel: #33423f;
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
@@ -172,6 +189,98 @@ section { padding-block: 80px 0; }
 .xp .org { color: var(--accent); font-weight: 600; margin-top: 2px; }
 .xp ul { margin: 10px 0 0; padding-left: 1.1em; display: grid; gap: 6px; max-width: var(--read); }
 .xp li::marker { color: var(--accent); }
+
+/* lab scene: with JS (.live) the figure pins in the middle of the screen while scrolling the space
+   below it plays the animation; the caption for the current step sits inside the pinned figure */
+.lab { margin-top: 28px; }
+.lab-fig { margin: 0; }
+.lab-svg {
+  display: block; width: 100%; height: auto; max-height: 52vh;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 4px;
+}
+.lab-track { display: none; }
+.lab-steps { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 18px; max-width: 40em; }
+.lab-steps h4 { margin: 4px 0 4px; font-family: var(--f-display); font-size: 1.15rem; font-weight: 700; line-height: 1.25; }
+.lab-steps .label { color: var(--accent); }
+.lab.live::after { content: ""; display: block; height: 170vh; }
+.lab.live .lab-fig {
+  position: sticky; z-index: 2; background: var(--bg); padding-block: 14px 16px;
+  top: max(var(--nav-h, 56px), calc((100vh + var(--nav-h, 56px) - var(--lab-fig-h, 0px)) / 2));
+  top: max(var(--nav-h, 56px), calc((100svh + var(--nav-h, 56px) - var(--lab-fig-h, 0px)) / 2));
+}
+.lab.live .lab-track {
+  list-style: none; margin: 12px 0 0; padding: 0;
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px;
+}
+.lab-track li {
+  position: relative; border-top: 2px solid var(--line); padding-top: 6px;
+  font-family: var(--f-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--muted); transition: color .3s;
+}
+.lab-track li::before {
+  content: ""; position: absolute; left: 0; top: -2px; height: 2px;
+  width: calc(var(--fill, 0) * 100%); background: var(--accent);
+}
+.lab-track li.on { color: var(--accent); }
+.lab.live .lab-steps { gap: 0; margin-top: 12px; }
+.lab.live .lab-steps li { grid-area: 1 / 1; opacity: 0; transform: translateY(6px); transition: opacity .35s, transform .35s; }
+.lab.live .lab-steps li.on { opacity: 1; transform: none; }
+.lab.live .lab-steps .label { display: none; }
+.lab-svg .l-bench { fill: var(--bench); }
+.lab-svg .l-edge { stroke: var(--ink); stroke-width: 2; }
+.lab-svg .l-part { fill: var(--steel); stroke: var(--ink); stroke-width: 2; stroke-linejoin: round; }
+.lab-svg .l-glass { fill: var(--glass); stroke: var(--ink); stroke-width: 2; stroke-linejoin: round; }
+.lab-svg .l-glass-hi { fill: none; stroke: var(--surface); stroke-width: 2.5; stroke-linecap: round; opacity: .8; }
+.lab-svg .l-thread { fill: none; stroke: var(--ink); stroke-width: 1.2; }
+.lab-svg .l-liquid { fill: var(--liquid); }
+.lab-svg .l-meniscus { fill: var(--liquid); stroke: var(--ink); stroke-width: 1; }
+.lab-svg .l-drop { fill: var(--liquid); stroke: var(--ink); stroke-width: 1; }
+.lab-svg .l-cap { fill: var(--mark); stroke: var(--ink); stroke-width: 2; }
+.lab-svg .l-ridge { stroke: var(--ink); stroke-width: 1.3; opacity: .4; }
+.lab-svg .l-cap-top { fill: var(--surface); stroke: var(--ink); stroke-width: 1.5; }
+.lab-svg .l-glove { fill: var(--glove); stroke: var(--ink); stroke-width: 2; stroke-linejoin: round; }
+.lab-svg .l-thumb-o { fill: none; stroke: var(--ink); stroke-width: 21; stroke-linecap: round; }
+.lab-svg .l-thumb { fill: none; stroke: var(--glove); stroke-width: 17; stroke-linecap: round; }
+.lab-svg .l-btn { fill: var(--accent); stroke: var(--ink); stroke-width: 2; }
+.lab-svg .l-dark { fill: var(--screen); stroke: var(--ink); stroke-width: 2; }
+.lab-svg .l-slot { fill: var(--screen); }
+.lab-svg .l-knob { fill: var(--surface); stroke: var(--ink); stroke-width: 2; }
+.lab-svg .l-rod { fill: var(--rod); }
+.lab-svg .l-rod-line { fill: none; stroke: var(--rod); stroke-width: 6; stroke-linecap: round; }
+.lab-svg .l-tag { font-family: var(--f-mono); font-size: 13px; fill: var(--muted); }
+.lab-svg .l-led { fill: var(--line); stroke: var(--ink); stroke-width: 1.5; }
+.lab-svg .l-led.on { fill: var(--trace); animation: lab-blink 1.1s ease-in-out infinite; }
+.lab-svg .l-tube { fill: none; stroke: var(--muted); stroke-width: 3; }
+.lab-svg .l-flow { fill: none; stroke: var(--trace); stroke-width: 3; stroke-dasharray: 5 9; opacity: 0; transition: opacity .3s; }
+.lab-svg .l-flow.on { opacity: 1; animation: lab-flow .8s linear infinite; }
+.lab-svg .l-column { fill: var(--rod); transition: fill .4s; }
+.lab-svg .l-column.on { fill: var(--trace); }
+.lab-svg .l-band { fill: var(--mark); opacity: 0; }
+.lab-svg .l-column.on + g .l-band { opacity: 1; animation: lab-band 1.4s linear infinite; }
+.lab-svg .l-det.hit { fill: var(--trace); }
+.lab-svg .ion-t { fill: var(--mark); }
+.lab-svg .ion-x { fill: var(--ion-x); }
+.lab-svg .ion-y { fill: var(--ion-y); }
+.lab-svg .ion-f { fill: var(--trace); }
+.lab-svg .l-bezel { fill: var(--bezel); }
+.lab-svg .l-screen { fill: var(--screen); }
+.lab-svg .l-scr-text { font-family: var(--f-mono); font-size: 11px; fill: var(--trace); }
+.lab-svg .l-axis { fill: none; stroke: var(--scr-grid); stroke-width: 1.5; }
+.lab-svg .l-trace { fill: none; stroke: var(--trace); stroke-width: 2.2; stroke-linejoin: round; }
+.lab-svg .l-head { fill: var(--trace); }
+.lab-svg .l-area { fill: var(--trace); opacity: 0; }
+.lab-svg .l-marks line { stroke: var(--mark); stroke-width: 2; }
+.lab-svg .l-cable { fill: none; stroke: var(--muted); stroke-width: 3; }
+.lab-svg .l-pulse { fill: none; stroke: var(--trace); stroke-width: 4; stroke-linecap: round; opacity: 0; }
+@keyframes lab-flow { to { stroke-dashoffset: -28; } }
+@keyframes lab-blink { 50% { opacity: .35; } }
+@keyframes lab-band { to { transform: translateX(84px); } }
+@media (prefers-reduced-motion: reduce) {
+  .lab-svg .l-led.on, .lab-svg .l-flow.on, .lab-svg .l-column.on + g .l-band { animation: none; }
+}
+@media (max-height: 560px) {
+  .lab-svg { max-height: 40vh; }
+}
 
 /* skills + misc */
 .two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; }
@@ -430,6 +539,147 @@ footer { padding-block: 24px 40px; color: var(--muted); font-size: .85rem; borde
             <li>Characterized a polymer-based sustained-release system through release kinetics, loading and tensile testing.</li>
             <li>Ran neurite outgrowth assays on dissociated DRGs and authored 15+ GLP/GMP-aligned SOPs.</li>
           </ul>
+          <div class="lab" id="lab">
+            <figure class="lab-fig">
+              <svg class="lab-svg" viewBox="0 0 960 420" role="img" aria-labelledby="lab-title lab-desc">
+                <title id="lab-title">From sample to peak</title>
+                <desc id="lab-desc">A gloved hand pipettes solution into a 1 mL glass screw-cap vial. The vial goes into a triple quadrupole LC-MS, and a computer integrates the drug's peak to show how much drug was in the solution.</desc>
+                <defs>
+                  <clipPath id="lab-cap-clip"><rect x="128" y="212" width="44" height="30" rx="4"/></clipPath>
+                  <clipPath id="lab-tip-clip"><path d="M145,172 H155 L151,230 H149 Z"/></clipPath>
+                  <clipPath id="lab-col-clip"><rect x="354" y="344" width="72" height="8" rx="4"/></clipPath>
+                </defs>
+
+                <rect class="l-bench" x="0" y="396" width="960" height="12"/>
+                <line class="l-edge" x1="0" y1="396" x2="960" y2="396"/>
+
+                <path class="l-cable" d="M700,384 C736,384 750,392 786,392"/>
+                <path id="lab-pulse" class="l-pulse" d="M700,384 C736,384 750,392 786,392"/>
+
+                <g>
+                  <rect class="l-bezel" x="722" y="150" width="216" height="162" rx="8"/>
+                  <rect class="l-screen" x="732" y="160" width="196" height="142" rx="3"/>
+                  <rect class="l-part" x="818" y="312" width="24" height="74"/>
+                  <rect class="l-part" x="786" y="386" width="88" height="10" rx="3"/>
+                  <text class="l-scr-text" x="742" y="177">MRM · drug</text>
+                  <text id="lab-count" class="l-scr-text" x="918" y="177" text-anchor="end">samples: 0</text>
+                  <path class="l-axis" d="M744,186 V282 H918"/>
+                  <path id="lab-area" class="l-area" d="M0,0"/>
+                  <path id="lab-trace" class="l-trace" d="M0,0"/>
+                  <circle id="lab-head" class="l-head" cx="746" cy="278" r="3.2" opacity="0"/>
+                  <g id="lab-marks" class="l-marks" opacity="0"><line x1="804" y1="281" x2="804" y2="266"/><line x1="836" y1="281" x2="836" y2="266"/></g>
+                  <text id="lab-area-label" class="l-scr-text" x="820" y="297" text-anchor="middle" opacity="0">peak area</text>
+                </g>
+
+                <g>
+                  <path class="l-tube" d="M450,358 C472,358 470,280 494,280"/>
+                  <path id="lab-flow" class="l-flow" d="M450,358 C472,358 470,280 494,280"/>
+                  <rect class="l-part" x="470" y="200" width="230" height="196" rx="10"/>
+                  <text class="l-tag" x="486" y="222">LC-MS/MS · triple quad</text>
+                  <circle id="lab-led" class="l-led" cx="684" cy="217" r="5"/>
+                  <rect class="l-dark" x="486" y="232" width="198" height="96" rx="6"/>
+                  <polygon class="l-rod" points="494,268 514,280 494,292"/>
+                  <rect class="l-rod" x="524" y="262" width="48" height="6" rx="3"/>
+                  <rect class="l-rod" x="524" y="292" width="48" height="6" rx="3"/>
+                  <path class="l-rod-line" d="M584,263 Q602,256 620,263 M584,297 Q602,304 620,297"/>
+                  <rect class="l-rod" x="632" y="262" width="30" height="6" rx="3"/>
+                  <rect class="l-rod" x="632" y="292" width="30" height="6" rx="3"/>
+                  <rect id="lab-det" class="l-rod l-det" x="668" y="268" width="8" height="24" rx="2"/>
+                  <g id="lab-ions"></g>
+                  <text class="l-tag" x="548" y="350" text-anchor="middle">Q1</text>
+                  <text class="l-tag" x="602" y="350" text-anchor="middle">q2</text>
+                  <text class="l-tag" x="647" y="350" text-anchor="middle">Q3</text>
+                </g>
+
+                <g id="lab-vial">
+                  <path class="l-glass" d="M130,240 H170 V332 Q170,340 162,340 H138 Q130,340 130,332 Z"/>
+                  <rect id="lab-liquid" class="l-liquid" x="133" y="338" width="34" height="0" rx="4"/>
+                  <ellipse id="lab-meniscus" class="l-meniscus" cx="150" cy="338" rx="17" ry="3" opacity="0"/>
+                  <path class="l-glass-hi" d="M137,250 V326"/>
+                  <rect class="l-glass" x="134" y="226" width="32" height="14"/>
+                  <path class="l-thread" d="M134,231 H166 M134,236 H166"/>
+                  <g id="lab-cap">
+                    <rect class="l-cap" x="128" y="212" width="44" height="30" rx="4"/>
+                    <g clip-path="url(#lab-cap-clip)"><g id="lab-ridges"><path class="l-ridge" d="M122,212 V242 M128,212 V242 M134,212 V242 M140,212 V242 M146,212 V242 M152,212 V242 M158,212 V242 M164,212 V242 M170,212 V242 M176,212 V242 M182,212 V242"/></g></g>
+                    <rect class="l-cap-top" x="140" y="208" width="20" height="5" rx="2"/>
+                  </g>
+                </g>
+
+                <g id="lab-drops">
+                  <circle class="l-drop" cx="150" cy="236" r="3.4" opacity="0"/>
+                  <circle class="l-drop" cx="150" cy="236" r="3.4" opacity="0"/>
+                  <circle class="l-drop" cx="150" cy="236" r="3.4" opacity="0"/>
+                </g>
+
+                <g>
+                  <rect class="l-part" x="330" y="170" width="120" height="80" rx="6"/>
+                  <rect class="l-slot" x="358" y="166" width="64" height="8" rx="3"/>
+                  <text class="l-tag" x="342" y="238">autosampler</text>
+                  <rect class="l-part" x="330" y="250" width="120" height="72" rx="6"/>
+                  <circle class="l-knob" cx="352" cy="280" r="7"/>
+                  <circle class="l-knob" cx="376" cy="280" r="7"/>
+                  <text class="l-tag" x="342" y="310">pump</text>
+                  <rect class="l-part" x="330" y="322" width="120" height="74" rx="6"/>
+                  <rect class="l-dark" x="346" y="332" width="88" height="32" rx="4"/>
+                  <rect id="lab-column" class="l-column" x="354" y="344" width="72" height="8" rx="4"/>
+                  <g clip-path="url(#lab-col-clip)"><rect class="l-band" x="342" y="344" width="12" height="8"/></g>
+                  <text class="l-tag" x="342" y="386">column</text>
+                </g>
+
+                <g>
+                  <polygon class="l-part" points="96,318 112,306 222,306 206,318"/>
+                  <ellipse class="l-slot" cx="190" cy="312" rx="12" ry="3"/>
+                  <rect class="l-part" x="96" y="318" width="110" height="78"/>
+                </g>
+
+                <g id="lab-hand">
+                  <path class="l-glove" d="M196,70 L232,100 L330,-10 L296,-40 Z"/>
+                  <g class="lab-press">
+                    <rect class="l-part" x="146" y="18" width="8" height="20"/>
+                    <rect class="l-btn" x="139" y="6" width="22" height="12" rx="4"/>
+                  </g>
+                  <path class="l-part" d="M134,36 H166 L169,70 L162,130 H138 L131,70 Z"/>
+                  <path class="l-part" d="M166,40 q15,0 16,10 q0,7 -9,7 L167,57 Z"/>
+                  <rect class="l-part" x="143" y="130" width="14" height="40"/>
+                  <path class="l-glass" d="M144,170 H156 L151.5,232 H148.5 Z"/>
+                  <rect id="lab-tipliq" class="l-liquid" x="144" y="176" width="12" height="56" clip-path="url(#lab-tip-clip)"/>
+                  <g class="lab-press">
+                    <path class="l-thumb-o" d="M172,70 C164,44 156,24 150,8"/>
+                    <path class="l-thumb" d="M172,70 C164,44 156,24 150,8"/>
+                  </g>
+                  <rect class="l-glove" x="168" y="54" width="56" height="88" rx="24"/>
+                  <rect class="l-glove" x="125" y="60" width="66" height="20" rx="10"/>
+                  <rect class="l-glove" x="123" y="80" width="68" height="20" rx="10"/>
+                  <rect class="l-glove" x="124" y="100" width="66" height="19" rx="9.5"/>
+                  <rect class="l-glove" x="129" y="119" width="58" height="17" rx="8.5"/>
+                </g>
+              </svg>
+              <figcaption>
+                <ol class="lab-track" aria-hidden="true">
+                  <li class="on">Sample prep</li>
+                  <li>LC-MS/MS</li>
+                  <li>Peak analysis</li>
+                </ol>
+                <ol class="lab-steps">
+                  <li class="on">
+                    <p class="label">01 · Sample prep</p>
+                    <h4>Pipette and cap</h4>
+                    <p>Each solution is pipetted into a 1 mL glass vial and sealed with a screw cap, ready for mass spectrometry.</p>
+                  </li>
+                  <li>
+                    <p class="label">02 · LC-MS/MS</p>
+                    <h4>Into the triple quad</h4>
+                    <p>The vial goes into the LC-MS/MS. The column separates the sample, then the triple quad filters for the drug: Q1 picks out its ion, q2 breaks it apart, and Q3 passes one fragment to the detector.</p>
+                  </li>
+                  <li>
+                    <p class="label">03 · Peak analysis</p>
+                    <h4>Reading the peak</h4>
+                    <p>The signal becomes a peak, and the area under it shows how much drug was in the solution. I analyzed 5,000+ of these samples in Python and Excel to separate real degradation from analytical variability.</p>
+                  </li>
+                </ol>
+              </figcaption>
+            </figure>
+          </div>
         </div>
       </article>
       <article>
@@ -488,5 +738,169 @@ footer { padding-block: 24px 40px; color: var(--muted); font-size: .85rem; borde
   </div>
 </main>
 <footer class="wrap">© 2026 Mahak Punjabi · Tampa, Florida</footer>
+<script>
+/* Axogen lab scene: scroll position through #lab (0 → 1) drives each step of the animation. */
+(() => {
+  const lab = document.getElementById('lab');
+  if (!lab) return;
+  const fig = lab.querySelector('.lab-fig'), svg = lab.querySelector('.lab-svg');
+  const nav = document.querySelector('.nav');
+  const q = (id) => document.getElementById(id);
+  const hand = q('lab-hand'), press = lab.querySelectorAll('.lab-press'), tipLiq = q('lab-tipliq');
+  const liquid = q('lab-liquid'), menis = q('lab-meniscus'), drops = [...q('lab-drops').children];
+  const cap = q('lab-cap'), ridges = q('lab-ridges'), vial = q('lab-vial');
+  const led = q('lab-led'), flow = q('lab-flow'), column = q('lab-column'), det = q('lab-det'), ionLayer = q('lab-ions');
+  const pulse = q('lab-pulse'), trace = q('lab-trace'), head = q('lab-head'), area = q('lab-area'), marks = q('lab-marks');
+  const areaLabel = q('lab-area-label'), count = q('lab-count');
+  const steps = lab.querySelectorAll('.lab-steps li'), track = lab.querySelectorAll('.lab-track li');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const clamp = (v) => Math.min(1, Math.max(0, v));
+  const seg = (p, a, b) => clamp((p - a) / (b - a));
+  const ease = (t) => (t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2);
+  const lerp = (a, b, t) => a + (b - a) * t;
+  const f = (n) => n.toFixed(1);
+  const phases = [[0, .36], [.36, .7], [.7, 1]];
+
+  // Chromatogram: the drug's peak at 820 and a smaller neighbouring peak at 872.
+  const base = 278;
+  const yAt = (x) => base - 84 * Math.exp(-((x - 820) ** 2) / 98) - 24 * Math.exp(-((x - 872) ** 2) / 72)
+    - 1.1 * Math.sin(x * 1.9) - 0.7 * Math.sin(x * 0.7 + 1);
+  const curve = (from, to) => { const pts = []; for (let x = from; x <= to; x += 2) pts.push(x + ',' + f(yAt(x))); return pts.join(' L'); };
+  trace.setAttribute('d', 'M' + curve(746, 916));
+  area.setAttribute('d', 'M804,' + base + ' L' + curve(804, 836) + ' L836,' + base + ' Z');
+  const traceLen = trace.getTotalLength(), pulseLen = pulse.getTotalLength();
+  trace.style.strokeDasharray = traceLen;
+  pulse.style.strokeDasharray = '18 ' + pulseLen;
+
+  // Ions through the triple quad: Q1 keeps only the drug (pink), q2 fragments it, Q3 keeps one fragment.
+  const ns = 'http://www.w3.org/2000/svg', R = 5, RF = 3.4;
+  const ions = ['t', 'x', 't', 'y', 't', 'x', 't', 'y'].map((k, i, all) => {
+    const g = document.createElementNS(ns, 'g'), a = document.createElementNS(ns, 'circle'), b = document.createElementNS(ns, 'circle');
+    b.setAttribute('r', RF);
+    g.append(a, b);
+    ionLayer.append(g);
+    return { k, a, b, j: ((i * 37) % 7) - 3, ph: i / all.length };
+  });
+  function drawIons(t) {
+    let hit = false;
+    for (const ion of ions) {
+      const x = 496 + ((t * 0.28 + ion.ph) % 1) * 174;
+      let ay = 280, ar = R, ao = 1, by = 280, bo = 0, cls = 'ion-' + ion.k;
+      if (x < 524) ay = 280 + ion.j * (1 - (x - 496) / 28);
+      else if (ion.k !== 't') { const s = clamp((x - 524) / 48); ay = 280 + (ion.j >= 0 ? 14 : -14) * s; ao = 1 - s; }
+      else if (x < 584) { /* the drug passes Q1 on axis */ }
+      else if (x < 620) { const s = (x - 584) / 36; ay = 280 - 6 * s; by = 280 + 6 * s; ar = lerp(R, RF, s); bo = 1; cls = 'ion-f'; }
+      else if (x < 632) { ay = 274; by = 286; ar = RF; bo = 1; cls = 'ion-f'; }
+      else if (x < 664) { const s = (x - 632) / 32; ay = 274 + 6 * s; by = 286 + 10 * s; ar = RF; bo = 1 - s; cls = 'ion-f'; }
+      else { ao = 0; hit = true; }
+      ion.a.setAttribute('cx', f(x)); ion.a.setAttribute('cy', f(ay)); ion.a.setAttribute('r', ar.toFixed(2));
+      ion.a.setAttribute('opacity', ao.toFixed(2)); ion.a.setAttribute('class', cls);
+      ion.b.setAttribute('cx', f(x)); ion.b.setAttribute('cy', f(by)); ion.b.setAttribute('opacity', bo.toFixed(2));
+      ion.b.setAttribute('class', 'ion-f');
+    }
+    det.classList.toggle('hit', hit);
+  }
+
+  let p = 0, running = false, visible = false, raf = 0, ticking = false, narrow = false;
+  function frame(now) {
+    raf = 0;
+    drawIons(now / 1000);
+    if (running && visible) raf = requestAnimationFrame(frame);
+  }
+  function loop() {
+    if (reduce) { if (running) drawIons(1.3); return; }
+    if (running && visible && !raf) raf = requestAnimationFrame(frame);
+  }
+
+  function render() {
+    // 01 Sample prep: lower the pipette, press the plunger, fill the vial, lift the hand away, screw on the cap.
+    const down = ease(seg(p, 0, .07)), away = ease(seg(p, .23, .31));
+    hand.setAttribute('transform', 'translate(' + f(90 * away) + ' ' + f(lerp(-70, 0, down) - 300 * away) + ')');
+    const push = ease(seg(p, .08, .12)) * (1 - ease(seg(p, .2, .24)));
+    press.forEach((el) => el.setAttribute('transform', 'translate(0 ' + f(12 * push) + ')'));
+    const disp = seg(p, .08, .22);
+    const ty = 176 + 56 * disp;
+    tipLiq.setAttribute('y', f(ty)); tipLiq.setAttribute('height', f(232 - ty));
+    const h = 52 * ease(disp), surface = 338 - h;
+    liquid.setAttribute('y', f(surface)); liquid.setAttribute('height', f(h));
+    menis.setAttribute('cy', f(surface)); menis.setAttribute('opacity', h > 1 ? 1 : 0);
+    drops.forEach((d, i) => {
+      const t = seg(p, .09 + i * .04, .135 + i * .04);
+      d.setAttribute('opacity', t > 0 && t < 1 ? 1 : 0);
+      d.setAttribute('cy', f(236 + (surface - 236) * t * t));
+    });
+    const c1 = ease(seg(p, .28, .31)), c2 = ease(seg(p, .3, .335)), c3 = ease(seg(p, .33, .345)), tw = seg(p, .345, .36);
+    const capX = lerp(105, 0, c2), capY = c3 > 0 ? lerp(-40, 0, c3) : lerp(154, -40, c1);
+    cap.setAttribute('transform', 'translate(' + f(capX) + ' ' + f(capY) + ') rotate(' + (Math.sin(tw * Math.PI * 4) * 3).toFixed(2) + ' 150 227)');
+    ridges.setAttribute('transform', 'translate(' + (-(tw * 30) % 6).toFixed(2) + ' 0)');
+
+    // 02 LC-MS/MS: lift the vial out of the rack and drop it into the autosampler.
+    const a = ease(seg(p, .36, .42)), b = seg(p, .42, .52), c = ease(seg(p, .52, .58));
+    let dx = 0, dy = -40 * a;
+    if (b > 0) { const e = ease(b); dx = 240 * e; dy = -40 - 150 * Math.sin(e * Math.PI / 2); }
+    if (c > 0) { dx = 240; dy = lerp(-190, -70, c); }
+    vial.setAttribute('transform', 'translate(' + f(dx) + ' ' + f(dy) + ')');
+    running = p >= .58;
+    led.classList.toggle('on', running);
+    flow.classList.toggle('on', running);
+    column.classList.toggle('on', running);
+    ionLayer.setAttribute('opacity', running ? 1 : 0);
+
+    // 03 Peak analysis: send the data to the computer, draw the chromatogram, integrate the peak.
+    const dp = seg(p, .7, .76);
+    pulse.style.strokeDashoffset = lerp(18, -pulseLen, dp);
+    pulse.style.opacity = dp > 0 && dp < 1 ? 1 : 0;
+    const tr = ease(seg(p, .76, .92));
+    trace.style.strokeDashoffset = traceLen * (1 - tr);
+    const pt = trace.getPointAtLength(traceLen * tr);
+    head.setAttribute('cx', f(pt.x)); head.setAttribute('cy', f(pt.y));
+    head.setAttribute('opacity', tr > 0 && tr < 1 ? 1 : 0);
+    count.textContent = 'samples: ' + (p < .76 ? '0' : p < .92 ? Math.max(1, Math.round(5000 * tr)).toLocaleString('en-US') : '5,000+');
+    const fin = seg(p, .9, .96);
+    area.style.opacity = .35 * fin;
+    marks.setAttribute('opacity', fin);
+    areaLabel.setAttribute('opacity', seg(p, .94, 1));
+
+    // On a phone the camera follows the action: bench and vial, then the triple quad, then the computer.
+    if (narrow) {
+      const x = lerp(lerp(40, 325, ease(seg(p, .46, .6))), 480, ease(seg(p, .66, .76)));
+      svg.setAttribute('viewBox', f(x) + ' 0 480 420');
+    }
+
+    const k = p < .36 ? 0 : p < .7 ? 1 : 2;
+    steps.forEach((el, i) => el.classList.toggle('on', i === k));
+    track.forEach((el, i) => {
+      el.classList.toggle('on', i === k);
+      el.style.setProperty('--fill', seg(p, phases[i][0], phases[i][1]).toFixed(3));
+    });
+    loop();
+  }
+
+  function measure() {
+    const r = document.documentElement.style;
+    if (nav) r.setProperty('--nav-h', nav.offsetHeight + 'px');
+    const n = !reduce && lab.clientWidth < 600;
+    if (n !== narrow) { narrow = n; if (!narrow) svg.setAttribute('viewBox', '0 0 960 420'); }
+    lab.style.setProperty('--lab-fig-h', fig.offsetHeight + 'px');
+  }
+  function progress() {
+    const r = lab.getBoundingClientRect();
+    const top = parseFloat(getComputedStyle(fig).top) || 0;
+    const range = r.height - fig.offsetHeight;
+    return range > 0 ? clamp((top - r.top) / range) : 1;
+  }
+  function update() { ticking = false; p = progress(); render(); }
+  function request() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+
+  if (reduce) { p = 1; render(); return; }
+  lab.classList.add('live');
+  measure();
+  new IntersectionObserver((entries) => { visible = entries[0].isIntersecting; loop(); }).observe(fig);
+  new ResizeObserver(() => { measure(); request(); }).observe(fig);
+  addEventListener('scroll', request, { passive: true });
+  addEventListener('resize', () => { measure(); request(); });
+  update();
+})();
+</script>
 </body>
 </html>
