@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lifting posture wearable · Mahak Punjabi</title>
+<meta name="description" content="Mahak Punjabi's wearable EMG, IMU and flex-sensor system that detects unsafe lifting posture in real time and vibrates so the wearer can correct it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../css/site.css">
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="../">Mahak Punjabi</a>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="../#projects" aria-current="page">Projects</a></li>
+        <li><a href="../#skills">Skills</a></li>
+        <li><a href="../#leadership">Leadership</a></li>
+        <li><a href="../#about">About</a></li>
+        <li><a href="../#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <header class="cs-head">
+    <a class="back" href="../#projects">All projects</a>
+    <p class="eyebrow"><span class="kind eng">Engineering</span><span class="label">Biomedical Engineering Laboratory, USF · Course project</span></p>
+    <h1>Wearable Device for Real-Time Lifting Posture Correction</h1>
+    <p class="summary">A wearable that reads back-muscle activity, spine bend and trunk angle, and vibrates the moment a lift turns unsafe, so the wearer can fix their form before it leads to an injury.</p>
+    <dl class="cs-meta">
+      <div><dt>Role</dt><dd>Prototyping, test protocols and data analysis</dd></div>
+      <div><dt>Team</dt><dd>Team of 3</dd></div>
+      <div><dt>When</dt><dd>Spring 2025</dd></div>
+      <div><dt>Tools</dt><dd>Arduino, EMG, IMU and flex sensors, MATLAB</dd></div>
+    </dl>
+  </header>
+
+  <div class="cs-body">
+    <section class="cs-sec" aria-labelledby="s-overview">
+      <h2 id="s-overview"><span class="n">01</span>Overview</h2>
+      <div class="txt">
+        <p>Lifting injuries are one of the most common causes of back pain, at work and in everyday life. Lifting with a rounded back puts extra strain on the spine and the muscles of the lower back, and most people get no warning that their form has slipped until something hurts.</p>
+        <p>EMG measures the electrical activity of muscles, which shows how hard they are working. IMUs and flex sensors track posture and how the body is oriented. Put together in something wearable, they can catch a bad lift while it is happening.</p>
+      </div>
+    </section>
+
+    <section class="cs-sec" aria-labelledby="s-objective">
+      <h2 id="s-objective"><span class="n">02</span>Objective</h2>
+      <div class="txt">
+        <p>Build a low-cost wearable that detects improper lifting posture from muscle activity and back angle, and alerts the wearer with a vibration in real time.</p>
+        <p>Our hypothesis: if EMG and IMU data can pick out an improper lift, and the wearer feels a vibration right away, they will be alerted early enough to correct their posture and avoid an injury.</p>
+      </div>
+    </section>
+
+    <section class="cs-sec" aria-labelledby="s-role">
+      <h2 id="s-role"><span class="n">03</span>My contribution</h2>
+      <div class="txt">
+        <ul>
+          <li>Designed and prototyped the wearable, combining EMG, IMU and flex sensors with an Arduino.</li>
+          <li>Developed the test protocols and validated the prototype across more than 45 lifting trials.</li>
+          <li>Built a MATLAB classification pipeline that sorts safe lifts from unsafe ones.</li>
+          <li>Analyzed the results to guide design changes between prototype iterations.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="cs-sec" aria-labelledby="s-design">
+      <h2 id="s-design"><span class="n">04</span>Design process</h2>
+      <div class="txt">
+        <p>The device has three jobs: sense the lift, decide whether it is safe, and tell the wearer right away. Sensors on the back feed an Arduino, which checks the readings against limits for a safe lift and switches on a vibration motor when the form breaks down. Scroll through one session below.</p>
+      </div>
+      <div class="scene" id="lift" style="--run:240vh">
+        <figure class="scene-fig">
+          <svg class="scene-svg" viewBox="0 0 960 420" role="img" aria-labelledby="lift-title lift-desc">
+                    <title id="lift-title">Catching an unsafe lift</title>
+                    <desc id="lift-desc">A person wears a harness with EMG electrodes on the lower back, a flex sensor along the spine, an IMU and a vibration motor on the upper back, and an Arduino on the belt. When they bend at the waist to reach a box, the signals on a live monitor cross their limits, the lift is flagged as unsafe and the motor vibrates, so they straighten up. They squat with a straight back and lift the box with every signal under its limit. Finally the recorded trials appear as points on a plot, split into safe and unsafe lifts by a classifier.</desc>
+                    <defs>
+                      <clipPath id="lf-c-flex"><rect id="lf-cr-flex" x="474" y="170" width="432" height="26.4"/></clipPath>
+                      <clipPath id="lf-c-imu"><rect id="lf-cr-imu" x="474" y="246" width="432" height="22"/></clipPath>
+                    </defs>
+
+                    <rect class="s-bench" x="0" y="396" width="960" height="12"/>
+                    <line class="s-edge" x1="0" y1="396" x2="960" y2="396"/>
+
+                    <g id="lf-stage">
+                      <g class="lf-far">
+                        <path id="lf-legF-o" class="lf-o" d="M181,383 L181,301 L181,217" stroke-width="32"/>
+                        <path id="lf-legF" class="lf-f" d="M181,383 L181,301 L181,217" stroke-width="28"/>
+                        <path id="lf-footF-o" class="lf-o" d="M175,389 L207,389" stroke-width="16"/>
+                        <path id="lf-footF" class="lf-f" d="M175,389 L207,389" stroke-width="12"/>
+                        <path id="lf-armF-o" class="lf-o" d="M187,111 L173.4,173.5 L194,232" stroke-width="22"/>
+                        <path id="lf-armF" class="lf-f" d="M187,111 L173.4,173.5 L194,232" stroke-width="18"/>
+                        <circle id="lf-handF" class="lf-hand" cx="194" cy="232" r="10"/>
+                      </g>
+                      <g id="lf-box">
+                        <rect class="lf-box" x="260" y="324" width="80" height="72" rx="3"/>
+                        <line class="lf-seam" x1="260" y1="336" x2="340" y2="336"/>
+                        <rect class="lf-slot" x="278" y="342" width="24" height="7" rx="3.5"/>
+                      </g>
+                      <path id="lf-leg-o" class="lf-o" d="M190,383 L190,301 L190,217" stroke-width="32"/>
+                      <path id="lf-leg" class="lf-f" d="M190,383 L190,301 L190,217" stroke-width="28"/>
+                      <path id="lf-foot-o" class="lf-o" d="M184,389 L216,389" stroke-width="16"/>
+                      <path id="lf-foot" class="lf-f" d="M184,389 L216,389" stroke-width="12"/>
+                      <path id="lf-neck-o" class="lf-o" d="M190,111 L195,75" stroke-width="22"/>
+                      <path id="lf-neck" class="lf-f" d="M190,111 L195,75" stroke-width="18"/>
+                      <path id="lf-torso-o" class="lf-o" d="M190,217 L190,167 L190,111" stroke-width="54"/>
+                      <path id="lf-torso" class="lf-f" d="M190,217 L190,167 L190,111" stroke-width="50"/>
+                      <line id="lf-belt" class="lf-strap" x1="165" y1="203" x2="215" y2="203" stroke-width="10"/>
+                      <line id="lf-chest" class="lf-strap" x1="165" y1="145" x2="215" y2="145" stroke-width="7"/>
+                      <path id="lf-flex" class="lf-flex" d="M164,197 Q164,167 164,125"/>
+                      <circle id="lf-emg1" class="lf-emg" cx="173" cy="187" r="4.5"/>
+                      <circle id="lf-emg2" class="lf-emg" cx="173" cy="175" r="4.5"/>
+                      <g id="lf-mot" transform="translate(173,157)">
+                        <circle class="lf-rip" r="12"/>
+                        <circle class="lf-rip" r="12"/>
+                        <circle class="lf-rip" r="12"/>
+                        <circle class="lf-motor" r="6.5"/>
+                      </g>
+                      <rect id="lf-imu" class="lf-imu" x="164" y="127.5" width="16" height="11" rx="2"/>
+                      <g id="lf-ard" transform="translate(161,203)">
+                        <rect class="lf-ard" x="-8" y="-11" width="16" height="22" rx="2"/>
+                        <circle id="lf-ard-led" class="lf-ard-led" cy="-5" r="2.6"/>
+                      </g>
+                      <path id="lf-arm-o" class="lf-o" d="M190,111 L180.2,174.2 L200,233" stroke-width="22"/>
+                      <path id="lf-arm" class="lf-f" d="M190,111 L180.2,174.2 L200,233" stroke-width="18"/>
+                      <circle id="lf-hand" class="lf-hand" cx="200" cy="233" r="10"/>
+                      <circle id="lf-head" class="lf-head" cx="195" cy="75" r="22"/>
+                      <circle id="lf-eye" class="lf-eye" cx="204" cy="72" r="2.4"/>
+
+                      <g id="lf-callouts">
+                        <g class="lf-call-imu">
+                          <path class="lf-lead imu" d="M134,80 L172,133"/>
+                          <text class="lf-call-t" x="128" y="84" text-anchor="end">IMU<tspan class="lf-call-s" x="128" dy="14">trunk angle</tspan></text>
+                        </g>
+                        <g class="lf-call-mot">
+                          <path class="lf-lead mot" d="M134,116 L173,157"/>
+                          <text class="lf-call-t" x="128" y="120" text-anchor="end">vibration<tspan class="lf-call-s" x="128" dy="14">motor</tspan></text>
+                        </g>
+                        <g class="lf-call-flex">
+                          <path class="lf-lead flex" d="M134,152 L164,165"/>
+                          <text class="lf-call-t" x="128" y="156" text-anchor="end">flex sensor<tspan class="lf-call-s" x="128" dy="14">spine bend</tspan></text>
+                        </g>
+                        <g class="lf-call-emg">
+                          <path class="lf-lead emg" d="M134,188 L173,181"/>
+                          <text class="lf-call-t" x="128" y="192" text-anchor="end">EMG<tspan class="lf-call-s" x="128" dy="14">lower back</tspan></text>
+                        </g>
+                        <g class="lf-call-ard">
+                          <path class="lf-lead ard" d="M134,224 L161,203"/>
+                          <text class="lf-call-t" x="128" y="228" text-anchor="end">Arduino<tspan class="lf-call-s" x="128" dy="14">on the belt</tspan></text>
+                        </g>
+                      </g>
+                    </g>
+
+                    <g id="lf-mon">
+                      <rect id="lf-bezel" class="s-bezel" x="452" y="30" width="476" height="288" rx="8"/>
+                      <rect id="lf-screen" class="s-screen" x="462" y="40" width="456" height="268" rx="3"/>
+                      <circle id="lf-live" class="s-led on" cx="482" cy="60" r="4"/>
+                      <text id="lf-hd" class="lf-hd" x="494" y="64">live sensor data</text>
+                      <g id="lf-chip" class="lf-chip ok">
+                        <rect id="lf-chip-r" x="798" y="49" width="104" height="22" rx="11"/>
+                        <text id="lf-chip-t" x="850" y="64" text-anchor="middle">posture ok</text>
+                      </g>
+                      <g id="lf-traces">
+                          <text id="lf-l-emg" class="lf-ch emg" x="478" y="90">EMG · lower back</text>
+                          <line id="lf-b-emg" class="lf-base" x1="478" y1="142" x2="902" y2="142"/>
+                          <path id="lf-t-emg" class="lf-tr emg" d="M478,120"/>
+                          <circle id="lf-p-emg" class="lf-pen emg" cx="478" cy="120" r="3.5"/>
+                          <text id="lf-l-flex" class="lf-ch flex" x="478" y="166">FLEX · spine bend</text>
+                          <line id="lf-b-flex" class="lf-base" x1="478" y1="218" x2="902" y2="218"/>
+                          <line id="lf-lim-flex" class="lf-lim" x1="478" y1="196.4" x2="902" y2="196.4"/>
+                          <text id="lf-limt-flex" class="lf-limt" x="902" y="192.4" text-anchor="end">limit</text>
+                          <path id="lf-t-flex" class="lf-tr flex" d="M478,216"/>
+                          <path id="lf-h-flex" class="lf-tr hot" d="M478,216" clip-path="url(#lf-c-flex)"/>
+                          <circle id="lf-p-flex" class="lf-pen flex" cx="478" cy="216" r="3.5"/>
+                          <text id="lf-l-imu" class="lf-ch imu" x="478" y="242">IMU · trunk angle</text>
+                          <line id="lf-b-imu" class="lf-base" x1="478" y1="294" x2="902" y2="294"/>
+                          <line id="lf-lim-imu" class="lf-lim" x1="478" y1="268" x2="902" y2="268"/>
+                          <text id="lf-limt-imu" class="lf-limt" x="902" y="264" text-anchor="end">limit</text>
+                          <path id="lf-t-imu" class="lf-tr imu" d="M478,292"/>
+                          <path id="lf-h-imu" class="lf-tr hot" d="M478,292" clip-path="url(#lf-c-imu)"/>
+                          <circle id="lf-p-imu" class="lf-pen imu" cx="478" cy="292" r="3.5"/>
+                      </g>
+                      <g id="lf-plot" opacity="0">
+                        <path id="lf-ax" class="lf-ax" d="M508,90 V266 H904"/>
+                        <text id="lf-axx" class="lf-axt" x="904" y="286" text-anchor="end">spine bend →</text>
+                        <text id="lf-note" class="lf-note" x="508" y="286">illustration, not trial data</text>
+                        <text id="lf-axy" class="lf-axt" x="496" y="90" text-anchor="end" transform="rotate(-90 496 90)">trunk angle →</text>
+                        <path id="lf-bound" class="lf-bound" d="M531.4,107.9 L874.6,257.5" pathLength="1"/>
+                        <g id="lf-dots" class="lf-dots">
+                            <path class="u" d="M810.4,126.1 l5.5,5.5 -5.5,5.5 -5.5,-5.5 z" data-u="0.775,0.791" opacity="0"/>
+                            <path class="u" d="M815.6,134.7 l5.5,5.5 -5.5,5.5 -5.5,-5.5 z" data-u="0.789,0.740" opacity="0"/>
+                            <circle class="s" cx="575.1" cy="214.8" r="4.5" data-u="0.172,0.301" opacity="0"/>
+                            <path class="u" d="M826.9,116.8 l5.5,5.5 -5.5,5.5 -5.5,-5.5 z" data-u="0.818,0.845" opacity="0"/>
+                            <path class="u" d="M795.9,144.9 l5.5,5.5 -5.5,5.5 -5.5,-5.5 z" data-u="0.738,0.680" opacity="0"/>
+                            <circle class="s" cx="633" cy="210.3" r="4.5" data-u="0.321,0.327" opacity="0"/>
+                            <circle class="s" cx="644.3" cy="227.1" r="4.5" data-u="0.349,0.229" opacity="0"/>
+                            <circle class="s" cx="705.8" cy="223.3" r="4.5" data-u="0.507,0.251" opacity="0"/>
+                            <path class="u" d="M675.7,175.5 l5.5,5.5 -5.5,5.5 -5.5,-5.5 z" data-u="0.430,0.500" opacity="0"/>
+                            <path class="u" d="M796,121.6 l5.5,5.5 -5.5,5.5 -5.5,-5.5 z" data-u="0.738,0.817" opacity="0"/>
+                            <circle class="s" cx="624.1" cy="199.7" r="4.5" data-u="0.298,0.390" opacity="0"/>
+                            <path class="u" d="M798.3,118.2 l5.5,5.5 -5.5,5.5 -5.5,-5.5 z" data-u="0.744,0.837" opacity="0"/>
+                            <path class="u" d="M825.9,144.9 l5.5,5.5 -5.5,5.5 -5.5,-5.5 z" data-u="0.815,0.680" opacity="0"/>
+                            <circle class="s" cx="609.2" cy="215.9" r="4.5" data-u="0.260,0.295" opacity="0"/>
+                            <path class="u" d="M794.3,148 l5.5,5.5 -5.5,5.5 -5.5,-5.5 z" data-u="0.734,0.662" opacity="0"/>
+                            <circle class="s" cx="616.2" cy="206.6" r="4.5" data-u="0.277,0.349" opacity="0"/>
+                            <path class="u" d="M827.8,136.8 l5.5,5.5 -5.5,5.5 -5.5,-5.5 z" data-u="0.820,0.728" opacity="0"/>
+                            <circle class="s" cx="550.1" cy="221.3" r="4.5" data-u="0.108,0.263" opacity="0"/>
+                            <path class="u" d="M852.8,141.1 l5.5,5.5 -5.5,5.5 -5.5,-5.5 z" data-u="0.884,0.702" opacity="0"/>
+                            <circle class="s" cx="535.7" cy="206.5" r="4.5" data-u="0.071,0.350" opacity="0"/>
+                            <path class="u" d="M810.8,148.5 l5.5,5.5 -5.5,5.5 -5.5,-5.5 z" data-u="0.776,0.659" opacity="0"/>
+                            <circle class="s" cx="609.5" cy="235.5" r="4.5" data-u="0.260,0.179" opacity="0"/>
+                            <circle class="s" cx="592.1" cy="219.5" r="4.5" data-u="0.216,0.274" opacity="0"/>
+                            <circle class="s" cx="638.4" cy="240.9" r="4.5" data-u="0.334,0.148" opacity="0"/>
+                            <path class="u" d="M749.2,141.4 l5.5,5.5 -5.5,5.5 -5.5,-5.5 z" data-u="0.619,0.700" opacity="0"/>
+                            <circle class="s" cx="601.5" cy="223.1" r="4.5" data-u="0.240,0.253" opacity="0"/>
+                            <circle class="s" cx="594.3" cy="207.1" r="4.5" data-u="0.221,0.346" opacity="0"/>
+                            <path class="u" d="M799.8,131.2 l5.5,5.5 -5.5,5.5 -5.5,-5.5 z" data-u="0.748,0.761" opacity="0"/>
+                            <circle class="s" cx="722.5" cy="175.9" r="4.5" data-u="0.550,0.530" opacity="0"/>
+                            <path class="u" d="M818.7,126.7 l5.5,5.5 -5.5,5.5 -5.5,-5.5 z" data-u="0.797,0.787" opacity="0"/>
+                            <path class="u" d="M858,140.3 l5.5,5.5 -5.5,5.5 -5.5,-5.5 z" data-u="0.897,0.707" opacity="0"/>
+                            <circle class="s" cx="558.1" cy="240.4" r="4.5" data-u="0.128,0.151" opacity="0"/>
+                            <path class="u" d="M861.8,143.3 l5.5,5.5 -5.5,5.5 -5.5,-5.5 z" data-u="0.907,0.689" opacity="0"/>
+                            <circle class="s" cx="734.2" cy="219.2" r="4.5" data-u="0.580,0.275" opacity="0"/>
+                            <circle class="s" cx="601.9" cy="212.1" r="4.5" data-u="0.241,0.317" opacity="0"/>
+                            <circle class="s" cx="557.8" cy="212" r="4.5" data-u="0.128,0.318" opacity="0"/>
+                            <circle class="s" cx="548" cy="218.4" r="4.5" data-u="0.103,0.280" opacity="0"/>
+                            <path class="u" d="M838.1,124.1 l5.5,5.5 -5.5,5.5 -5.5,-5.5 z" data-u="0.846,0.802" opacity="0"/>
+                            <circle class="s" cx="648.3" cy="214.8" r="4.5" data-u="0.360,0.301" opacity="0"/>
+                            <circle class="s" cx="574.9" cy="237.8" r="4.5" data-u="0.172,0.166" opacity="0"/>
+                            <circle class="s" cx="553.7" cy="219.5" r="4.5" data-u="0.117,0.273" opacity="0"/>
+                            <circle class="s" cx="665.3" cy="201.7" r="4.5" data-u="0.403,0.378" opacity="0"/>
+                            <path class="u" d="M811.8,109 l5.5,5.5 -5.5,5.5 -5.5,-5.5 z" data-u="0.779,0.891" opacity="0"/>
+                            <path class="u" d="M761.7,101.4 l5.5,5.5 -5.5,5.5 -5.5,-5.5 z" data-u="0.651,0.936" opacity="0"/>
+                            <path class="u" d="M819.1,122.8 l5.5,5.5 -5.5,5.5 -5.5,-5.5 z" data-u="0.798,0.810" opacity="0"/>
+                        </g>
+                        <g id="lf-key-s" class="lf-key" transform="translate(519.7 140.2)">
+                          <circle class="s" cx="5" cy="0" r="4.5"/>
+                          <text class="lf-axt" x="16" y="4">safe</text>
+                        </g>
+                        <g id="lf-key-u" class="lf-key" transform="translate(519.7 160.2)">
+                          <path class="u" d="M5,-5.5 l5.5,5.5 -5.5,5.5 -5.5,-5.5 z"/>
+                          <text class="lf-axt" x="16" y="4">unsafe</text>
+                        </g>
+                      </g>
+                    </g>
+                  </svg>
+          <figcaption>
+            <ol class="scene-track" aria-hidden="true">
+              <li class="on">Sense</li>
+              <li>Detect</li>
+              <li>Correct</li>
+              <li>Classify</li>
+            </ol>
+            <ol class="scene-steps">
+              <li class="on">
+                <p class="label">01 · Sense</p>
+                <h3>Reading the back</h3>
+                <p>EMG electrodes over the lower back muscles show how hard they are working, a flex sensor along the spine shows how much it bends, and an IMU shows the angle of the trunk. An Arduino on the belt reads all three.</p>
+              </li>
+              <li>
+                <p class="label">02 · Detect</p>
+                <h3>Catching an unsafe lift</h3>
+                <p>Bending at the waist rounds the back. The flex and trunk-angle signals cross their limits, the Arduino flags the lift as unsafe, and the motor vibrates right away, so the wearer straightens up.</p>
+              </li>
+              <li>
+                <p class="label">03 · Correct</p>
+                <h3>Lifting with good form</h3>
+                <p>Squatting with a straight back keeps every signal under its limit, so the lift goes through without an alert.</p>
+              </li>
+              <li>
+                <p class="label">04 · Classify</p>
+                <h3>Sorting the trials</h3>
+                <p>The recorded trials went through a MATLAB classification pipeline that sorted safe lifts from unsafe ones. It was right more than 90% of the time across 45+ trials.</p>
+              </li>
+            </ol>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="figs" style="--n:3">
+        <figure><img class="cover fit white" src="../img/emg-electrodes.png" width="534" height="737" alt="Diagram of a back with EMG electrode sites over the erector spinae and the lower trapezius" loading="lazy"><figcaption>EMG electrode sites on the back</figcaption></figure>
+        <figure><img class="cover fit white" src="../img/emg-circuit.jpg" width="1200" height="800" alt="Wiring diagram of an Arduino Uno connected to EMG electrodes, an IMU, a flex sensor and a vibration motor" loading="lazy"><figcaption>The circuit: the motor runs through a transistor</figcaption></figure>
+        <figure><img class="cover" src="../img/emg-wearable.jpg" width="381" height="575" alt="The device worn on a person's back, with crossed straps holding the sensors" loading="lazy"><figcaption>The final device, worn on the back</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="cs-sec" aria-labelledby="s-testing">
+      <h2 id="s-testing"><span class="n">05</span>Testing &amp; validation</h2>
+      <div class="txt">
+        <p>We tested the device on wearers of different heights in three conditions: standing still, lifting with good form and lifting with bad form. Every trial recorded muscle activity, spine bend and trunk angle. We also compared the raw EMG with a high-pass filtered version, which strips out slow drift in the signal.</p>
+        <p>Bad lifts stood out in all three signals, most clearly in the flex and posture angles, which is what lets the device tell a safe lift from an unsafe one.</p>
+      </div>
+      <figure class="cs-fig">
+        <img src="../img/emg-results.png" width="1400" height="678" alt="Box plots of EMG, flex angle and posture angle for four wearer heights, for standing still, good lifting posture and bad lifting posture. All three are highest for bad lifting posture." loading="lazy">
+        <figcaption>Muscle activity, flex angle and posture angle by wearer height, for each posture. Bad lifts read highest in all three.</figcaption>
+      </figure>
+    </section>
+
+    <section class="cs-sec" aria-labelledby="s-results">
+      <h2 id="s-results"><span class="n">06</span>Results</h2>
+      <div class="stats">
+        <div><b>&gt;90%</b><span>of lifts sorted correctly as safe or unsafe</span></div>
+        <div><b>45+</b><span>lifting trials across wearers and postures</span></div>
+        <div><b>Instant</b><span>vibration the moment the form slips</span></div>
+      </div>
+      <div class="txt">
+        <p>The wearable caught unsafe lifts from muscle activity and back angle, and its vibration let wearers correct their form on the spot. We presented the project as a poster at the USF Biomedical Engineering Laboratory showcase in 2025.</p>
+        <h3>Next steps</h3>
+        <ul>
+          <li>Make it smaller and longer-lasting, with battery optimization and smaller hardware.</li>
+          <li>Personalize the feedback, adding visual and audio alerts alongside vibration.</li>
+          <li>Connect it to physical therapy and workplace health programs.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="cs-sec" aria-labelledby="s-takeaways">
+      <h2 id="s-takeaways"><span class="n">07</span>Key takeaways</h2>
+      <div class="txt">
+        <ul>
+          <li><strong>Feedback has to come during the lift.</strong> A cue in the moment is what lets someone change their form; a report afterward doesn't.</li>
+          <li><strong>No single sensor tells the whole story.</strong> Muscle activity shows effort and the flex sensor and IMU show form, so the device uses all three.</li>
+          <li><strong>Test on more than one body.</strong> The same lift reads differently on people of different heights, so the limits have to hold up across wearers.</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <nav class="cs-next" aria-label="More projects">
+    <a href="lean-six-sigma.html"><span class="label">Previous project</span><strong>Lean Six Sigma DMAIC Process Improvement</strong></a>
+    <a class="next" href="auditory-circuits.html"><span class="label">Next project</span><strong>3D Reconstruction of Developing Auditory Neural Circuits</strong></a>
+  </nav>
+</main>
+
+<div class="contact" id="contact">
+  <div class="wrap">
+    <div>
+      <p class="label">Contact</p>
+      <h2 style="margin-top:8px">Let's work together.</h2>
+      <p>I'm open to roles in medical device R&amp;D, manufacturing and process engineering, and to research in biomaterials and tissue engineering.</p>
+    </div>
+    <div class="links">
+      <a class="addr" href="mailto:mahakp46@gmail.com" style="color:inherit">mahakp46@gmail.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/mahak-punjabi/" target="_blank" rel="noopener">linkedin.com/in/mahak-punjabi</a>
+    </div>
+  </div>
+</div>
+<footer class="wrap">© 2026 Mahak Punjabi · Tampa, Florida</footer>
+<script src="../js/site.js"></script>
+<script src="../js/scene.js"></script>
+<script>
+/* Lifting scene: the sensors, an unsafe lift caught by the live signals, a safe lift, then the trials sorted by a classifier. */
+(() => {
+  const root = document.getElementById('lift');
+  if (!root || !window.scrollScene) return;
+  const { clamp, seg, ease, lerp, f } = scrollScene.util;
+  const q = (id) => document.getElementById(id);
+  const op = (el, v) => el.setAttribute('opacity', clamp(v).toFixed(3));
+  const set = (el, a) => { for (const k in a) el.setAttribute(k, a[k]); };
+  const pt = (a) => f(a[0]) + ',' + f(a[1]);
+
+  // The figure, side on and facing right: the ankle stays put, and each pose is a set of angles
+  // from vertical (shank, thigh, lower back, extra bend of the upper back, head), forward positive.
+  const A = [190, 383], LS = 82, LT = 84, L1 = 50, L2 = 56, UA = 64, FA = 62, R = 25;
+  const rad = (d) => d * Math.PI / 180;
+  const dv = (d) => [Math.sin(rad(d)), -Math.cos(rad(d))];
+  const nb = (d) => [-Math.cos(rad(d)), -Math.sin(rad(d))];
+  const ad = (p, v, k = 1) => [p[0] + v[0] * k, p[1] + v[1] * k];
+  const STAND = [0, 0, 0, 0, 0], STOOP = [14, -26, 60, 40, -40], SQUAT = [48, -84, 32, 0, -14];
+  function poseAt(p) {
+    let a = STAND, b = STAND, u = 0;
+    if (p < .41) { b = STOOP; u = ease(seg(p, .27, .36)); }
+    else if (p < .5) { a = STOOP; u = ease(seg(p, .41, .48)); }
+    else if (p < .62) { b = SQUAT; u = ease(seg(p, .52, .6)); }
+    else { a = SQUAT; u = ease(seg(p, .62, .71)); }
+    return a.map((v, i) => lerp(v, b[i], u));
+  }
+  function joints([s, t, k1, b, h]) {
+    const K = ad(A, dv(s), LS), H = ad(K, dv(t), LT), M = ad(H, dv(k1), L1), S = ad(M, dv(k1 + b), L2);
+    return { K, H, M, S, C: ad(ad(S, nb(k1 + b), -5), dv(k1 + b + h), 36) };
+  }
+  // Two-link arm reaching for T, elbow behind.
+  function ik(S, T) {
+    const dx = T[0] - S[0], dy = T[1] - S[1];
+    const D = Math.min(Math.max(Math.hypot(dx, dy), Math.abs(UA - FA) + 1), UA + FA - .5);
+    const ph = Math.atan2(dy, dx), al = Math.acos((UA * UA + D * D - FA * FA) / (2 * UA * D));
+    return [[S[0] + UA * Math.cos(ph + al), S[1] + UA * Math.sin(ph + al)], [S[0] + D * Math.cos(ph), S[1] + D * Math.sin(ph)]];
+  }
+
+  // What the sensors read: spine bend (flex), trunk angle (IMU) and back-muscle effort (EMG), each 0..1.
+  const FLEX_LIM = .49, IMU_LIM = .6, END = .74, N = 200;
+  function signals(p) {
+    const [, , k1, b] = poseAt(p), trunk = k1 + b;
+    return { flex: b / 45, imu: trunk / 100, emg: .1 + .8 * Math.pow(Math.sin(rad(Math.min(trunk, 90))), 1.2) + .15 * seg(p, .6, .62) };
+  }
+  const unsafe = (s) => s.flex > FLEX_LIM || s.imu > IMU_LIM;
+  const rn = (i) => { const x = Math.sin(i * 127.1 + 311.7) * 43758.5453; return (x - Math.floor(x)) * 2 - 1; };
+  const samples = [];
+  for (let i = 0; i < N; i++) { const s = signals(END * i / (N - 1)); s.n = .65 * rn(i) + .35 * rn(i + 500); samples.push(s); }
+
+  const parts = {};
+  ['legF', 'armF', 'leg', 'neck', 'torso', 'arm'].forEach((k) => { parts[k] = [q('lf-' + k + '-o'), q('lf-' + k)]; });
+  const draw = (k, d) => parts[k].forEach((el) => el.setAttribute('d', d));
+  const handF = q('lf-handF'), hand = q('lf-hand'), head = q('lf-head'), eye = q('lf-eye'), box = q('lf-box');
+  const belt = q('lf-belt'), chest = q('lf-chest'), flex = q('lf-flex'), emg1 = q('lf-emg1'), emg2 = q('lf-emg2');
+  const mot = q('lf-mot'), imu = q('lf-imu'), ard = q('lf-ard');
+  const callouts = ['imu', 'mot', 'flex', 'emg', 'ard'].map((k) => root.querySelector('.lf-call-' + k));
+  const hd = q('lf-hd'), chip = q('lf-chip'), chipT = q('lf-chip-t'), traceG = q('lf-traces'), plot = q('lf-plot');
+  const chans = ['emg', 'flex', 'imu'].map((c, i) => ({ c, i, t: q('lf-t-' + c), h: q('lf-h-' + c), pen: q('lf-p-' + c) }));
+  const dotG = q('lf-dots'), bound = q('lf-bound'), keyS = q('lf-key-s'), keyU = q('lf-key-u');
+  const dots = [...dotG.children].map((el) => ({ el, round: el.tagName === 'circle', u: el.dataset.u.split(',').map(Number) }));
+
+  // The monitor sits right of the figure; on a phone both squeeze into the camera's 600-wide view.
+  let L = null, layout = '';
+  function place(narrow) {
+    if (layout === String(narrow)) return;
+    layout = String(narrow);
+    root.classList.toggle('narrow', narrow);
+    const X = narrow ? 318 : 452, W = narrow ? 274 : 476, pad = narrow ? 16 : 26;
+    L = { narrow, x0: X + pad, x1: X + W - pad, px0: X + (narrow ? 46 : 56), px1: X + W - (narrow ? 18 : 30), py0: 96, py1: 266 };
+    q('lf-stage').setAttribute('transform', narrow ? 'translate(-40 0)' : 'translate(0 0)');
+    set(q('lf-bezel'), { x: X, width: W });
+    set(q('lf-screen'), { x: X + 10, width: W - 20 });
+    set(q('lf-live'), { cx: L.x0 + 4 });
+    set(hd, { x: L.x0 + 16, y: narrow ? 66 : 64 });
+    const cw = narrow ? 128 : 104, ch = narrow ? 26 : 22;
+    set(q('lf-chip-r'), { x: L.x1 - cw, y: narrow ? 47 : 49, width: cw, height: ch, rx: ch / 2 });
+    set(chipT, { x: L.x1 - cw / 2, y: narrow ? 65 : 64 });
+    chans.forEach(({ c, i }) => {
+      set(q('lf-l-' + c), { x: L.x0, y: 78 + 76 * i + (narrow ? 14 : 12) });
+      set(q('lf-b-' + c), { x1: L.x0, x2: L.x1 });
+      if (c === 'emg') return;
+      set(q('lf-lim-' + c), { x1: L.x0, x2: L.x1 });
+      set(q('lf-limt-' + c), { x: L.x1 });
+      set(q('lf-cr-' + c), { x: L.x0 - 4, width: L.x1 - L.x0 + 8 });
+    });
+    const { px0, px1, py0, py1 } = L, P = (u) => [px0 + u[0] * (px1 - px0), py1 - u[1] * (py1 - py0)];
+    q('lf-ax').setAttribute('d', 'M' + px0 + ',' + (py0 - 6) + ' V' + py1 + ' H' + (px1 + 6));
+    set(q('lf-axx'), { x: px1 + 6, y: py1 + 20 });
+    set(q('lf-axy'), { x: px0 - 12, y: py0 - 6, transform: 'rotate(-90 ' + (px0 - 12) + ' ' + (py0 - 6) + ')' });
+    set(q('lf-note'), { x: narrow ? L.x0 : px0, y: narrow ? py1 + 36 : py1 + 20 });
+    bound.setAttribute('d', 'M' + pt(P([.06, .93])) + ' L' + pt(P([.94, .05])));
+    // The key sits in the empty corner of the plot, or under it on a phone.
+    const k = narrow ? [L.x0 + 4, py1 + 16] : P([.03, .74]);
+    keyS.setAttribute('transform', 'translate(' + pt(k) + ')');
+    keyU.setAttribute('transform', 'translate(' + pt(narrow ? [k[0] + 62, k[1]] : [k[0], k[1] + 20]) + ')');
+    dots.forEach((d) => {
+      const [x, y] = P(d.u);
+      if (d.round) set(d.el, { cx: f(x), cy: f(y) });
+      else d.el.setAttribute('d', 'M' + f(x) + ',' + f(y - 5.5) + ' l5.5,5.5 -5.5,5.5 -5.5,-5.5 z');
+    });
+  }
+
+  const REST = [290, 334];  // where the near hand grips the box on the floor
+  const S0 = joints(SQUAT).S, V0 = [REST[0] - S0[0], REST[1] - S0[1]], V1 = [58, 99];
+
+  scrollScene(root, {
+    stops: [0, .25, .5, .75, 1],
+    camera: () => '0 0 600 420',
+    render(p, state) {
+      place(state.narrow);
+
+      // 01 Sense: the parts are named one at a time.
+      callouts.forEach((g, i) => op(g, seg(p, .03 + .04 * i, .05 + .04 * i) * (1 - seg(p, .24, .27))));
+
+      // The body: 02 bend at the waist and straighten, 03 squat, grip the box and stand up with it.
+      const ps = poseAt(p), { K, H, M, S, C } = joints(ps), th1 = ps[2], th2 = ps[2] + ps[3], thH = th2 + ps[4];
+      const leg = (dx) => 'M' + f(A[0] + dx) + ',' + A[1] + ' L' + f(K[0] + dx) + ',' + f(K[1]) + ' L' + f(H[0] + dx) + ',' + f(H[1]);
+      draw('legF', leg(-9)); draw('leg', leg(0));
+      draw('torso', 'M' + pt(H) + ' L' + pt(M) + ' L' + pt(S));
+      draw('neck', 'M' + pt(S) + ' L' + pt(C));
+      set(head, { cx: f(C[0]), cy: f(C[1]) });
+      const up = dv(thH), fw = [-nb(thH)[0], -nb(thH)[1]];
+      set(eye, { cx: f(C[0] + fw[0] * 9 + up[0] * 3), cy: f(C[1] + fw[1] * 9 + up[1] * 3) });
+
+      let grip = REST, reach = 0, lift = [0, 0];
+      if (p < .5) reach = ease(seg(p, .29, .36)) * (1 - ease(seg(p, .41, .46)));
+      else if (p < .62) reach = ease(seg(p, .53, .6));
+      else {
+        const u = ease(seg(p, .62, .71));
+        reach = 1;
+        grip = ad(S, [lerp(V0[0], V1[0], u), lerp(V0[1], V1[1], u)]);
+        lift = [grip[0] - REST[0], grip[1] - REST[1]];
+      }
+      box.setAttribute('transform', 'translate(' + pt(lift) + ')');
+      const hang = ad(S, [10, 122]);
+      const [E, Wn] = ik(S, [lerp(hang[0], grip[0], reach), lerp(hang[1], grip[1], reach)]);
+      draw('arm', 'M' + pt(S) + ' L' + pt(E) + ' L' + pt(Wn));
+      set(hand, { cx: f(Wn[0]), cy: f(Wn[1]) });
+      const Sf = ad(S, [-3, 0]);
+      const [Ef, Wf] = ik(Sf, [lerp(hang[0] - 6, grip[0] + 6, reach), lerp(hang[1] - 1, grip[1] - 3, reach)]);
+      draw('armF', 'M' + pt(Sf) + ' L' + pt(Ef) + ' L' + pt(Wf));
+      set(handF, { cx: f(Wf[0]), cy: f(Wf[1]) });
+
+      // The wearable rides on the torso: belt and chest strap, flex strip on the spine, pads, IMU, motor, Arduino.
+      const d1 = dv(th1), n1 = nb(th1), d2 = dv(th2), n2 = nb(th2);
+      const nl = Math.hypot(n1[0] + n2[0], n1[1] + n2[1]), na = [(n1[0] + n2[0]) / nl, (n1[1] + n2[1]) / nl];
+      const Bc = ad(H, d1, 14), Cc = ad(M, d2, 22);
+      const strap = (el, c, n) => { const a = ad(c, n, R), b = ad(c, n, -R); set(el, { x1: f(a[0]), y1: f(a[1]), x2: f(b[0]), y2: f(b[1]) }); };
+      strap(belt, Bc, n1); strap(chest, Cc, n2);
+      flex.setAttribute('d', 'M' + pt(ad(ad(H, d1, 20), n1, R + 1)) + ' Q' + pt(ad(M, na, R + 1)) + ' ' + pt(ad(ad(M, d2, 42), n2, R + 1)));
+      const e1 = ad(ad(H, d1, 30), n1, R - 8), e2 = ad(ad(H, d1, 42), n1, R - 8);
+      set(emg1, { cx: f(e1[0]), cy: f(e1[1]) }); set(emg2, { cx: f(e2[0]), cy: f(e2[1]) });
+      mot.setAttribute('transform', 'translate(' + pt(ad(ad(M, d2, 10), n2, R - 8)) + ')');
+      const ic = ad(ad(M, d2, 34), n2, R - 7);
+      set(imu, { x: f(ic[0] - 8), y: f(ic[1] - 5.5), transform: 'rotate(' + f(th2) + ' ' + pt(ic) + ')' });
+      ard.setAttribute('transform', 'translate(' + pt(ad(Bc, n1, R + 4)) + ') rotate(' + f(th1) + ')');
+
+      // The live monitor records the session; an unsafe reading turns the Arduino's light red and sets off the motor.
+      const bad = p < END && unsafe(signals(p));
+      root.classList.toggle('unsafe', bad);
+      mot.classList.toggle('buzz', bad);
+      const n = Math.max(1, Math.min(N, Math.floor(clamp(p / END) * (N - 1)) + 1));
+      chans.forEach(({ c, i, t, h, pen }) => {
+        const top = 78 + 76 * i, base = top + 64;
+        let d = '', x = 0, y = 0;
+        for (let j = 0; j < n; j++) {
+          const s = samples[j];
+          x = L.x0 + (L.x1 - L.x0) * j / (N - 1);
+          y = c === 'emg' ? top + 42 - s.emg * s.n * 20 : base - 2 - s[c] * 40;
+          d += (j ? ' L' : 'M') + f(x) + ',' + f(y);
+        }
+        t.setAttribute('d', d);
+        if (h) h.setAttribute('d', d);
+        set(pen, { cx: f(x), cy: f(y) });
+      });
+      op(traceG, 1 - seg(p, .75, .78));
+
+      // 04 Classify: the recorded trials land as points, a boundary splits them, and they take their class colors.
+      op(plot, seg(p, .77, .8));
+      dots.forEach((d, i) => { const t0 = .8 + .1 * i / dots.length; op(d.el, seg(p, t0, t0 + .006)); });
+      bound.style.strokeDashoffset = 1 - ease(seg(p, .9, .93));
+      dotG.classList.toggle('cls', p >= .93);
+      op(keyS, seg(p, .93, .95)); op(keyU, seg(p, .93, .95));
+      const s4 = p >= .76;
+      hd.textContent = s4 ? (L.narrow ? 'trials' : 'recorded trials') : L.narrow ? 'live data' : 'live sensor data';
+      chip.setAttribute('class', 'lf-chip ' + (s4 ? (p >= .95 ? 'ok' : 'idle') : bad ? 'bad' : 'ok'));
+      chipT.textContent = s4 ? (p >= .95 ? '> 90% correct' : 'sorting') : bad ? 'unsafe lift' : 'posture ok';
+    },
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sustained-release drug delivery · Mahak Punjabi</title>
+<meta name="description" content="How Mahak Punjabi characterized a sustained-release drug delivery system for nerve repair at Axogen, and the mass spectrometry stability work behind it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../css/site.css">
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="../">Mahak Punjabi</a>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="../#projects" aria-current="page">Projects</a></li>
+        <li><a href="../#skills">Skills</a></li>
+        <li><a href="../#leadership">Leadership</a></li>
+        <li><a href="../#about">About</a></li>
+        <li><a href="../#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <header class="cs-head">
+    <a class="back" href="../#projects">All projects</a>
+    <p class="eyebrow"><span class="kind">Research</span><span class="label">Axogen, Inc. · Research &amp; development</span></p>
+    <h1>Sustained-Release Drug Delivery for Neural Regeneration</h1>
+    <p class="summary">Nerves heal slowly, so a drug that helps them regrow has to keep working for weeks. I helped characterize a polymer system that releases its drug gradually, and used mass spectrometry to show how long that drug stays stable.</p>
+    <dl class="cs-meta">
+      <div><dt>Role</dt><dd>Research &amp; development intern</dd></div>
+      <div><dt>Where</dt><dd>Axogen, Inc., Tampa</dd></div>
+      <div><dt>When</dt><dd>2024 – 2026</dd></div>
+      <div><dt>Methods</dt><dd>Release testing, tensile testing, <span class="nw">LC-MS/MS</span>, Python</dd></div>
+    </dl>
+    <p class="note">This is proprietary industry research, so this page stays general. It describes methods and outcomes, not formulations or data, and the drawings are illustrations rather than Axogen images.</p>
+  </header>
+
+  <div class="cs-body">
+    <section class="cs-sec" aria-labelledby="s-overview">
+      <h2 id="s-overview"><span class="n">01</span>Overview</h2>
+      <div class="txt">
+        <p>When a peripheral nerve is injured, it regrows slowly, often around a millimeter a day, so recovery can take months. A drug that supports regeneration would need to be at the repair site for much of that time, and a single dose wears off long before the nerve has healed.</p>
+        <p>Axogen develops products for peripheral nerve repair. During my internship I worked on a polymer-based system designed to hold a drug and release it gradually, along with the testing that shows whether it works and how long it lasts.</p>
+      </div>
+    </section>
+
+    <section class="cs-sec" aria-labelledby="s-objective">
+      <h2 id="s-objective"><span class="n">02</span>Objective</h2>
+      <div class="txt">
+        <p>Two questions ran through the work. Does the system release its drug at a steady, predictable rate? And does the drug stay intact in storage long enough for the product to be useful?</p>
+      </div>
+    </section>
+
+    <section class="cs-sec" aria-labelledby="s-role">
+      <h2 id="s-role"><span class="n">03</span>My contribution</h2>
+      <div class="txt">
+        <ul>
+          <li>Characterized the sustained-release system: how much drug it holds, how fast the drug comes out, and how the polymer holds up under tension.</li>
+          <li>Ran a six-month stability study comparing storage conditions.</li>
+          <li>Prepared samples for LC-MS/MS and analyzed thousands of results in Python and Excel.</li>
+          <li>Ran neurite outgrowth assays on dorsal root ganglion neurons to see how compounds affect nerve growth.</li>
+          <li>Wrote and revised more than 15 SOPs so every analyst prepared and tested samples the same way.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="cs-sec" aria-labelledby="s-design">
+      <h2 id="s-design"><span class="n">04</span>Design process</h2>
+      <div class="txt">
+        <p>The drug is held inside a polymer matrix. Instead of dissolving all at once, it diffuses out over time, and the way the polymer is processed changes how fast that happens.</p>
+      </div>
+      <figure class="cs-fig">
+        <svg class="diagram reveal" viewBox="0 0 960 330" role="img" aria-labelledby="rel-title rel-desc">
+          <title id="rel-title">How sustained release works</title>
+          <desc id="rel-desc">Schematic: drug particles inside a polymer matrix diffuse out into the surrounding fluid. A chart of drug released over time shows a burst release rising quickly and leveling off, and a sustained release rising gradually.</desc>
+          <defs><clipPath id="rel-clip"><rect x="120" y="100" width="220" height="130" rx="22"/></clipPath></defs>
+          <rect class="d-medium" x="40" y="40" width="380" height="250" rx="16"/>
+          <text class="s-tag" x="60" y="66">release medium</text>
+          <rect class="s-part" x="120" y="100" width="220" height="130" rx="22"/>
+          <g clip-path="url(#rel-clip)">
+            <path class="d-chain" d="M100,124 q15,-10 30,0 t30,0 t30,0 t30,0 t30,0 t30,0 t30,0 t30,0 M85,150 q15,-10 30,0 t30,0 t30,0 t30,0 t30,0 t30,0 t30,0 t30,0 t30,0 M100,176 q15,-10 30,0 t30,0 t30,0 t30,0 t30,0 t30,0 t30,0 t30,0 M85,202 q15,-10 30,0 t30,0 t30,0 t30,0 t30,0 t30,0 t30,0 t30,0 t30,0"/>
+          </g>
+          <g>
+            <circle class="d-drug" cx="150" cy="128" r="5.5"/><circle class="d-drug" cx="196" cy="118" r="5.5"/>
+            <circle class="d-drug" cx="248" cy="134" r="5.5"/><circle class="d-drug" cx="300" cy="122" r="5.5"/>
+            <circle class="d-drug" cx="170" cy="168" r="5.5"/><circle class="d-drug" cx="222" cy="160" r="5.5"/>
+            <circle class="d-drug" cx="276" cy="172" r="5.5"/><circle class="d-drug" cx="316" cy="158" r="5.5"/>
+            <circle class="d-drug" cx="146" cy="204" r="5.5"/><circle class="d-drug" cx="204" cy="204" r="5.5"/>
+            <circle class="d-drug" cx="258" cy="210" r="5.5"/><circle class="d-drug" cx="306" cy="200" r="5.5"/>
+          </g>
+          <g>
+            <circle class="d-drug d-drift" cx="330" cy="140" r="5.5" style="--dx:62px;--dy:-22px;--d:0s"/>
+            <circle class="d-drug d-drift" cx="334" cy="196" r="5.5" style="--dx:56px;--dy:28px;--d:1.2s"/>
+            <circle class="d-drug d-drift" cx="232" cy="106" r="5.5" style="--dx:8px;--dy:-50px;--d:2.1s"/>
+            <circle class="d-drug d-drift" cx="128" cy="178" r="5.5" style="--dx:-62px;--dy:8px;--d:.6s"/>
+            <circle class="d-drug d-drift" cx="322" cy="222" r="5.5" style="--dx:40px;--dy:42px;--d:3s"/>
+            <circle class="d-drug d-drift" cx="178" cy="106" r="5.5" style="--dx:-30px;--dy:-48px;--d:3.8s"/>
+            <circle class="d-drug d-drift" cx="336" cy="168" r="5.5" style="--dx:66px;--dy:0px;--d:2.6s"/>
+            <circle class="d-drug d-drift" cx="150" cy="222" r="5.5" style="--dx:-42px;--dy:40px;--d:4.4s"/>
+          </g>
+          <text class="s-tag" x="230" y="256" text-anchor="middle">polymer matrix</text>
+
+          <path class="d-axis" d="M520,56 V250 H912 M514,66 L520,54 L526,66 M902,244 L914,250 L902,256"/>
+          <text class="s-tag" x="536" y="62">drug released</text>
+          <text class="s-tag" x="912" y="276" text-anchor="end">time</text>
+          <path class="d-ghost" d="M522,248 C534,122 556,86 600,78 S760,70 900,68"/>
+          <text class="s-tag" x="900" y="56" text-anchor="end">burst</text>
+          <path class="d-curve d-draw" pathLength="1" d="M522,248 C620,226 760,152 900,100"/>
+          <text class="d-label" x="904" y="152" text-anchor="end">sustained</text>
+          <text class="s-tag" x="716" y="306" text-anchor="middle">schematic, not measured data</text>
+        </svg>
+        <figcaption>A schematic of diffusion from a polymer matrix. Released all at once, a drug spikes and is gone; held in the polymer, it comes out gradually.</figcaption>
+      </figure>
+      <div class="txt">
+        <p>For each version of the system I measured three things: how much drug it held (loading), how quickly the drug came out into solution (release kinetics), and how strong and stretchy the polymer was (tensile testing). Comparing them across processing conditions showed which conditions gave the most consistent release.</p>
+      </div>
+    </section>
+
+    <section class="cs-sec" aria-labelledby="s-testing">
+      <h2 id="s-testing"><span class="n">05</span>Testing &amp; validation</h2>
+      <div class="txt">
+        <p>Every release and stability sample followed the same path: into a glass vial, through the LC-MS/MS, and onto a chromatogram where the drug's peak is measured. Scroll through it below.</p>
+      </div>
+      <div class="scene" id="lab" style="--run:170vh">
+        <figure class="scene-fig">
+          <svg class="scene-svg" viewBox="0 0 960 420" role="img" aria-labelledby="lab-title lab-desc">
+                    <title id="lab-title">From sample to peak</title>
+                    <desc id="lab-desc">A gloved hand pipettes solution into a 1 mL glass screw-cap vial. The vial goes into a triple quadrupole LC-MS, and a computer integrates the drug's peak to show how much drug was in the solution.</desc>
+                    <defs>
+                      <clipPath id="lab-cap-clip"><rect x="128" y="212" width="44" height="30" rx="4"/></clipPath>
+                      <clipPath id="lab-tip-clip"><path d="M145,172 H155 L151,230 H149 Z"/></clipPath>
+                      <clipPath id="lab-col-clip"><rect x="354" y="344" width="72" height="8" rx="4"/></clipPath>
+                    </defs>
+
+                    <rect class="s-bench" x="0" y="396" width="960" height="12"/>
+                    <line class="s-edge" x1="0" y1="396" x2="960" y2="396"/>
+
+                    <path class="s-cable" d="M700,384 C736,384 750,392 786,392"/>
+                    <path id="lab-pulse" class="s-pulse" d="M700,384 C736,384 750,392 786,392"/>
+
+                    <g>
+                      <rect class="s-bezel" x="722" y="150" width="216" height="162" rx="8"/>
+                      <rect class="s-screen" x="732" y="160" width="196" height="142" rx="3"/>
+                      <rect class="s-part" x="818" y="312" width="24" height="74"/>
+                      <rect class="s-part" x="786" y="386" width="88" height="10" rx="3"/>
+                      <text class="s-scr-text" x="742" y="177">MRM · drug</text>
+                      <text id="lab-count" class="s-scr-text" x="918" y="177" text-anchor="end">samples: 0</text>
+                      <path class="s-axis" d="M744,186 V282 H918"/>
+                      <path id="lab-area" class="s-area" d="M0,0"/>
+                      <path id="lab-trace" class="s-trace" d="M0,0"/>
+                      <circle id="lab-head" class="s-head" cx="746" cy="278" r="3.2" opacity="0"/>
+                      <g id="lab-marks" class="s-marks" opacity="0"><line x1="804" y1="281" x2="804" y2="266"/><line x1="836" y1="281" x2="836" y2="266"/></g>
+                      <text id="lab-area-label" class="s-scr-text" x="820" y="297" text-anchor="middle" opacity="0">peak area</text>
+                    </g>
+
+                    <g>
+                      <path class="s-tube" d="M450,358 C472,358 470,280 494,280"/>
+                      <path id="lab-flow" class="s-flow" d="M450,358 C472,358 470,280 494,280"/>
+                      <rect class="s-part" x="470" y="200" width="230" height="196" rx="10"/>
+                      <text class="s-tag" x="486" y="222">LC-MS/MS · triple quad</text>
+                      <circle id="lab-led" class="s-led" cx="684" cy="217" r="5"/>
+                      <rect class="s-dark" x="486" y="232" width="198" height="96" rx="6"/>
+                      <polygon class="s-rod" points="494,268 514,280 494,292"/>
+                      <rect class="s-rod" x="524" y="262" width="48" height="6" rx="3"/>
+                      <rect class="s-rod" x="524" y="292" width="48" height="6" rx="3"/>
+                      <path class="s-rod-line" d="M584,263 Q602,256 620,263 M584,297 Q602,304 620,297"/>
+                      <rect class="s-rod" x="632" y="262" width="30" height="6" rx="3"/>
+                      <rect class="s-rod" x="632" y="292" width="30" height="6" rx="3"/>
+                      <rect id="lab-det" class="s-rod s-det" x="668" y="268" width="8" height="24" rx="2"/>
+                      <g id="lab-ions"></g>
+                      <text class="s-tag" x="548" y="350" text-anchor="middle">Q1</text>
+                      <text class="s-tag" x="602" y="350" text-anchor="middle">q2</text>
+                      <text class="s-tag" x="647" y="350" text-anchor="middle">Q3</text>
+                    </g>
+
+                    <g id="lab-vial">
+                      <path class="s-glass" d="M130,240 H170 V332 Q170,340 162,340 H138 Q130,340 130,332 Z"/>
+                      <rect id="lab-liquid" class="s-liquid" x="133" y="338" width="34" height="0" rx="4"/>
+                      <ellipse id="lab-meniscus" class="s-meniscus" cx="150" cy="338" rx="17" ry="3" opacity="0"/>
+                      <path class="s-glass-hi" d="M137,250 V326"/>
+                      <rect class="s-glass" x="134" y="226" width="32" height="14"/>
+                      <path class="s-thin" d="M134,231 H166 M134,236 H166"/>
+                      <g id="lab-cap">
+                        <rect class="s-cap" x="128" y="212" width="44" height="30" rx="4"/>
+                        <g clip-path="url(#lab-cap-clip)"><g id="lab-ridges"><path class="s-ridge" d="M122,212 V242 M128,212 V242 M134,212 V242 M140,212 V242 M146,212 V242 M152,212 V242 M158,212 V242 M164,212 V242 M170,212 V242 M176,212 V242 M182,212 V242"/></g></g>
+                        <rect class="s-cap-top" x="140" y="208" width="20" height="5" rx="2"/>
+                      </g>
+                    </g>
+
+                    <g id="lab-drops">
+                      <circle class="s-drop" cx="150" cy="236" r="3.4" opacity="0"/>
+                      <circle class="s-drop" cx="150" cy="236" r="3.4" opacity="0"/>
+                      <circle class="s-drop" cx="150" cy="236" r="3.4" opacity="0"/>
+                    </g>
+
+                    <g>
+                      <rect class="s-part" x="330" y="170" width="120" height="80" rx="6"/>
+                      <rect class="s-slot" x="358" y="166" width="64" height="8" rx="3"/>
+                      <text class="s-tag" x="342" y="238">autosampler</text>
+                      <rect class="s-part" x="330" y="250" width="120" height="72" rx="6"/>
+                      <circle class="s-knob" cx="352" cy="280" r="7"/>
+                      <circle class="s-knob" cx="376" cy="280" r="7"/>
+                      <text class="s-tag" x="342" y="310">pump</text>
+                      <rect class="s-part" x="330" y="322" width="120" height="74" rx="6"/>
+                      <rect class="s-dark" x="346" y="332" width="88" height="32" rx="4"/>
+                      <rect id="lab-column" class="s-column" x="354" y="344" width="72" height="8" rx="4"/>
+                      <g clip-path="url(#lab-col-clip)"><rect class="s-band" x="342" y="344" width="12" height="8"/></g>
+                      <text class="s-tag" x="342" y="386">column</text>
+                    </g>
+
+                    <g>
+                      <polygon class="s-part" points="96,318 112,306 222,306 206,318"/>
+                      <ellipse class="s-slot" cx="190" cy="312" rx="12" ry="3"/>
+                      <rect class="s-part" x="96" y="318" width="110" height="78"/>
+                    </g>
+
+                    <g id="lab-hand">
+                      <path class="s-glove" d="M196,70 L232,100 L330,-10 L296,-40 Z"/>
+                      <g class="lab-press">
+                        <rect class="s-part" x="146" y="18" width="8" height="20"/>
+                        <rect class="s-btn" x="139" y="6" width="22" height="12" rx="4"/>
+                      </g>
+                      <path class="s-part" d="M134,36 H166 L169,70 L162,130 H138 L131,70 Z"/>
+                      <path class="s-part" d="M166,40 q15,0 16,10 q0,7 -9,7 L167,57 Z"/>
+                      <rect class="s-part" x="143" y="130" width="14" height="40"/>
+                      <path class="s-glass" d="M144,170 H156 L151.5,232 H148.5 Z"/>
+                      <rect id="lab-tipliq" class="s-liquid" x="144" y="176" width="12" height="56" clip-path="url(#lab-tip-clip)"/>
+                      <g class="lab-press">
+                        <path class="s-thumb-o" d="M172,70 C164,44 156,24 150,8"/>
+                        <path class="s-thumb" d="M172,70 C164,44 156,24 150,8"/>
+                      </g>
+                      <rect class="s-glove" x="168" y="54" width="56" height="88" rx="24"/>
+                      <rect class="s-glove" x="125" y="60" width="66" height="20" rx="10"/>
+                      <rect class="s-glove" x="123" y="80" width="68" height="20" rx="10"/>
+                      <rect class="s-glove" x="124" y="100" width="66" height="19" rx="9.5"/>
+                      <rect class="s-glove" x="129" y="119" width="58" height="17" rx="8.5"/>
+                    </g>
+                  </svg>
+          <figcaption>
+            <ol class="scene-track" aria-hidden="true">
+              <li class="on">Sample prep</li>
+              <li>LC-MS/MS</li>
+              <li>Peak analysis</li>
+            </ol>
+            <ol class="scene-steps">
+              <li class="on">
+                <p class="label">01 · Sample prep</p>
+                <h3>Pipette and cap</h3>
+                <p>Each solution is pipetted into a 1 mL glass vial and sealed with a screw cap, ready for mass spectrometry.</p>
+              </li>
+              <li>
+                <p class="label">02 · LC-MS/MS</p>
+                <h3>Into the triple quad</h3>
+                <p>The vial goes into the LC-MS/MS. The column separates the sample, then the triple quad filters for the drug: Q1 picks out its ion, q2 breaks it apart, and Q3 passes one fragment to the detector.</p>
+              </li>
+              <li>
+                <p class="label">03 · Peak analysis</p>
+                <h3>Reading the peak</h3>
+                <p>The signal becomes a peak, and the area under it shows how much drug was in the solution. Thousands of these peaks, tracked over months, show whether the drug is degrading.</p>
+              </li>
+            </ol>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="txt">
+        <p>In the stability study, samples kept under different storage conditions were pulled and measured on a schedule for six months. With thousands of results, ordinary run-to-run variation can look like degradation, so my analysis compared each change against the instrument's normal variability before calling it real.</p>
+      </div>
+    </section>
+
+    <section class="cs-sec" aria-labelledby="s-results">
+      <h2 id="s-results"><span class="n">06</span>Results</h2>
+      <div class="stats">
+        <div><b>6 months</b><span>stability study comparing storage conditions</span></div>
+        <div><b>~20%</b><span>longer shelf life from the storage conditions it set</span></div>
+        <div><b>5,000+</b><span>mass spectrometry samples analyzed</span></div>
+      </div>
+      <div class="txt">
+        <p>The stability study defined storage conditions that extended the product's shelf life by about a fifth, and the release testing pointed to processing conditions that made release more consistent. Both fed into formulation and storage decisions.</p>
+      </div>
+    </section>
+
+    <section class="cs-sec" aria-labelledby="s-takeaways">
+      <h2 id="s-takeaways"><span class="n">07</span>Key takeaways</h2>
+      <div class="txt">
+        <ul>
+          <li><strong>Know your noise first.</strong> Before trusting a trend across thousands of results, I learned to ask how much the same sample varies on its own.</li>
+          <li><strong>Release and mechanics are linked.</strong> Processing that makes the polymer stronger can also change how it releases, so the two have to be tested together.</li>
+          <li><strong>Procedures make data comparable.</strong> A six-month study only works if the samples in month six were prepared exactly like the ones in week one.</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <nav class="cs-next" aria-label="More projects">
+    <a href="pediatric-oral-interface.html"><span class="label">Previous project</span><strong>Non-Invasive Oral Interface for Infant Flexible Laryngoscopy</strong></a>
+    <a class="next" href="heart-valve-scaffolds.html"><span class="label">Next project</span><strong>Electrospun Biomaterials for Heart Valve Tissue Engineering</strong></a>
+  </nav>
+</main>
+
+<div class="contact" id="contact">
+  <div class="wrap">
+    <div>
+      <p class="label">Contact</p>
+      <h2 style="margin-top:8px">Let's work together.</h2>
+      <p>I'm open to roles in medical device R&amp;D, manufacturing and process engineering, and to research in biomaterials and tissue engineering.</p>
+    </div>
+    <div class="links">
+      <a class="addr" href="mailto:mahakp46@gmail.com" style="color:inherit">mahakp46@gmail.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/mahak-punjabi/" target="_blank" rel="noopener">linkedin.com/in/mahak-punjabi</a>
+    </div>
+  </div>
+</div>
+<footer class="wrap">© 2026 Mahak Punjabi · Tampa, Florida</footer>
+<script src="../js/site.js"></script>
+<script src="../js/scene.js"></script>
+<script>
+/* Axogen lab scene: pipette and cap a vial, run it through the LC-MS/MS, then integrate the drug's peak. */
+(() => {
+  const root = document.getElementById('lab');
+  if (!root || !window.scrollScene) return;
+  const { clamp, seg, ease, lerp, f, reduce } = scrollScene.util;
+  const q = (id) => document.getElementById(id);
+  const hand = q('lab-hand'), press = root.querySelectorAll('.lab-press'), tipLiq = q('lab-tipliq');
+  const liquid = q('lab-liquid'), menis = q('lab-meniscus'), drops = [...q('lab-drops').children];
+  const cap = q('lab-cap'), ridges = q('lab-ridges'), vial = q('lab-vial');
+  const led = q('lab-led'), flow = q('lab-flow'), column = q('lab-column'), det = q('lab-det'), ionLayer = q('lab-ions');
+  const pulse = q('lab-pulse'), trace = q('lab-trace'), head = q('lab-head'), area = q('lab-area'), marks = q('lab-marks');
+  const areaLabel = q('lab-area-label'), count = q('lab-count');
+
+  // Chromatogram: the drug's peak at 820 and a smaller neighbouring peak at 872.
+  const base = 278;
+  const yAt = (x) => base - 84 * Math.exp(-((x - 820) ** 2) / 98) - 24 * Math.exp(-((x - 872) ** 2) / 72)
+    - 1.1 * Math.sin(x * 1.9) - 0.7 * Math.sin(x * 0.7 + 1);
+  const curve = (from, to) => { const pts = []; for (let x = from; x <= to; x += 2) pts.push(x + ',' + f(yAt(x))); return pts.join(' L'); };
+  trace.setAttribute('d', 'M' + curve(746, 916));
+  area.setAttribute('d', 'M804,' + base + ' L' + curve(804, 836) + ' L836,' + base + ' Z');
+  const traceLen = trace.getTotalLength(), pulseLen = pulse.getTotalLength();
+  trace.style.strokeDasharray = traceLen;
+  pulse.style.strokeDasharray = '18 ' + pulseLen;
+
+  // Ions through the triple quad: Q1 keeps only the drug (pink), q2 fragments it, Q3 keeps one fragment.
+  const ns = 'http://www.w3.org/2000/svg', R = 5, RF = 3.4;
+  const ions = ['t', 'x', 't', 'y', 't', 'x', 't', 'y'].map((k, i, all) => {
+    const g = document.createElementNS(ns, 'g'), a = document.createElementNS(ns, 'circle'), b = document.createElementNS(ns, 'circle');
+    b.setAttribute('r', RF);
+    g.append(a, b);
+    ionLayer.append(g);
+    return { k, a, b, j: ((i * 37) % 7) - 3, ph: i / all.length };
+  });
+  function drawIons(t) {
+    let hit = false;
+    for (const ion of ions) {
+      const x = 496 + ((t * 0.28 + ion.ph) % 1) * 174;
+      let ay = 280, ar = R, ao = 1, by = 280, bo = 0, cls = 'ion-' + ion.k;
+      if (x < 524) ay = 280 + ion.j * (1 - (x - 496) / 28);
+      else if (ion.k !== 't') { const s = clamp((x - 524) / 48); ay = 280 + (ion.j >= 0 ? 14 : -14) * s; ao = 1 - s; }
+      else if (x < 584) { /* the drug passes Q1 on axis */ }
+      else if (x < 620) { const s = (x - 584) / 36; ay = 280 - 6 * s; by = 280 + 6 * s; ar = lerp(R, RF, s); bo = 1; cls = 'ion-f'; }
+      else if (x < 632) { ay = 274; by = 286; ar = RF; bo = 1; cls = 'ion-f'; }
+      else if (x < 664) { const s = (x - 632) / 32; ay = 274 + 6 * s; by = 286 + 10 * s; ar = RF; bo = 1 - s; cls = 'ion-f'; }
+      else { ao = 0; hit = true; }
+      ion.a.setAttribute('cx', f(x)); ion.a.setAttribute('cy', f(ay)); ion.a.setAttribute('r', ar.toFixed(2));
+      ion.a.setAttribute('opacity', ao.toFixed(2)); ion.a.setAttribute('class', cls);
+      ion.b.setAttribute('cx', f(x)); ion.b.setAttribute('cy', f(by)); ion.b.setAttribute('opacity', bo.toFixed(2));
+      ion.b.setAttribute('class', 'ion-f');
+    }
+    det.classList.toggle('hit', hit);
+  }
+
+  let running = false, visible = false, raf = 0;
+  function frame(now) {
+    raf = 0;
+    drawIons(now / 1000);
+    if (running && visible) raf = requestAnimationFrame(frame);
+  }
+  function loop() {
+    if (reduce) { if (running) drawIons(1.3); return; }
+    if (running && visible && !raf) raf = requestAnimationFrame(frame);
+  }
+
+  scrollScene(root, {
+    stops: [0, .36, .7, 1],
+    // On a phone the camera follows the action: bench and vial, then the triple quad, then the computer.
+    camera: (p) => f(lerp(lerp(40, 325, ease(seg(p, .46, .6))), 480, ease(seg(p, .66, .76)))) + ' 0 480 420',
+    onVisible: (v) => { visible = v; loop(); },
+    render(p) {
+      // 01 Sample prep: lower the pipette, press the plunger, fill the vial, lift the hand away, screw on the cap.
+      const down = ease(seg(p, 0, .07)), away = ease(seg(p, .23, .31));
+      hand.setAttribute('transform', 'translate(' + f(90 * away) + ' ' + f(lerp(-70, 0, down) - 300 * away) + ')');
+      const push = ease(seg(p, .08, .12)) * (1 - ease(seg(p, .2, .24)));
+      press.forEach((el) => el.setAttribute('transform', 'translate(0 ' + f(12 * push) + ')'));
+      const disp = seg(p, .08, .22);
+      const ty = 176 + 56 * disp;
+      tipLiq.setAttribute('y', f(ty)); tipLiq.setAttribute('height', f(232 - ty));
+      const h = 52 * ease(disp), surface = 338 - h;
+      liquid.setAttribute('y', f(surface)); liquid.setAttribute('height', f(h));
+      menis.setAttribute('cy', f(surface)); menis.setAttribute('opacity', h > 1 ? 1 : 0);
+      drops.forEach((d, i) => {
+        const t = seg(p, .09 + i * .04, .135 + i * .04);
+        d.setAttribute('opacity', t > 0 && t < 1 ? 1 : 0);
+        d.setAttribute('cy', f(236 + (surface - 236) * t * t));
+      });
+      const c1 = ease(seg(p, .28, .31)), c2 = ease(seg(p, .3, .335)), c3 = ease(seg(p, .33, .345)), tw = seg(p, .345, .36);
+      const capX = lerp(105, 0, c2), capY = c3 > 0 ? lerp(-40, 0, c3) : lerp(154, -40, c1);
+      cap.setAttribute('transform', 'translate(' + f(capX) + ' ' + f(capY) + ') rotate(' + (Math.sin(tw * Math.PI * 4) * 3).toFixed(2) + ' 150 227)');
+      ridges.setAttribute('transform', 'translate(' + (-(tw * 30) % 6).toFixed(2) + ' 0)');
+
+      // 02 LC-MS/MS: lift the vial out of the rack and drop it into the autosampler.
+      const a = ease(seg(p, .36, .42)), b = seg(p, .42, .52), c = ease(seg(p, .52, .58));
+      let dx = 0, dy = -40 * a;
+      if (b > 0) { const e = ease(b); dx = 240 * e; dy = -40 - 150 * Math.sin(e * Math.PI / 2); }
+      if (c > 0) { dx = 240; dy = lerp(-190, -70, c); }
+      vial.setAttribute('transform', 'translate(' + f(dx) + ' ' + f(dy) + ')');
+      running = p >= .58;
+      led.classList.toggle('on', running);
+      flow.classList.toggle('on', running);
+      column.classList.toggle('on', running);
+      ionLayer.setAttribute('opacity', running ? 1 : 0);
+
+      // 03 Peak analysis: send the data to the computer, draw the chromatogram, integrate the peak.
+      const dp = seg(p, .7, .76);
+      pulse.style.strokeDashoffset = lerp(18, -pulseLen, dp);
+      pulse.style.opacity = dp > 0 && dp < 1 ? 1 : 0;
+      const tr = ease(seg(p, .76, .92));
+      trace.style.strokeDashoffset = traceLen * (1 - tr);
+      const pt = trace.getPointAtLength(traceLen * tr);
+      head.setAttribute('cx', f(pt.x)); head.setAttribute('cy', f(pt.y));
+      head.setAttribute('opacity', tr > 0 && tr < 1 ? 1 : 0);
+      count.textContent = 'samples: ' + (p < .76 ? '0' : p < .92 ? Math.max(1, Math.round(5000 * tr)).toLocaleString('en-US') : '5,000+');
+      const fin = seg(p, .9, .96);
+      area.style.opacity = .35 * fin;
+      marks.setAttribute('opacity', fin);
+      areaLabel.setAttribute('opacity', seg(p, .94, 1));
+      loop();
+    },
+  });
+})();
+</script>
+</body>
+</html>

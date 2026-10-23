@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lean Six Sigma DMAIC · Mahak Punjabi</title>
+<meta name="description" content="How Mahak Punjabi's team used DMAIC to trace most of the rework in student room reservations to one failure mode, and the future state and control plan they proposed.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../css/site.css">
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="../">Mahak Punjabi</a>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="../#projects" aria-current="page">Projects</a></li>
+        <li><a href="../#skills">Skills</a></li>
+        <li><a href="../#leadership">Leadership</a></li>
+        <li><a href="../#about">About</a></li>
+        <li><a href="../#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <header class="cs-head">
+    <a class="back" href="../#projects">All projects</a>
+    <p class="eyebrow"><span class="kind eng">Engineering</span><span class="label">Manufacturing &amp; quality engineering · USF course project</span></p>
+    <h1>Lean Six Sigma DMAIC Process Improvement</h1>
+    <p class="summary">More than half of the room reservations student clubs made needed staff to fix them by hand. Our team traced most of that rework to one failure mode and proposed a process to prevent it.</p>
+    <dl class="cs-meta">
+      <div><dt>Role</dt><dd>Baseline, root cause, future state and control plan</dd></div>
+      <div><dt>Team</dt><dd>Team of 3</dd></div>
+      <div><dt>When</dt><dd>Spring 2026</dd></div>
+      <div><dt>Methods</dt><dd>DMAIC, SIPOC, Pareto, 5 Whys, fishbone, VSM</dd></div>
+    </dl>
+    <p class="note"><strong>Measured vs proposed.</strong> The baseline and the root cause come from data we collected on real reservations. The future-state process and the control plan are our proposals; they haven't been put in place or measured.</p>
+  </header>
+
+  <div class="cs-body">
+    <section class="cs-sec" aria-labelledby="s-overview">
+      <h2 id="s-overview"><span class="n">01</span>Overview</h2>
+      <div class="txt">
+        <p>Student clubs at USF reserve rooms in the Marshall Student Center (MSC) through a reservation form. MSC staff review each request, check the room and the event details, and correct anything that doesn't fit before they confirm it.</p>
+        <p>Every one of those corrections is rework. It costs staff time, and it slows down the answer a club is waiting on.</p>
+      </div>
+    </section>
+
+    <section class="cs-sec" aria-labelledby="s-objective">
+      <h2 id="s-objective"><span class="n">02</span>Objective</h2>
+      <div class="txt">
+        <p>Reduce the errors that happen when students reserve rooms, so that staff spend less time fixing requests by hand.</p>
+        <ul class="pill-list" aria-label="Goals">
+          <li>Find the primary causes</li>
+          <li>Standardize the process</li>
+          <li>Error-proof the reservation</li>
+          <li>Minimize manual corrections</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="cs-sec" aria-labelledby="s-role">
+      <h2 id="s-role"><span class="n">03</span>My contribution</h2>
+      <div class="txt">
+        <ul>
+          <li>Set the process baseline from reservation data, using histograms, box plots and run charts.</li>
+          <li>Ran the Pareto analysis, 5 Whys and fishbone diagram that traced most of the rework to a single failure mode.</li>
+          <li>Built the future-state value stream map and the control plan, with process measures, trigger points and reaction plans.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="cs-sec" aria-labelledby="s-design">
+      <h2 id="s-design"><span class="n">04</span>Design process</h2>
+      <div class="txt">
+        <p>We worked through DMAIC: define the process, measure how it performs, analyze why it fails, then improve it and plan how to keep it improved. The first three steps are measured; the last two are proposed. Scroll through it below.</p>
+      </div>
+      <div class="scene" id="lss" style="--run:260vh">
+        <figure class="scene-fig">
+          <svg class="scene-svg" viewBox="0 0 960 420" role="img" aria-labelledby="ls-title ls-desc">
+                    <title id="ls-title">DMAIC on the room reservation process</title>
+                    <desc id="ls-desc">The reservation process is mapped from the club's form to a reserved room, with a rework loop where staff fix requests by hand. Requests flow through it and more than half take the rework loop. A Pareto chart shows one failure mode causing most of the rework, traced to its root cause with 5 Whys and a fishbone diagram. In the proposed future state, error-proofing catches the problem at the form, and a proposed control plan sets a measure, trigger points, a reaction plan and a target of rework below 45 percent.</desc>
+                    <defs>
+                      <marker id="ls-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ls-head" d="M0,0 L10,5 L0,10 z"/></marker>
+                      <marker id="ls-arr-w" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ls-head-w" d="M0,0 L10,5 L0,10 z"/></marker>
+                    </defs>
+
+                    <g id="ls-tag" class="ls-tag" transform="translate(816 22)">
+                      <rect width="118" height="26" rx="13"/>
+                      <text id="ls-tag-t" x="59" y="17.5" text-anchor="middle">measured</text>
+                    </g>
+
+                    <g id="ls-flow">
+                      <path id="ls-l1" class="ls-link" d="M154,150 H183" pathLength="1" marker-end="url(#ls-arr)"/>
+                      <path id="ls-l2" class="ls-link" d="M314,150 H343" pathLength="1" marker-end="url(#ls-arr)"/>
+                      <path id="ls-l3" class="ls-link" d="M474,150 H643" pathLength="1" marker-end="url(#ls-arr)"/>
+                      <path id="ls-l4" class="ls-link" d="M774,150 H803" pathLength="1" marker-end="url(#ls-arr)"/>
+                      <text id="ls-ok" class="ls-lab" x="558" y="138" text-anchor="middle">ok as submitted</text>
+                      <path id="ls-loop1" class="ls-loop" d="M410,181 V293 H493" pathLength="1" marker-end="url(#ls-arr-w)"/>
+                      <path id="ls-loop2" class="ls-loop" d="M624,293 H710 V184" pathLength="1" marker-end="url(#ls-arr-w)"/>
+                      <text id="ls-needs" class="ls-lab rw" x="420" y="240">needs changes</text>
+                      <g id="ls-toks-m">
+                        <g class="ls-tok" transform="translate(-40 150)" opacity="0"><rect x="-9" y="-11" width="18" height="22" rx="2.5"/><path d="M-5,-5 h10 M-5,0 h10 M-5,5 h6"/></g>
+                        <g class="ls-tok" transform="translate(-40 150)" opacity="0"><rect x="-9" y="-11" width="18" height="22" rx="2.5"/><path d="M-5,-5 h10 M-5,0 h10 M-5,5 h6"/></g>
+                        <g class="ls-tok" transform="translate(-40 150)" opacity="0"><rect x="-9" y="-11" width="18" height="22" rx="2.5"/><path d="M-5,-5 h10 M-5,0 h10 M-5,5 h6"/></g>
+                        <g class="ls-tok" transform="translate(-40 150)" opacity="0"><rect x="-9" y="-11" width="18" height="22" rx="2.5"/><path d="M-5,-5 h10 M-5,0 h10 M-5,5 h6"/></g>
+                        <g class="ls-tok" transform="translate(-40 150)" opacity="0"><rect x="-9" y="-11" width="18" height="22" rx="2.5"/><path d="M-5,-5 h10 M-5,0 h10 M-5,5 h6"/></g>
+                        <g class="ls-tok" transform="translate(-40 150)" opacity="0"><rect x="-9" y="-11" width="18" height="22" rx="2.5"/><path d="M-5,-5 h10 M-5,0 h10 M-5,5 h6"/></g>
+                        <g class="ls-tok" transform="translate(-40 150)" opacity="0"><rect x="-9" y="-11" width="18" height="22" rx="2.5"/><path d="M-5,-5 h10 M-5,0 h10 M-5,5 h6"/></g>
+                        <g class="ls-tok" transform="translate(-40 150)" opacity="0"><rect x="-9" y="-11" width="18" height="22" rx="2.5"/><path d="M-5,-5 h10 M-5,0 h10 M-5,5 h6"/></g>
+                        <g class="ls-tok" transform="translate(-40 150)" opacity="0"><rect x="-9" y="-11" width="18" height="22" rx="2.5"/><path d="M-5,-5 h10 M-5,0 h10 M-5,5 h6"/></g>
+                        <g class="ls-tok" transform="translate(-40 150)" opacity="0"><rect x="-9" y="-11" width="18" height="22" rx="2.5"/><path d="M-5,-5 h10 M-5,0 h10 M-5,5 h6"/></g>
+                        <g class="ls-tok" transform="translate(-40 150)" opacity="0"><rect x="-9" y="-11" width="18" height="22" rx="2.5"/><path d="M-5,-5 h10 M-5,0 h10 M-5,5 h6"/></g>
+                        <g class="ls-tok" transform="translate(-40 150)" opacity="0"><rect x="-9" y="-11" width="18" height="22" rx="2.5"/><path d="M-5,-5 h10 M-5,0 h10 M-5,5 h6"/></g>
+                        <g class="ls-tok" transform="translate(-40 150)" opacity="0"><rect x="-9" y="-11" width="18" height="22" rx="2.5"/><path d="M-5,-5 h10 M-5,0 h10 M-5,5 h6"/></g>
+                        <g class="ls-tok" transform="translate(-40 150)" opacity="0"><rect x="-9" y="-11" width="18" height="22" rx="2.5"/><path d="M-5,-5 h10 M-5,0 h10 M-5,5 h6"/></g>
+                        <g class="ls-tok" transform="translate(-40 150)" opacity="0"><rect x="-9" y="-11" width="18" height="22" rx="2.5"/><path d="M-5,-5 h10 M-5,0 h10 M-5,5 h6"/></g>
+                        <g class="ls-tok" transform="translate(-40 150)" opacity="0"><rect x="-9" y="-11" width="18" height="22" rx="2.5"/><path d="M-5,-5 h10 M-5,0 h10 M-5,5 h6"/></g>
+                        <g class="ls-tok" transform="translate(-40 150)" opacity="0"><rect x="-9" y="-11" width="18" height="22" rx="2.5"/><path d="M-5,-5 h10 M-5,0 h10 M-5,5 h6"/></g>
+                        <g class="ls-tok" transform="translate(-40 150)" opacity="0"><rect x="-9" y="-11" width="18" height="22" rx="2.5"/><path d="M-5,-5 h10 M-5,0 h10 M-5,5 h6"/></g>
+                        <g class="ls-tok" transform="translate(-40 150)" opacity="0"><rect x="-9" y="-11" width="18" height="22" rx="2.5"/><path d="M-5,-5 h10 M-5,0 h10 M-5,5 h6"/></g>
+                        <g class="ls-tok" transform="translate(-40 150)" opacity="0"><rect x="-9" y="-11" width="18" height="22" rx="2.5"/><path d="M-5,-5 h10 M-5,0 h10 M-5,5 h6"/></g>
+                      </g>
+                      <g id="ls-toks-i">
+                        <g class="ls-tok" transform="translate(-40 150)" opacity="0"><rect x="-9" y="-11" width="18" height="22" rx="2.5"/><path d="M-5,-5 h10 M-5,0 h10 M-5,5 h6"/></g>
+                        <g class="ls-tok" transform="translate(-40 150)" opacity="0"><rect x="-9" y="-11" width="18" height="22" rx="2.5"/><path d="M-5,-5 h10 M-5,0 h10 M-5,5 h6"/></g>
+                        <g class="ls-tok" transform="translate(-40 150)" opacity="0"><rect x="-9" y="-11" width="18" height="22" rx="2.5"/><path d="M-5,-5 h10 M-5,0 h10 M-5,5 h6"/></g>
+                        <g class="ls-tok" transform="translate(-40 150)" opacity="0"><rect x="-9" y="-11" width="18" height="22" rx="2.5"/><path d="M-5,-5 h10 M-5,0 h10 M-5,5 h6"/></g>
+                        <g class="ls-tok" transform="translate(-40 150)" opacity="0"><rect x="-9" y="-11" width="18" height="22" rx="2.5"/><path d="M-5,-5 h10 M-5,0 h10 M-5,5 h6"/></g>
+                        <g class="ls-tok" transform="translate(-40 150)" opacity="0"><rect x="-9" y="-11" width="18" height="22" rx="2.5"/><path d="M-5,-5 h10 M-5,0 h10 M-5,5 h6"/></g>
+                        <g class="ls-tok" transform="translate(-40 150)" opacity="0"><rect x="-9" y="-11" width="18" height="22" rx="2.5"/><path d="M-5,-5 h10 M-5,0 h10 M-5,5 h6"/></g>
+                        <g class="ls-tok" transform="translate(-40 150)" opacity="0"><rect x="-9" y="-11" width="18" height="22" rx="2.5"/><path d="M-5,-5 h10 M-5,0 h10 M-5,5 h6"/></g>
+                        <g class="ls-tok" transform="translate(-40 150)" opacity="0"><rect x="-9" y="-11" width="18" height="22" rx="2.5"/><path d="M-5,-5 h10 M-5,0 h10 M-5,5 h6"/></g>
+                        <g class="ls-tok" transform="translate(-40 150)" opacity="0"><rect x="-9" y="-11" width="18" height="22" rx="2.5"/><path d="M-5,-5 h10 M-5,0 h10 M-5,5 h6"/></g>
+                        <g class="ls-tok" transform="translate(-40 150)" opacity="0"><rect x="-9" y="-11" width="18" height="22" rx="2.5"/><path d="M-5,-5 h10 M-5,0 h10 M-5,5 h6"/></g>
+                        <g class="ls-tok" transform="translate(-40 150)" opacity="0"><rect x="-9" y="-11" width="18" height="22" rx="2.5"/><path d="M-5,-5 h10 M-5,0 h10 M-5,5 h6"/></g>
+                      </g>
+                      <g id="ls-b1" class="ls-b">
+                        <rect class="ls-box" x="26" y="119" width="128" height="62" rx="8"/>
+                        <text class="ls-bt" x="90" y="146" text-anchor="middle">Club submits<tspan x="90" dy="18">the form</tspan></text>
+                      </g>
+                      <g id="ls-b2" class="ls-b">
+                        <rect class="ls-box" x="186" y="119" width="128" height="62" rx="8"/>
+                        <text class="ls-bt" x="250" y="146" text-anchor="middle">Staff review<tspan x="250" dy="18">the request</tspan></text>
+                      </g>
+                      <g id="ls-b3" class="ls-b">
+                        <rect class="ls-box" x="346" y="119" width="128" height="62" rx="8"/>
+                        <text class="ls-bt" x="410" y="146" text-anchor="middle">Check room<tspan x="410" dy="18">and details</tspan></text>
+                      </g>
+                      <g id="ls-b4" class="ls-b rw">
+                        <rect class="ls-box" x="496" y="262" width="128" height="62" rx="8"/>
+                        <text class="ls-bt" x="560" y="289" text-anchor="middle">Staff fix it<tspan x="560" dy="18">by hand</tspan></text>
+                      </g>
+                      <g id="ls-b5" class="ls-b">
+                        <rect class="ls-box" x="646" y="119" width="128" height="62" rx="8"/>
+                        <text class="ls-bt" x="710" y="146" text-anchor="middle">Approve and<tspan x="710" dy="18">confirm</tspan></text>
+                      </g>
+                      <g id="ls-b6" class="ls-b">
+                        <rect class="ls-box" x="806" y="119" width="128" height="62" rx="8"/>
+                        <text class="ls-bt" x="870" y="146" text-anchor="middle">Room<tspan x="870" dy="18">reserved</tspan></text>
+                      </g>
+                      <g id="ls-gate" class="ls-gate" opacity="0">
+                        <path class="ls-gate-bar" d="M16,112 V188"/>
+                        <circle cx="16" cy="112" r="11"/>
+                        <path class="ls-gate-ok" d="M11,112 l3.5,3.5 6.5,-7"/>
+                        <text class="ls-lab ok" x="90" y="106" text-anchor="middle">error-proofed</text>
+                      </g>
+                      <text id="ls-std" class="ls-lab ok" x="410" y="106" text-anchor="middle" opacity="0">standard check</text>
+                      <g id="ls-meter">
+                        <text class="ls-lab" x="196" y="344">needed rework</text>
+                        <rect class="ls-track" x="196" y="352" width="290" height="14" rx="7"/>
+                        <rect id="ls-mfill" class="ls-mfill" x="196" y="352" width="0" height="14" rx="7"/>
+                        <path class="ls-half" d="M341,348 V370"/>
+                        <text class="ls-lab" x="341" y="386" text-anchor="middle">half</text>
+                        <text id="ls-mres" class="ls-res" x="500" y="365" opacity="0">more than half</text>
+                      </g>
+                    </g>
+
+                    <g id="ls-ana" opacity="0">
+                      <g id="ls-pareto">
+                        <path class="ls-ax" d="M74,70 V340 H460"/>
+                        <path class="ls-ax2" d="M460,70 V340"/>
+                        <text class="ls-lab" x="74" y="58">share of rework</text>
+                        <text class="ls-lab" x="460" y="58" text-anchor="end">cumulative</text>
+                        <rect id="ls-bar0" class="ls-bar top" x="92" y="132" width="56" height="208" data-h="208"/>
+                        <rect id="ls-bar1" class="ls-bar" x="164" y="316.6" width="56" height="23.4" data-h="23.4"/>
+                        <rect id="ls-bar2" class="ls-bar" x="236" y="327" width="56" height="13" data-h="13"/>
+                        <rect id="ls-bar3" class="ls-bar" x="308" y="329.6" width="56" height="10.4" data-h="10.4"/>
+                        <rect id="ls-bar4" class="ls-bar" x="380" y="334.8" width="56" height="5.2" data-h="5.2"/>
+                        <path id="ls-cum" class="ls-cum" d="M120,132 L192,108.6 L264,95.6 L336,85.2 L408,80" pathLength="1"/>
+                        <g id="ls-cumdots" opacity="0">
+                        <circle class="ls-cumdot" cx="120" cy="132" r="3.5"/>
+                        <circle class="ls-cumdot" cx="192" cy="108.6" r="3.5"/>
+                        <circle class="ls-cumdot" cx="264" cy="95.6" r="3.5"/>
+                        <circle class="ls-cumdot" cx="336" cy="85.2" r="3.5"/>
+                        <circle class="ls-cumdot" cx="408" cy="80" r="3.5"/>
+                        </g>
+                        <text class="ls-lab" x="74" y="362">causes of rework, largest first</text>
+                        <text class="ls-note" x="74" y="380">illustration of the pattern, not our data</text>
+                        <g id="ls-call" opacity="0">
+                          <path class="ls-call" d="M154,212 H178"/>
+                          <text class="ls-callt" x="186" y="208">one failure mode</text>
+                          <text class="ls-lab" x="186" y="227">caused most of the rework</text>
+                        </g>
+                      </g>
+                      <g id="ls-root">
+                        <text class="ls-lab" x="608" y="58" text-anchor="middle">5 Whys</text>
+                        <g id="ls-why0" class="ls-why" opacity="0"><rect x="560" y="74" width="96" height="30" rx="15"/><text x="608" y="94" text-anchor="middle">why?</text></g>
+                        <path id="ls-wa0" class="ls-wlink" d="M608,107 V121" marker-end="url(#ls-arr)" opacity="0"/>
+                        <g id="ls-why1" class="ls-why" opacity="0"><rect x="560" y="124" width="96" height="30" rx="15"/><text x="608" y="144" text-anchor="middle">why?</text></g>
+                        <path id="ls-wa1" class="ls-wlink" d="M608,157 V171" marker-end="url(#ls-arr)" opacity="0"/>
+                        <g id="ls-why2" class="ls-why" opacity="0"><rect x="560" y="174" width="96" height="30" rx="15"/><text x="608" y="194" text-anchor="middle">why?</text></g>
+                        <path id="ls-wa2" class="ls-wlink" d="M608,207 V221" marker-end="url(#ls-arr)" opacity="0"/>
+                        <g id="ls-why3" class="ls-why" opacity="0"><rect x="560" y="224" width="96" height="30" rx="15"/><text x="608" y="244" text-anchor="middle">why?</text></g>
+                        <path id="ls-wa3" class="ls-wlink" d="M608,257 V271" marker-end="url(#ls-arr)" opacity="0"/>
+                        <g id="ls-why4" class="ls-why" opacity="0"><rect x="560" y="274" width="96" height="30" rx="15"/><text x="608" y="294" text-anchor="middle">why?</text></g>
+                        <path id="ls-wa4" class="ls-wlink" d="M608,307 V321" marker-end="url(#ls-arr)" opacity="0"/>
+                        <g id="ls-cause" class="ls-cause" opacity="0"><rect x="548" y="324" width="120" height="34" rx="8"/><text x="608" y="346" text-anchor="middle">root cause</text></g>
+                        <g id="ls-fish" opacity="0">
+                          <text class="ls-lab" x="806" y="132" text-anchor="middle">fishbone</text>
+                          <path class="ls-bone" d="M712,210 H868 M736,160 L766,210 M792,160 L822,210 M736,260 L766,210 M792,260 L822,210"/>
+                          <rect class="ls-fhead" x="868" y="194" width="72" height="32" rx="6"/>
+                          <text class="ls-ft" x="904" y="215" text-anchor="middle">rework</text>
+                        </g>
+                      </g>
+                    </g>
+
+                    <g id="ls-ctl" opacity="0">
+                      <path id="ls-cax" class="ls-ax" d="M74,70 V330 H520" pathLength="1"/>
+                      <text class="ls-lab" x="74" y="58">share of reservations needing rework</text>
+                      <text class="ls-lab" x="520" y="352" text-anchor="end">week by week</text>
+                      <path id="ls-trig" class="ls-trig" d="M74,187 H520" pathLength="1"/>
+                      <text id="ls-trig-t" class="ls-lab al" x="512" y="179" text-anchor="end" opacity="0">trigger point</text>
+                      <path id="ls-tgt" class="ls-tgt" d="M74,213 H520" pathLength="1"/>
+                      <text id="ls-tgt-t" class="ls-lab ok" x="512" y="233" text-anchor="end" opacity="0">target: below 45%</text>
+                      <g id="ls-plan">
+                        <rect class="ls-card" x="580" y="70" width="350" height="260" rx="10"/>
+                        <text class="ls-ptitle" x="604" y="106">Control plan</text>
+                        <g id="ls-row0" opacity="0"><text class="ls-pk" x="604" y="150">Process measure</text><text class="ls-pv" x="604" y="172">share of reservations needing rework</text></g>
+                        <g id="ls-row1" opacity="0"><text class="ls-pk" x="604" y="212">Trigger points</text><text class="ls-pv" x="604" y="234">levels that call for action</text></g>
+                        <g id="ls-row2" opacity="0"><text class="ls-pk" x="604" y="274">Reaction plans</text><text class="ls-pv" x="604" y="296">what to do when one is reached</text></g>
+                      </g>
+                    </g>
+                  </svg>
+          <figcaption>
+            <ol class="scene-track" aria-hidden="true">
+              <li class="on">Define</li>
+              <li>Measure</li>
+              <li>Analyze</li>
+              <li>Improve</li>
+              <li>Control</li>
+            </ol>
+            <ol class="scene-steps">
+              <li class="on">
+                <p class="label">01 · Define</p>
+                <h3>Mapping the process</h3>
+                <p>A club submits the form, staff review the request and check the room and details, and anything that doesn't fit gets fixed by hand before the reservation is confirmed. A SIPOC diagram set out who supplies what and what clubs need from the process.</p>
+              </li>
+              <li>
+                <p class="label">02 · Measure</p>
+                <h3>Measuring the rework</h3>
+                <p>We followed real reservations through the process. More than half of them took the rework loop and needed staff to fix them by hand.</p>
+              </li>
+              <li>
+                <p class="label">03 · Analyze</p>
+                <h3>Finding the root cause</h3>
+                <p>A Pareto chart of the causes showed that one failure mode was behind most of the rework. 5 Whys and a fishbone diagram traced it back to its root cause.</p>
+              </li>
+              <li>
+                <p class="label">04 · Improve · Proposed</p>
+                <h3>Designing it out</h3>
+                <p>Our proposed future state adds error-proofing and a standard way to check each request, so the problem gets caught at the form instead of fixed by hand at the end. We mapped it in a future-state value stream map.</p>
+              </li>
+              <li>
+                <p class="label">05 · Control · Proposed</p>
+                <h3>Keeping it fixed</h3>
+                <p>The proposed control plan tracks how many reservations need rework, sets trigger points that call for action and a reaction plan for each, and targets rework below 45%.</p>
+              </li>
+            </ol>
+          </figcaption>
+        </figure>
+      </div>
+      <figure class="cs-fig">
+        <img src="../img/lss-sipoc.png" width="1400" height="855" alt="SIPOC diagram of the MSC room reservation process: suppliers, inputs, process requirements, process steps, outputs, customer requirements and customers, with the high-level process from submitting the form to the club having its room reserved" loading="lazy">
+        <figcaption>Our SIPOC of the reservation process. The high-level steps along the bottom are the ones in the scene above.</figcaption>
+      </figure>
+    </section>
+
+    <section class="cs-sec" aria-labelledby="s-testing">
+      <h2 id="s-testing"><span class="n">05</span>Testing &amp; validation</h2>
+      <div class="txt">
+        <p>The baseline came from a sample of reservation transactions. Histograms and box plots showed how much rework there was, and run charts showed how it behaved over time. Counting the defects put the process at about 1.3 sigma, far from where a reliable process should be.</p>
+        <p>The Pareto chart separated the one failure mode that mattered from the many that didn't. 5 Whys and a fishbone diagram then pushed past the symptom to the cause, so the improvement would target the cause and not just the fix-ups.</p>
+      </div>
+      <div class="split">
+        <div class="tile">
+          <h3>Measured</h3>
+          <p>The baseline: more than half of reservations needed rework. The root cause: one failure mode behind most of it.</p>
+        </div>
+        <div class="tile prop">
+          <h3>Proposed</h3>
+          <p>A future state with error-proofing and standard checks, and a control plan with measures, trigger points and reaction plans, targeting rework below 45%.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cs-sec" aria-labelledby="s-results">
+      <h2 id="s-results"><span class="n">06</span>Results</h2>
+      <div class="stats">
+        <div><b>&gt;50%</b><span>of reservations needed rework at the start (measured)</span></div>
+        <div><b>1</b><span>failure mode behind most of that rework (measured)</span></div>
+        <div><b>&lt;45%</b><span>rework target in the control plan (proposed)</span></div>
+      </div>
+      <div class="txt">
+        <p>What we measured is the problem and its cause. The future state and the control plan are what we proposed to fix it, so their effect is a target, not a result yet.</p>
+      </div>
+    </section>
+
+    <section class="cs-sec" aria-labelledby="s-takeaways">
+      <h2 id="s-takeaways"><span class="n">07</span>Key takeaways</h2>
+      <div class="txt">
+        <ul>
+          <li><strong>Measure before fixing.</strong> A baseline makes the problem concrete and gives any change something to be judged against.</li>
+          <li><strong>Most of the pain has one cause.</strong> The Pareto chart showed that one failure mode drove most of the rework, which kept the improvement focused.</li>
+          <li><strong>A fix has to be held.</strong> Without measures and trigger points, a process drifts back, so the control plan matters as much as the change.</li>
+          <li><strong>The tools carry over.</strong> DMAIC, Pareto analysis and control plans are the same tools used to cut defects in medical device manufacturing.</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <nav class="cs-next" aria-label="More projects">
+    <a href="heart-valve-scaffolds.html"><span class="label">Previous project</span><strong>Electrospun Biomaterials for Heart Valve Tissue Engineering</strong></a>
+    <a class="next" href="lifting-posture-wearable.html"><span class="label">Next project</span><strong>Wearable Device for Real-Time Lifting Posture Correction</strong></a>
+  </nav>
+</main>
+
+<div class="contact" id="contact">
+  <div class="wrap">
+    <div>
+      <p class="label">Contact</p>
+      <h2 style="margin-top:8px">Let's work together.</h2>
+      <p>I'm open to roles in medical device R&amp;D, manufacturing and process engineering, and to research in biomaterials and tissue engineering.</p>
+    </div>
+    <div class="links">
+      <a class="addr" href="mailto:mahakp46@gmail.com" style="color:inherit">mahakp46@gmail.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/mahak-punjabi/" target="_blank" rel="noopener">linkedin.com/in/mahak-punjabi</a>
+    </div>
+  </div>
+</div>
+<footer class="wrap">© 2026 Mahak Punjabi · Tampa, Florida</footer>
+<script src="../js/site.js"></script>
+<script src="../js/scene.js"></script>
+<script>
+/* Lean Six Sigma scene: map the process, run requests through it, find the cause, then the proposed future state and control plan. */
+(() => {
+  const root = document.getElementById('lss');
+  if (!root || !window.scrollScene) return;
+  const { clamp, seg, ease, lerp, f } = scrollScene.util;
+  const q = (id) => document.getElementById(id);
+  const op = (el, v) => el.setAttribute('opacity', clamp(v).toFixed(3));
+  const draw = (el, v, marker) => {
+    el.style.strokeDashoffset = 1 - clamp(v);
+    if (marker) el.setAttribute('marker-end', v > .97 ? 'url(#' + marker + ')' : 'none');
+  };
+
+  // Routes a request can take: straight through, or round the rework loop.
+  const STRAIGHT = [[-20, 150], [90, 150], [250, 150], [410, 150], [710, 150], [870, 150]];
+  const REWORK = [[-20, 150], [90, 150], [250, 150], [410, 150], [410, 293], [560, 293], [710, 293], [710, 150], [870, 150]];
+  const route = (pts) => {
+    const lens = pts.slice(1).map((b, i) => Math.hypot(b[0] - pts[i][0], b[1] - pts[i][1]));
+    return { pts, lens, total: lens.reduce((a, b) => a + b, 0) };
+  };
+  const RS = route(STRAIGHT), RR = route(REWORK);
+  function at(r, u) {
+    let d = clamp(u) * r.total, i = 0;
+    while (i < r.lens.length - 1 && d > r.lens[i]) { d -= r.lens[i]; i++; }
+    const a = r.pts[i], b = r.pts[i + 1], t = Math.min(1, d / r.lens[i]);
+    return [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
+  }
+  // How far along each route a request reaches the check box, and where a rework request turns down the loop.
+  const SPLIT = 430 / RS.total, CHECK_RW = 430 / RR.total, INTO_RW = 573 / RR.total;
+
+  const flow = q('ls-flow'), ana = q('ls-ana'), ctl = q('ls-ctl'), tag = q('ls-tag'), tagT = q('ls-tag-t');
+  const boxes = ['b1', 'b2', 'b3', 'b5', 'b6'].map((b) => q('ls-' + b)), rw = q('ls-b4');
+  const links = ['l1', 'l2', 'l3', 'l4'].map((l) => q('ls-' + l)), loops = [q('ls-loop1'), q('ls-loop2')];
+  const ok = q('ls-ok'), needs = q('ls-needs'), meter = q('ls-meter'), mfill = q('ls-mfill'), mres = q('ls-mres');
+  const gate = q('ls-gate'), std = q('ls-std');
+  const tm = [...q('ls-toks-m').children], ti = [...q('ls-toks-i').children];
+  const BAD_M = new Set([1, 2, 4, 6, 7, 9, 11, 12, 14, 16, 17]);  // 11 of 20 take the rework loop
+  const BAD_I = new Set([1, 4, 6, 9]);  // in the proposed state these are caught at the form
+  const bars = [0, 1, 2, 3, 4].map((k) => q('ls-bar' + k)), cum = q('ls-cum'), cumDots = q('ls-cumdots'), call = q('ls-call');
+  const whys = [0, 1, 2, 3, 4].map((k) => q('ls-why' + k)), wlinks = [0, 1, 2, 3, 4].map((k) => q('ls-wa' + k));
+  const cause = q('ls-cause'), fish = q('ls-fish');
+  const trig = q('ls-trig'), tgt = q('ls-tgt'), trigT = q('ls-trig-t'), tgtT = q('ls-tgt-t'), rows = [0, 1, 2].map((k) => q('ls-row' + k));
+
+  // On a phone the camera follows the action across the 960-wide drawing.
+  function camX(p) {
+    let x = lerp(0, 360, ease(seg(p, .02, .12)));
+    x = lerp(x, 180, ease(seg(p, .15, .19)));
+    x = lerp(x, 0, ease(seg(p, .4, .42)));
+    x = lerp(x, 360, ease(seg(p, .5, .52)));
+    x = lerp(x, 0, ease(seg(p, .6, .62)));
+    return lerp(x, 360, ease(seg(p, .88, .9)));
+  }
+
+  scrollScene(root, {
+    stops: [0, .2, .4, .6, .8, 1],
+    camera: (p) => f(camX(p)) + ' 0 600 420',
+    render(p, state) {
+      const proposed = p >= .6;
+      tag.setAttribute('class', 'ls-tag' + (proposed ? ' prop' : ''));
+      tagT.textContent = proposed ? 'proposed' : 'measured';
+      tag.setAttribute('transform', 'translate(' + f(state.narrow ? camX(p) + 466 : 816) + ' 22)');
+
+      // 01 Define: the steps appear in order, then the rework loop.
+      const inFlow = 1 - seg(p, .4, .42) + seg(p, .61, .63) - seg(p, .8, .82);
+      op(flow, inFlow);
+      // The steps start as faint outlines and firm up in order.
+      boxes.forEach((b, i) => op(b, .22 + .78 * seg(p, .01 + .02 * i, .025 + .02 * i)));
+      links.forEach((l, i) => draw(l, seg(p, .02 + .02 * i + (i > 2 ? .02 : 0), .03 + .02 * i + (i > 2 ? .02 : 0)), 'ls-arr'));
+      op(ok, seg(p, .06, .08));
+      const rwOn = seg(p, .12, .14) * (1 - .55 * seg(p, .66, .68));
+      op(rw, rwOn); op(needs, rwOn);
+      draw(loops[0], seg(p, .115, .13), 'ls-arr-w'); draw(loops[1], seg(p, .135, .15), 'ls-arr-w');
+      const loopPulse = p > .15 && p < .2;
+      loops.forEach((l) => { l.classList.toggle('pulse', loopPulse); l.classList.toggle('dim', p > .66); });
+
+      // 02 Measure: requests run through; more than half go round the loop.
+      let seen = 0, bad = 0;
+      tm.forEach((t, i) => {
+        const b = BAD_M.has(i), t0 = .202 + i * .0078, u = seg(p, t0, t0 + (b ? .045 : .035));
+        const pos = at(b ? RR : RS, u);
+        t.setAttribute('transform', 'translate(' + f(pos[0]) + ' ' + f(pos[1]) + ')');
+        op(t, u > 0 && u < 1 && p < .4 ? 1 : 0);
+        if (u >= (b ? INTO_RW : SPLIT)) { seen++; if (b) bad++; }
+        t.classList.toggle('bad', b && u >= CHECK_RW);
+      });
+      op(meter, seg(p, .2, .22));
+      mfill.setAttribute('width', f(seen ? 290 * bad / seen : 0));
+      op(mres, seg(p, .385, .395));
+
+      // 03 Analyze: the Pareto chart builds, then 5 Whys and the fishbone go after the cause.
+      op(ana, seg(p, .41, .43) * (1 - seg(p, .6, .62)));
+      bars.forEach((b, k) => {
+        const h = +b.dataset.h * ease(seg(p, .43 + .012 * k, .45 + .012 * k));
+        b.setAttribute('y', f(340 - h)); b.setAttribute('height', f(h));
+      });
+      draw(cum, ease(seg(p, .49, .52)));
+      op(cumDots, seg(p, .51, .52));
+      op(call, seg(p, .5, .52));
+      whys.forEach((w, k) => op(w, seg(p, .52 + .01 * k, .527 + .01 * k)));
+      wlinks.forEach((w, k) => op(w, seg(p, .527 + .01 * k, .532 + .01 * k)));
+      op(cause, seg(p, .575, .585));
+      op(fish, seg(p, .54, .56));
+
+      // 04 Improve (proposed): error-proofing at the form catches the problem before it reaches staff.
+      op(gate, seg(p, .63, .65)); op(std, seg(p, .65, .67));
+      ti.forEach((t, i) => {
+        const caught = BAD_I.has(i), t0 = .67 + i * .0075;
+        let u = seg(p, t0, t0 + .04), pos;
+        if (caught) {
+          // stop at the gate, get fixed, then carry on
+          const g = 36 / RS.total, hold = seg(u, .2, .45);
+          pos = u < .2 ? at(RS, u / .2 * g) : u < .45 ? at(RS, g) : at(RS, g + (u - .45) / .55 * (1 - g));
+          t.classList.toggle('bad', u > 0 && hold < 1);
+        } else pos = at(RS, u);
+        t.setAttribute('transform', 'translate(' + f(pos[0]) + ' ' + f(pos[1]) + ')');
+        op(t, u > 0 && u < 1 && p >= .6 && p < .8 ? 1 : 0);
+      });
+      if (proposed) { op(meter, 0); }
+
+      // 05 Control (proposed): the measure, a trigger point, the target and the plan.
+      op(ctl, seg(p, .81, .83));
+      draw(tgt, ease(seg(p, .84, .87))); op(tgtT, seg(p, .86, .88));
+      draw(trig, ease(seg(p, .87, .9))); op(trigT, seg(p, .89, .91));
+      rows.forEach((r, k) => op(r, seg(p, .9 + .03 * k, .915 + .03 * k)));
+    },
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Infant laryngoscopy interface · Mahak Punjabi</title>
+<meta name="description" content="How Mahak Punjabi designed, molded, cast and tested a pacifier-style oral interface for anesthesia-free infant flexible laryngoscopy at EndoTherapeutics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../css/site.css">
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="../">Mahak Punjabi</a>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="../#projects" aria-current="page">Projects</a></li>
+        <li><a href="../#skills">Skills</a></li>
+        <li><a href="../#leadership">Leadership</a></li>
+        <li><a href="../#about">About</a></li>
+        <li><a href="../#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <header class="cs-head">
+    <a class="back" href="../#projects">All projects</a>
+    <p class="eyebrow"><span class="kind eng">Engineering</span><span class="label">EndoTherapeutics, Inc. · Manufacturing &amp; product development</span></p>
+    <h1>Non-Invasive Oral Interface for Infant Flexible Laryngoscopy</h1>
+    <p class="summary">A pacifier-style interface that guides a flexible scope into an infant's airway, so the exam can be done while the baby is awake instead of under anesthesia.</p>
+    <dl class="cs-meta">
+      <div><dt>Role</dt><dd>Manufacturing intern, through my senior capstone</dd></div>
+      <div><dt>Team</dt><dd>Team of 4, with clinical advisors</dd></div>
+      <div><dt>When</dt><dd>2025 – 2026</dd></div>
+      <div><dt>Tools</dt><dd>SolidWorks, FEA, 3D printing, silicone casting, Instron</dd></div>
+    </dl>
+  </header>
+
+  <div class="cs-body">
+    <section class="cs-sec" aria-labelledby="s-overview">
+      <h2 id="s-overview"><span class="n">01</span>Overview</h2>
+      <div class="txt">
+        <p>This project focused on developing a non-invasive oral interface for anesthesia-free infant flexible laryngoscopy. The goal was to improve scope guidance, oral cavity fit, and safety during pediatric airway evaluation.</p>
+        <p>Flexible laryngoscopy lets doctors see inside an infant's airway, for example to diagnose laryngomalacia, a common cause of noisy breathing in babies. Awake infants have strong gag reflexes and can't hold still, so many of these exams are done under general anesthesia, which adds cost, time and risk.</p>
+      </div>
+    </section>
+
+    <section class="cs-sec" aria-labelledby="s-objective">
+      <h2 id="s-objective"><span class="n">02</span>Objective</h2>
+      <div class="txt">
+        <p>Design something a clinician can place like a pacifier that keeps the scope on a steady path into the airway, stays away from the spots that trigger gagging, and can be made the same way every time.</p>
+        <ul class="pill-list" aria-label="Requirements">
+          <li>Fits the scope</li><li>Safe depth stop</li><li>Keeps air flowing</li><li>Biocompatible silicone</li><li>Survives repeated use</li><li>Single use, low cost</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="cs-sec" aria-labelledby="s-role">
+      <h2 id="s-role"><span class="n">03</span>My contribution</h2>
+      <div class="txt">
+        <p>My role included CAD design, prototype refinement, benchtop testing, and design iteration based on clinician feedback. I evaluated scope insertion pathways, structural stability, manufacturability, material behavior, and infant oral cavity fit to support future clinical translation.</p>
+        <p>I also developed manufacturing documentation and benchtop test protocols aligned with ISO 13485 and ISO 14971 principles, maintaining traceability across six prototype iterations to support manufacturability and future LSR molding scale-up.</p>
+        <p>On the manufacturing side, I designed the 3D-printed molds and developed the silicone casting process shown below.</p>
+      </div>
+    </section>
+
+    <section class="cs-sec" aria-labelledby="s-design">
+      <h2 id="s-design"><span class="n">04</span>Design process</h2>
+      <div class="txt">
+        <p>Every generation went through the same loop: model it, print a mold, cast it in silicone, and test it. Scroll through one pass.</p>
+      </div>
+      <div class="scene" id="mold" style="--run:240vh">
+        <figure class="scene-fig">
+          <svg class="scene-svg" viewBox="0 0 960 420" role="img" aria-labelledby="mold-title mold-desc">
+                    <title id="mold-title">From CAD model to tested part</title>
+                    <desc id="mold-desc">The oral interface is modeled in CAD, a 3D printer builds a mold around its shape, degassed silicone is injected into the mold by syringe and cured, and the cast part is compressed in a load frame while a monitor plots load against displacement.</desc>
+                    <defs>
+                      <clipPath id="m-partclip"><path d="M340,218 H544 V176 Q544,170 550,170 H554 Q560,170 560,176 V216 H575.5 A30,30 0 1 1 575.5,244 H560 V284 Q560,290 554,290 H550 Q544,290 544,284 V242 H340 A12,12 0 0 1 340,218 Z"/></clipPath>
+                      <clipPath id="m-clip-top"><rect x="290" y="130" width="380" height="100"/></clipPath>
+                      <clipPath id="m-clip-bot"><rect x="290" y="230" width="380" height="110"/></clipPath>
+                      <clipPath id="m-build"><rect id="m-buildrect" x="290" y="330" width="380" height="0"/></clipPath>
+                      <pattern id="m-lines" width="12" height="6" patternUnits="userSpaceOnUse"><path class="m-layer" d="M0,5.5 H12"/></pattern>
+                    </defs>
+
+                    <rect class="s-bench" x="0" y="396" width="960" height="12"/>
+                    <line class="s-edge" x1="0" y1="396" x2="960" y2="396"/>
+
+                    <g id="m-printer" opacity="0">
+                      <rect class="s-part" x="236" y="372" width="488" height="24" rx="4"/>
+                      <rect class="s-dark" x="252" y="378" width="54" height="12" rx="2"/>
+                      <rect class="s-part" x="248" y="50" width="14" height="322"/>
+                      <rect class="s-part" x="698" y="50" width="14" height="322"/>
+                      <rect class="s-part" x="236" y="32" width="488" height="20" rx="4"/>
+                      <rect class="s-part" x="462" y="342" width="36" height="30"/>
+                      <rect class="m-bed" x="280" y="330" width="400" height="12" rx="3"/>
+                      <rect id="m-gantry" class="s-part" x="262" y="286" width="436" height="12" rx="3"/>
+                      <rect class="s-part" x="712" y="98" width="46" height="8" rx="2"/>
+                      <circle class="m-spool" cx="758" cy="102" r="30"/>
+                      <g id="m-spokes"><path class="m-spoke" d="M758,90 V78 M768.4,108 L778.8,114 M747.6,108 L737.2,114"/></g>
+                      <circle class="s-white" cx="758" cy="102" r="9"/>
+                    </g>
+
+                    <g id="m-cad">
+                      <rect class="m-win" x="140" y="40" width="680" height="332" rx="10"/>
+                      <path class="m-bar" d="M150,41 H810 Q819,41 819,50 V70 H141 V50 Q141,41 150,41 Z"/>
+                      <line class="s-thin" x1="140" y1="70" x2="820" y2="70"/>
+                      <circle class="m-dot" cx="160" cy="55.5" r="4.5"/><circle class="m-dot" cx="176" cy="55.5" r="4.5"/><circle class="m-dot" cx="192" cy="55.5" r="4.5"/>
+                      <text class="s-tag" x="480" y="60" text-anchor="middle">oral-interface.sldprt</text>
+                      <path class="m-grid" d="M302,70 V372 M342,70 V372 M382,70 V372 M422,70 V372 M462,70 V372 M502,70 V372 M542,70 V372 M582,70 V372 M622,70 V372 M662,70 V372 M702,70 V372 M742,70 V372 M782,70 V372 M262,110 H820 M262,150 H820 M262,190 H820 M262,230 H820 M262,270 H820 M262,310 H820 M262,350 H820"/>
+                      <line class="s-thin" x1="262" y1="70" x2="262" y2="372"/>
+                      <g id="m-tree" class="m-tree">
+                        <g><rect x="154" y="92" width="9" height="9" rx="2"/><text x="170" y="101">Sketch1</text></g>
+                        <g><rect x="154" y="118" width="9" height="9" rx="2"/><text x="170" y="127">Extrude1</text></g>
+                        <g><rect x="154" y="144" width="9" height="9" rx="2"/><text x="170" y="153">Revolve1</text></g>
+                        <g><rect x="154" y="170" width="9" height="9" rx="2"/><text x="170" y="179">Cut-Channel</text></g>
+                        <g><rect x="154" y="196" width="9" height="9" rx="2"/><text x="170" y="205">Fillet1</text></g>
+                      </g>
+                      <rect class="m-chip" x="648" y="84" width="92" height="26" rx="13"/>
+                      <text id="m-rev" class="m-chip-t" x="694" y="101.5" text-anchor="middle">rev P6</text>
+                    </g>
+
+                    <g id="m-vac" opacity="0">
+                      <path class="s-tube" d="M70,388 H20"/>
+                      <rect class="s-part" x="70" y="380" width="170" height="16" rx="3"/>
+                      <path class="s-glass" d="M118,330 V376 Q118,380 122,380 H186 Q190,380 190,376 V330"/>
+                      <rect id="m-cupsil" class="m-sil" x="120" y="346" width="68" height="33"/>
+                      <g id="m-bubbles">
+                      <circle class="m-bubble" cx="128.0" cy="370" r="2.2" opacity="0"/>
+                      <circle class="m-bubble" cx="136.5" cy="370" r="1.6" opacity="0"/>
+                      <circle class="m-bubble" cx="145.0" cy="370" r="2.8" opacity="0"/>
+                      <circle class="m-bubble" cx="153.5" cy="370" r="1.8" opacity="0"/>
+                      <circle class="m-bubble" cx="162.0" cy="370" r="2.4" opacity="0"/>
+                      <circle class="m-bubble" cx="170.5" cy="370" r="1.5" opacity="0"/>
+                      <circle class="m-bubble" cx="179.0" cy="370" r="2.6" opacity="0"/>
+                      </g>
+                      <g id="m-dome">
+                        <text class="s-tag" x="155" y="212" text-anchor="middle">vacuum degas</text>
+                        <path class="s-glass" d="M84,380 V298 Q84,238 155,238 Q226,238 226,298 V380"/>
+                        <path class="s-glass-hi" d="M98,368 V300 Q98,264 124,252"/>
+                        <rect class="s-part" x="147" y="226" width="16" height="13" rx="3"/>
+                      </g>
+                    </g>
+
+                    <g id="m-mold">
+                      <g id="m-squash"><g id="m-cast">
+                        <g clip-path="url(#m-partclip)"><rect id="m-fill" class="m-sil" x="638" y="164" width="0" height="132"/></g>
+                        <g id="m-castdetail" opacity="0">
+                          <path class="m-castedge" d="M340,218 H544 V176 Q544,170 550,170 H554 Q560,170 560,176 V216 H575.5 A30,30 0 1 1 575.5,244 H560 V284 Q560,290 554,290 H550 Q544,290 544,284 V242 H340 A12,12 0 0 1 340,218 Z"/>
+                          <path class="m-hidden" d="M330,230 H630"/>
+                          <path class="m-shine" d="M352,223.5 H536 M581,210 Q590,204 600,204"/>
+                        </g>
+                      </g></g>
+                      <path id="m-part" class="m-cadpart" pathLength="1" d="M340,218 H544 V176 Q544,170 550,170 H554 Q560,170 560,176 V216 H575.5 A30,30 0 1 1 575.5,244 H560 V284 Q560,290 554,290 H550 Q544,290 544,284 V242 H340 A12,12 0 0 1 340,218 Z"/>
+                      <path id="m-chan" class="m-hidden" d="M330,230 H630"/>
+                      <g id="m-halves" clip-path="url(#m-build)">
+                        <g clip-path="url(#m-clip-bot)">
+                          <path class="m-pla" fill-rule="evenodd" d="M300,230 H660 V330 H300 Z M340,218 H544 V176 Q544,170 550,170 H554 Q560,170 560,176 V216 H575.5 A30,30 0 1 1 575.5,244 H560 V284 Q560,290 554,290 H550 Q544,290 544,284 V242 H340 A12,12 0 0 1 340,218 Z"/>
+                          <path class="m-layers" fill-rule="evenodd" d="M300,230 H660 V330 H300 Z M340,218 H544 V176 Q544,170 550,170 H554 Q560,170 560,176 V216 H575.5 A30,30 0 1 1 575.5,244 H560 V284 Q560,290 554,290 H550 Q544,290 544,284 V242 H340 A12,12 0 0 1 340,218 Z"/>
+                        </g>
+                        <g id="m-top">
+                          <rect id="m-spruefill" class="m-sil" x="597" y="139" width="10" height="0"/>
+                          <g clip-path="url(#m-clip-top)">
+                            <path class="m-pla" fill-rule="evenodd" d="M300,140 H660 V230 H300 Z M340,218 H544 V176 Q544,170 550,170 H554 Q560,170 560,176 V216 H575.5 A30,30 0 1 1 575.5,244 H560 V284 Q560,290 554,290 H550 Q544,290 544,284 V242 H340 A12,12 0 0 1 340,218 Z M596,139 H608 V201 H596 Z"/>
+                            <path class="m-layers" fill-rule="evenodd" d="M300,140 H660 V230 H300 Z M340,218 H544 V176 Q544,170 550,170 H554 Q560,170 560,176 V216 H575.5 A30,30 0 1 1 575.5,244 H560 V284 Q560,290 554,290 H550 Q544,290 544,284 V242 H340 A12,12 0 0 1 340,218 Z M596,139 H608 V201 H596 Z"/>
+                          </g>
+                        </g>
+                      </g>
+                      <g id="m-heat" opacity="0"><path class="m-heat" d="M420,132 q-6,-8 0,-16 t0,-16 t0,-16 M480,128 q-6,-8 0,-16 t0,-16 t0,-16 M540,132 q-6,-8 0,-16 t0,-16 t0,-16"/></g>
+                      <text id="m-cure" class="m-cure" x="480" y="70" text-anchor="middle" opacity="0">oven cure · 175 °F</text>
+                    </g>
+
+                    <g id="m-dim">
+                      <path class="m-dim" d="M612,230 L660,182 H740"/>
+                      <circle class="m-dim-dot" cx="612" cy="230" r="3"/>
+                      <text class="m-dim-t" x="664" y="174">Ø 4.40 mm</text>
+                    </g>
+
+                    <g id="m-syr" opacity="0">
+                      <g id="m-plunger">
+                        <rect class="s-part" x="-3" y="-100" width="6" height="92"/>
+                        <rect class="s-btn" x="-13" y="-106" width="26" height="7" rx="3"/>
+                        <rect class="s-dark" x="-8" y="-8" width="16" height="8" rx="1"/>
+                      </g>
+                      <rect id="m-syr-sil" class="m-sil" x="-8" y="-18" width="16" height="0"/>
+                      <rect class="s-glass" x="-10" y="-112" width="20" height="94" rx="3"/>
+                      <path class="s-thin" d="M-10,-40 H-4 M-10,-60 H-4 M-10,-80 H-4"/>
+                      <rect class="s-part" x="-22" y="-116" width="44" height="6" rx="2"/>
+                      <path class="s-part" d="M-5,-18 H5 L2,0 H-2 Z"/>
+                    </g>
+
+                    <g id="m-printhead" opacity="0">
+                      <path id="m-fil" class="m-fil" d="M736,118 C706,150 710,220 670,280"/>
+                      <g id="m-head" transform="translate(310 330)">
+                        <rect class="s-part" x="-24" y="-50" width="48" height="36" rx="5"/>
+                        <circle class="s-knob" cx="0" cy="-32" r="10"/>
+                        <path class="s-line" d="M-6,-32 H6 M0,-38 V-26"/>
+                        <path class="s-dark" d="M-8,-14 H8 L3,-3 H-3 Z"/>
+                        <circle class="m-hot" cx="0" cy="-1.5" r="2.4"/>
+                      </g>
+                    </g>
+
+                    <g id="m-instron" opacity="0">
+                      <rect class="s-part" x="226" y="372" width="288" height="24" rx="4"/>
+                      <rect class="s-part" x="246" y="52" width="14" height="320"/>
+                      <rect class="s-part" x="480" y="52" width="14" height="320"/>
+                      <rect class="s-part" x="230" y="36" width="280" height="20" rx="4"/>
+                      <g id="m-xhead" transform="translate(0 70)">
+                        <rect class="s-part" x="230" y="-11" width="280" height="22" rx="4"/>
+                        <rect class="s-dark" x="352" y="11" width="36" height="22" rx="3"/>
+                        <rect class="s-part" x="364" y="33" width="12" height="34"/>
+                        <rect class="s-part" x="336" y="67" width="68" height="9" rx="2"/>
+                      </g>
+                      <rect class="s-part" x="340" y="346" width="60" height="26" rx="3"/>
+                      <path class="s-thin" d="M356,346 V372 M384,346 V372"/>
+                      <path class="s-cable" d="M514,386 C560,386 590,392 645,392"/>
+                    </g>
+
+                    <g id="m-mon" opacity="0">
+                      <rect class="s-bezel" x="566" y="148" width="246" height="166" rx="8"/>
+                      <rect class="s-screen" x="576" y="158" width="226" height="146" rx="3"/>
+                      <rect class="s-part" x="677" y="314" width="24" height="72"/>
+                      <rect class="s-part" x="645" y="386" width="88" height="10" rx="3"/>
+                      <text class="s-scr-text" x="588" y="176">compression</text>
+                      <text id="m-load" class="s-scr-text" x="790" y="176" text-anchor="end">0 N</text>
+                      <path class="s-axis" d="M590,186 V290 H792"/>
+                      <path id="m-curve" class="s-trace" d="M592,288"/>
+                      <circle id="m-chead" class="s-head" cx="592" cy="288" r="3.2" opacity="0"/>
+                      <text id="m-ok" class="m-ok" x="598" y="206" opacity="0">✓ passed</text>
+                    </g>
+                  </svg>
+          <figcaption>
+            <ol class="scene-track" aria-hidden="true">
+              <li class="on">CAD</li>
+              <li>3D-printed mold</li>
+              <li>Silicone casting</li>
+              <li>Testing</li>
+            </ol>
+            <ol class="scene-steps">
+              <li class="on">
+                <p class="label">01 · CAD</p>
+                <h3>Modeling the interface</h3>
+                <p>Each generation starts in SolidWorks: a pacifier-style bulb, a shield with airflow holes, and a handle with a channel sized for the scope.</p>
+              </li>
+              <li>
+                <p class="label">02 · 3D-printed mold</p>
+                <h3>Printing the mold</h3>
+                <p>From the model I designed molds with the part's shape as the cavity and a port to fill through, then 3D printed them in PLA and ABS.</p>
+              </li>
+              <li>
+                <p class="label">03 · Silicone casting</p>
+                <h3>Casting in silicone</h3>
+                <p>Two-part platinum-cure silicone is degassed under vacuum to pull out bubbles, injected into the mold by syringe and cured in an oven. Then the mold opens.</p>
+              </li>
+              <li>
+                <p class="label">04 · Testing</p>
+                <h3>Testing the part</h3>
+                <p>Cast parts are compressed, pulled and cycled on an Instron, then tested in an infant airway model for scope insertion, depth and contact with gag-sensitive areas.</p>
+              </li>
+            </ol>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="txt">
+        <p>Six generations took the design from a rough shape to a validated part. Each one answered a question the last one raised.</p>
+      </div>
+      <ol class="gens" aria-label="Prototype generations">
+        <li><b>P1</b><strong>Looks like</strong><span>The basic shape and size</span></li>
+        <li><b>P2</b><strong>Feels like</strong><span>Refined CAD and the choice of material</span></li>
+        <li><b>P3</b><strong>Engineering</strong><span>Round versus orthodontic bulb, tested for insertion</span></li>
+        <li><b>P4</b><strong>Mechanical</strong><span>Compression and tensile tests; round bulb chosen</span></li>
+        <li><b>P5</b><strong>Functional</strong><span>Simulation, gag-zone mapping and clinician feedback</span></li>
+        <li><b>P6</b><strong>Final</strong><span>Medical-grade silicone and the full test suite</span></li>
+      </ol>
+      <div class="figs" style="--n:2">
+        <figure><img class="cover" src="../img/laryngoscope-iterations.jpg" width="820" height="537" alt="Grid of photos of the silicone interface across prototype generations" loading="lazy"><figcaption>Prototypes across generations</figcaption></figure>
+        <figure><img class="cover" src="../img/laryngoscope-prototypes.jpg" width="900" height="1200" alt="Cast silicone handles of the interface in blue and pink" loading="lazy"><figcaption>Cast silicone parts. Later versions snap together, so no adhesive is needed.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="cs-sec" aria-labelledby="s-testing">
+      <h2 id="s-testing"><span class="n">05</span>Testing &amp; validation</h2>
+      <div class="txt">
+        <p>Before casting the final design, I simulated the silicone in SolidWorks. Under pressure, the highest stress sat at the neck and stayed far below what the material can take.</p>
+      </div>
+      <figure class="cs-fig">
+        <img src="../img/laryngoscope-fea-pressure.jpg" width="1125" height="581" alt="SolidWorks FEA stress plot of the silicone interface under pressure, with the highest stress near the neck" loading="lazy">
+        <figcaption>FEA of the interface under pressure, modeled in medical-grade silicone</figcaption>
+      </figure>
+      <div class="split">
+        <div class="tile">
+          <h3>Mechanical testing</h3>
+          <p>On an Instron, cast parts were compressed, pulled and loaded over and over. They held well beyond the loads they need to handle, with no failures during cycling.</p>
+        </div>
+        <div class="tile">
+          <h3>Testing in an airway model</h3>
+          <p>In an infant airway model, the scope went through the channel again and again while force sensors watched the gag-sensitive zones and a magnetic sensor confirmed the depth stop.</p>
+        </div>
+      </div>
+      <div class="figs" style="--n:3">
+        <figure><img class="cover" src="../img/laryngoscope-instron.jpg" width="700" height="1517" alt="Silicone sample clamped in an Instron for tensile testing" loading="lazy"><figcaption>Tensile testing on the Instron</figcaption></figure>
+        <figure><img class="cover" src="../img/laryngoscope-benchtop.jpg" width="583" height="577" alt="Infant airway model on the bench with the device and a scope monitor" loading="lazy"><figcaption>Benchtop setup with the infant airway model</figcaption></figure>
+        <figure><img class="cover" src="../img/laryngoscope-fsr.jpg" width="960" height="655" alt="Inside the airway model's mouth, with force sensors placed on the palate and tonsil areas" loading="lazy"><figcaption>Force sensors on the gag-sensitive zones</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="cs-sec" aria-labelledby="s-results">
+      <h2 id="s-results"><span class="n">06</span>Results</h2>
+      <div class="stats">
+        <div><b>6</b><span>prototype generations, each one traceable</span></div>
+        <div><b>~0.7 N</b><span>to slide the scope through, a gentle push</span></div>
+        <div><b>0</b><span>gag-zone triggers across the sensor trials</span></div>
+      </div>
+      <div class="txt">
+        <p>The final design kept the scope on a steady path, never pressed on the gag-sensitive zones during testing, and held up under repeated loading. The casting process made defect-free parts in every build, and the documentation is set up for the next step: injection-molded medical-grade silicone.</p>
+      </div>
+    </section>
+
+    <section class="cs-sec" aria-labelledby="s-takeaways">
+      <h2 id="s-takeaways"><span class="n">07</span>Key takeaways</h2>
+      <div class="txt">
+        <ul>
+          <li><strong>The process is part of the design.</strong> Changes to the mold and the casting steps mattered as much as changes to the part itself.</li>
+          <li><strong>Test against the real use.</strong> Clinician feedback and the airway model kept each generation focused on what happens during an actual exam.</li>
+          <li><strong>Traceability pays off.</strong> Documenting every revision made it easy to explain why each change was made, and to hand the design toward injection molding.</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <nav class="cs-next" aria-label="More projects">
+    <a href="auditory-circuits.html"><span class="label">Previous project</span><strong>3D Reconstruction of Developing Auditory Neural Circuits</strong></a>
+    <a class="next" href="neural-drug-delivery.html"><span class="label">Next project</span><strong>Sustained-Release Drug Delivery for Neural Regeneration</strong></a>
+  </nav>
+</main>
+
+<div class="contact" id="contact">
+  <div class="wrap">
+    <div>
+      <p class="label">Contact</p>
+      <h2 style="margin-top:8px">Let's work together.</h2>
+      <p>I'm open to roles in medical device R&amp;D, manufacturing and process engineering, and to research in biomaterials and tissue engineering.</p>
+    </div>
+    <div class="links">
+      <a class="addr" href="mailto:mahakp46@gmail.com" style="color:inherit">mahakp46@gmail.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/mahak-punjabi/" target="_blank" rel="noopener">linkedin.com/in/mahak-punjabi</a>
+    </div>
+  </div>
+</div>
+<footer class="wrap">© 2026 Mahak Punjabi · Tampa, Florida</footer>
+<script src="../js/site.js"></script>
+<script src="../js/scene.js"></script>
+<script>
+/* EndoTherapeutics scene: CAD model, 3D-printed mold, silicone casting, then compression testing. */
+(() => {
+  const root = document.getElementById('mold');
+  if (!root || !window.scrollScene) return;
+  const { clamp, seg, ease, lerp, f } = scrollScene.util;
+  const q = (id) => document.getElementById(id);
+  const op = (el, v) => el.setAttribute('opacity', clamp(v).toFixed(3));
+  const bump = (p, a, b, c, d) => seg(p, a, b) * (1 - seg(p, c, d));
+  const fract = (t) => t - Math.floor(t);
+  const tri = (t) => 1 - Math.abs(1 - 2 * fract(t));
+  const cad = q('m-cad'), part = q('m-part'), chan = q('m-chan'), dim = q('m-dim'), rev = q('m-rev');
+  const tree = [...q('m-tree').children];
+  const printer = q('m-printer'), phead = q('m-printhead'), gantry = q('m-gantry'), head = q('m-head'), fil = q('m-fil'), spokes = q('m-spokes');
+  const build = q('m-buildrect'), mold = q('m-mold'), halves = q('m-halves'), topHalf = q('m-top');
+  const vac = q('m-vac'), dome = q('m-dome'), cupSil = q('m-cupsil'), bubbles = [...q('m-bubbles').children];
+  const syr = q('m-syr'), plunger = q('m-plunger'), syrSil = q('m-syr-sil');
+  const sprue = q('m-spruefill'), fill = q('m-fill'), heat = q('m-heat'), cure = q('m-cure');
+  const squash = q('m-squash'), cast = q('m-cast'), castDetail = q('m-castdetail');
+  const instron = q('m-instron'), xhead = q('m-xhead'), mon = q('m-mon'), curve = q('m-curve'), chead = q('m-chead'), load = q('m-load'), ok = q('m-ok');
+  // Load against displacement: soft at first, then stiffening as the silicone compresses.
+  const J = (u) => (Math.exp(3 * u) - 1) / (Math.exp(3) - 1);
+  const cx = (u) => f(592 + 190 * u), cy = (u) => f(288 - 94 * J(u));
+
+  scrollScene(root, {
+    stops: [0, .24, .48, .74, 1],
+    // On a phone the camera follows the action: CAD window, printer, casting bench, load frame.
+    camera: (p) => f(lerp(lerp(lerp(150, 200, ease(seg(p, .24, .28))), 65, ease(seg(p, .47, .52))), 220, ease(seg(p, .755, .8)))) + ' 0 600 420',
+    render(p) {
+      // 01 CAD: sketch the profile, extrude it, cut the scope channel and dimension it, while revisions tick from P1 to P6.
+      op(cad, 1 - seg(p, .22, .27));
+      part.style.strokeDashoffset = 1 - lerp(.04, 1, seg(p, 0, .09));
+      part.style.fillOpacity = seg(p, .08, .13) * (1 - seg(p, .26, .32));
+      op(chan, bump(p, .14, .17, .25, .29));
+      op(dim, bump(p, .16, .19, .22, .26));
+      rev.textContent = 'rev P' + (1 + Math.min(5, Math.floor(seg(p, .02, .21) * 6)));
+      const k = p < .08 ? 0 : p < .13 ? 1 : p < .15 ? 2 : p < .19 ? 3 : 4;
+      tree.forEach((g, i) => g.classList.toggle('on', i === k));
+
+      // 02 Mold: the printer builds the mold up around the part's shape, one layer at a time.
+      const pf = bump(p, .25, .29, .45, .49);
+      op(printer, pf); op(phead, pf);
+      const b = seg(p, .29, .45), layer = 330 - 192 * b;
+      if (b < 1) { build.setAttribute('y', f(layer)); build.setAttribute('height', b > 0 ? f(332 - layer) : 0); }
+      else { build.setAttribute('y', -600); build.setAttribute('height', 2000); }
+      const hx = 310 + 340 * tri(b * 9);
+      head.setAttribute('transform', 'translate(' + f(hx) + ' ' + f(layer) + ')');
+      gantry.setAttribute('y', f(layer - 44));
+      fil.setAttribute('d', 'M736,118 C706,150 ' + f(hx + 40) + ',' + f(layer - 110) + ' ' + f(hx) + ',' + f(layer - 50));
+      spokes.setAttribute('transform', 'rotate(' + f(b * 900) + ' 758 102)');
+      mold.setAttribute('transform', 'translate(0 ' + f(66 * ease(seg(p, .485, .52))) + ')');
+
+      // 03 Casting: degas the silicone, draw it into a syringe, fill the mold, cure it, open the mold.
+      op(vac, bump(p, .49, .53, .74, .77));
+      const lift = ease(seg(p, .54, .565));
+      dome.setAttribute('transform', 'translate(0 ' + f(-170 * lift) + ')');
+      op(dome, 1 - lift);
+      const degas = p > .495 && p < .565;
+      bubbles.forEach((c, i) => {
+        const t = fract(p * 42 + i * .29);
+        c.setAttribute('cy', f(377 - 28 * t));
+        c.setAttribute('opacity', degas ? (1 - t * t).toFixed(2) : 0);
+      });
+      const drawn = ease(seg(p, .585, .61)), injected = ease(seg(p, .645, .69));
+      const h = 70 * drawn * (1 - injected);
+      cupSil.setAttribute('y', f(346 + 10 * drawn)); cupSil.setAttribute('height', f(33 - 10 * drawn));
+      syrSil.setAttribute('y', f(-18 - h)); syrSil.setAttribute('height', f(h));
+      plunger.setAttribute('transform', 'translate(0 ' + f(-18 - h) + ')');
+      const e0 = ease(seg(p, .565, .585)), e1 = ease(seg(p, .61, .625)), e2 = ease(seg(p, .618, .64)), e3 = ease(seg(p, .636, .648)), e4 = ease(seg(p, .69, .71));
+      const sx = lerp(154, 602, e2), sy = lerp(300, 366, e0) - 186 * e1 + 25 * e3 - 60 * e4;
+      syr.setAttribute('transform', 'translate(' + f(sx) + ' ' + f(sy) + ') scale(.8)');
+      op(syr, seg(p, .565, .575) * (1 - e4));
+      sprue.setAttribute('height', f(62 * seg(p, .648, .66)));
+      const w = 316 * ease(seg(p, .655, .69));
+      fill.setAttribute('x', f(638 - w)); fill.setAttribute('width', f(w));
+      const hot = bump(p, .69, .7, .715, .73);
+      op(heat, hot); op(cure, hot);
+      heat.setAttribute('transform', 'translate(0 ' + f(-4 - 4 * Math.sin(p * 420)) + ')');
+      const open = ease(seg(p, .72, .75));
+      topHalf.setAttribute('transform', 'translate(' + f(-20 * open) + ' ' + f(-150 * open) + ')');
+      op(topHalf, 1 - seg(p, .735, .75));
+      op(halves, 1 - seg(p, .76, .79));
+
+      // 04 Testing: lift the part out, stand it in the load frame, compress it and plot load against displacement.
+      op(castDetail, seg(p, .72, .74));
+      op(part, 1 - seg(p, .725, .74));
+      const up = ease(seg(p, .745, .775)), mv = ease(seg(p, .775, .83));
+      cast.setAttribute('transform', 'translate(' + f(lerp(480, 370, mv)) + ' ' + f(lerp(230 - 60 * up, 210.8, mv)) + ') rotate(' + f(-90 * mv) + ') scale(' + lerp(1, .6, mv).toFixed(3) + ') translate(-480 -230)');
+      const inst = seg(p, .78, .82);
+      op(instron, inst); op(mon, inst);
+      const u = ease(seg(p, .87, .95));
+      xhead.setAttribute('transform', 'translate(0 ' + f(lerp(70, 109.6, ease(seg(p, .83, .87))) + 14 * u) + ')');
+      squash.setAttribute('transform', 'translate(0 302) scale(1 ' + (1 - 14 / 182.4 * u).toFixed(4) + ') translate(0 -302)');
+      let d = 'M592,288';
+      for (let i = 1; i / 60 <= u; i++) d += ' L' + cx(i / 60) + ',' + cy(i / 60);
+      curve.setAttribute('d', d + ' L' + cx(u) + ',' + cy(u));
+      chead.setAttribute('cx', cx(u)); chead.setAttribute('cy', cy(u));
+      op(chead, u > 0 && u < 1 ? 1 : 0);
+      load.textContent = Math.round(60 * J(u)) + ' N';
+      op(ok, seg(p, .95, .98));
+    },
+  });
+})();
+</script>
+</body>
+</html>
