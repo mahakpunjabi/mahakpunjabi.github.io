@@ -6,10 +6,10 @@
   --ink: #0b0c0f;
   --muted: #586071;
   --line: #e1e5ed;
-  --accent: #1d4ed8;
-  --accent-fill: #1d4ed8;
-  --accent-hover: #1e3a8a;
-  --accent-soft: #e8eefe;
+  --accent: #0a4fba;
+  --accent-fill: #0a4fba;
+  --accent-hover: #083d91;
+  --accent-soft: #e8f1fc;
   --on-accent: #ffffff;
   --band: #0b0c0f;
   --on-band: #ffffff;
@@ -28,7 +28,7 @@
   --drug: #e0457b;
   --ion-x: #f0b35a;
   --ion-y: #a98bff;
-  --cap: #1d4ed8;
+  --cap: #0a4fba;
   --pla: #86d3c3;
   --cad: #b9c4d8;
   --silicone: #ef5f9c;
@@ -48,22 +48,22 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #050608; --bg-soft: #0b0d12; --surface: #0e1117; --ink: #f3f5f9; --muted: #9ba3b4;
-    --line: #20252f; --accent: #7c9bff; --accent-fill: #2b59f0; --accent-hover: #4a72ff; --accent-soft: #111a33;
-    --band: #2b59f0; --on-band: #ffffff;
+    --line: #20252f; --accent: #5b9bf8; --accent-fill: #1959c8; --accent-hover: #3b7fe6; --accent-soft: #0f1c33;
+    --band: #1959c8; --on-band: #ffffff;
     --scene-bg: #0c0f15; --steel: #191d26; --bench: #1b2029; --glass: #9fc0ff26; --liquid: #3f80d8;
     --glove: #9a8ce0; --rod: #a3afc2; --screen: #04060c; --scr-grid: #24314b; --bezel: #2a3240;
-    --drug: #f07aa5; --cap: #4c74ff; --pla: #2c7a6d; --cad: #46536c; --fiber: #7f95bd;
+    --drug: #f07aa5; --cap: #3b7fe6; --pla: #2c7a6d; --cad: #46536c; --fiber: #7f95bd;
     --glove-far: #7366c4; --box: #8f7049;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #050608; --bg-soft: #0b0d12; --surface: #0e1117; --ink: #f3f5f9; --muted: #9ba3b4;
-  --line: #20252f; --accent: #7c9bff; --accent-fill: #2b59f0; --accent-hover: #4a72ff; --accent-soft: #111a33;
-  --band: #2b59f0; --on-band: #ffffff;
+  --line: #20252f; --accent: #5b9bf8; --accent-fill: #1959c8; --accent-hover: #3b7fe6; --accent-soft: #0f1c33;
+  --band: #1959c8; --on-band: #ffffff;
   --scene-bg: #0c0f15; --steel: #191d26; --bench: #1b2029; --glass: #9fc0ff26; --liquid: #3f80d8;
   --glove: #9a8ce0; --rod: #a3afc2; --screen: #04060c; --scr-grid: #24314b; --bezel: #2a3240;
-  --drug: #f07aa5; --cap: #4c74ff; --pla: #2c7a6d; --cad: #46536c; --fiber: #7f95bd;
+  --drug: #f07aa5; --cap: #3b7fe6; --pla: #2c7a6d; --cad: #46536c; --fiber: #7f95bd;
   --glove-far: #7366c4; --box: #8f7049;
   color-scheme: dark;
 }
